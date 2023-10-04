@@ -59,4 +59,4 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 [[portfolio](team/gongg21.md)]
 
 * Role: Developer
-* Responsibilities: In charge of command logic and integration. 
+* Responsibilities: In charge of command logic and integration.

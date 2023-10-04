@@ -7,7 +7,7 @@ title: Phi Phi's Project Portfolio Page
 
 **CodeSphere** is a desktop **contact management app, optimised for use via a Command Line Interface (CLI)** _
 while still having the benefits of a Graphical User Interface (GUI).
-It is an app targeted at connecting Year 1 Computer Science students in the NUS School of Computing.  
+It is an app targeted at connecting Year 1 Computer Science students in the NUS School of Computing.
 
 Given below are my contributions to the project.
 

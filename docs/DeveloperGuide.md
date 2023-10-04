@@ -75,7 +75,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 * 2a. All categories have already been filled up.
 
     * 2a1. CodeSphere prompts user to edit existing information.
-    * 2a2. User edits existing details.</br> 
+    * 2a2. User edits existing details.</br>
       Use case resumes at step 4.
 
 
