@@ -2,6 +2,9 @@
     var pageVueRenderFn = function noop (a, b, c) {};
     var pageVueStaticRenderFns = [function anonymous(
 ) {
+with(this){return _c('h1',{attrs:{"id":"codesphere-user-guide"}},[_v("CodeSphere User Guide"),_c('a',{staticClass:"fa fa-anchor",attrs:{"href":"#codesphere-user-guide","onclick":"event.stopPropagation()"}})])}
+},function anonymous(
+) {
 with(this){return _c('p',[_v("CodeSphere is a "),_c('strong',[_v("desktop contact management app, optimised for use via a Command Line Interface (CLI)")]),_v(" while still having the benefits of a Graphical User Interface (GUI). It is an app targeted at connecting Year 1 Computer Science students in the NUS School of Computing.")])}
 },function anonymous(
 ) {
@@ -23,7 +26,7 @@ with(this){return _c('p',[_v("Format: "),_c('code',{pre:true,attrs:{"class":"hlj
 with(this){return _c('ul',[_c('li',[_v("NAME: string")]),_v(" "),_c('li',[_v("PHONE_NUMBER: int of length 8")]),_v(" "),_c('li',[_v("EMAIL: string ending with @u.nus.edu")])])}
 },function anonymous(
 ) {
-with(this){return _c('ul',[_c('li',[_c('code',{pre:true,attrs:{"class":"hljs inline no-lang"}},[_v("create n/Alex Yeoh p/87438807 e/alexyeoh@u.nus.edu")])]),_v(" "),_c('li',[_c('code',{pre:true,attrs:{"class":"hljs inline no-lang"}},[_v("create n/Ben Koh p/94572431 e/benkoh@u.nus.edu")])])])}
+with(this){return _c('ul',[_c('li',[_c('code',{pre:true,attrs:{"class":"hljs inline no-lang"}},[_v("create n/Alex Yeoh p/87438807 e/alexyeo@u.nus.edu")])]),_v(" "),_c('li',[_c('code',{pre:true,attrs:{"class":"hljs inline no-lang"}},[_v("create n/Ben Koh p/94572431 e/benkoh@u.nus.edu")])])])}
 },function anonymous(
 ) {
 with(this){return _c('h3',{attrs:{"id":"deleting-profile-delete-coming-soon"}},[_v("Deleting profile: "),_c('code',{pre:true,attrs:{"class":"hljs inline no-lang"}},[_v("delete")]),_v(" [coming soon]"),_c('a',{staticClass:"fa fa-anchor",attrs:{"href":"#deleting-profile-delete-coming-soon","onclick":"event.stopPropagation()"}})])}
@@ -99,5 +102,8 @@ with(this){return _c('h2',{attrs:{"id":"command-summary"}},[_v("Command summary"
 },function anonymous(
 ) {
 with(this){return _c('div',{staticClass:"table-responsive"},[_c('table',{staticClass:"markbind-table table table-bordered table-striped"},[_c('thead',[_c('tr',[_c('th',[_v("Action")]),_v(" "),_c('th',[_v("Format, Examples")])])]),_v(" "),_c('tbody',[_c('tr',[_c('td',[_c('strong',[_v("Create")])]),_v(" "),_c('td',[_c('code',{pre:true,attrs:{"class":"hljs inline no-lang"}},[_v("create n/NAME p/PHONE_NUMBER e/EMAIL ")]),_v(" "),_c('br'),_v(" e.g., "),_c('code',{pre:true,attrs:{"class":"hljs inline no-lang"}},[_v("add n/James Ho p/22224444 e/jamesho@u.nus.edu")])])]),_v(" "),_c('tr',[_c('td',[_c('strong',[_v("Delete")])]),_v(" "),_c('td',[_c('code',{pre:true,attrs:{"class":"hljs inline no-lang"}},[_v("delete")])])]),_v(" "),_c('tr',[_c('td',[_c('strong',[_v("Add")])]),_v(" "),_c('td',[_c('code',{pre:true,attrs:{"class":"hljs inline no-lang"}},[_v("add INFORMATION [MORE_INFORMATION]…")]),_c('br'),_v(" e.g.,"),_c('code',{pre:true,attrs:{"class":"hljs inline no-lang"}},[_v("Add Major: Computer Science")])])]),_v(" "),_c('tr',[_c('td',[_c('strong',[_v("Remove")])]),_v(" "),_c('td',[_c('code',{pre:true,attrs:{"class":"hljs inline no-lang"}},[_v("remove INDEX")]),_c('br'),_v(" e.g., "),_c('code',{pre:true,attrs:{"class":"hljs inline no-lang"}},[_v("remove 3")])])]),_v(" "),_c('tr',[_c('td',[_c('strong',[_v("Show")])]),_v(" "),_c('td',[_c('code',{pre:true,attrs:{"class":"hljs inline no-lang"}},[_v("show")])])]),_v(" "),_c('tr',[_c('td',[_c('strong',[_v("Exit")])]),_v(" "),_c('td',[_c('code',{pre:true,attrs:{"class":"hljs inline no-lang"}},[_v("exit")])])])])])])}
+},function anonymous(
+) {
+with(this){return _c('footer',[_c('div',{staticClass:"text-center"},[_c('small',[_v("["),_c('span',[_c('strong',[_v("Powered by")])]),_v(" "),_c('img',{attrs:{"src":"https://markbind.org/favicon.ico","width":"30"}}),_v(" "),_c('a',{attrs:{"href":"https://markbind.org/"}},[_v("MarkBind 5.1.0")]),_v(", generated on Sat, 7 Oct 2023, 14:11:47 GMT+8]")])])])}
 }];
   
