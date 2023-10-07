@@ -15,7 +15,6 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 <img src="images/devanshubisht.png" width="200px">
 
-[[homepage](http://www.comp.nus.edu.sg/~damithch)]
 [[github](https://github.com/devanshubisht)]
 [[portfolio](team/devanshubisht.md)]
 
@@ -23,7 +22,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 ### Phinehas Tan
 
-<img src="images/phinehastan.png" width="200px">
+<img src="images/phiphi-tan.png" width="200px">
 
 [[github](http://github.com/phiphi-tan)]
 [[portfolio](team/phiphi-tan.md)]

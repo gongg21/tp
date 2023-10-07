@@ -1,8 +1,10 @@
 ---
-  layout: page
-  title: "User Guide"
-  pageNav: 3
+layout: default.md
+title: "User Guide"
+pageNav: 3
 ---
+
+# CodeSphere User Guide
 
 CodeSphere is a **desktop contact management app, optimised for use via a Command Line Interface (CLI)** while still having the benefits of a Graphical User Interface (GUI). It is an app targeted at connecting Year 1 Computer Science students in the NUS School of Computing.
 
@@ -53,7 +55,7 @@ Format: `create n/Name p/PHONE_NUMBER e/EMAIL`
 * EMAIL: string ending with @u.nus.edu
 
 Examples:
-* `create n/Alex Yeoh p/87438807 e/alexyeoh@u.nus.edu`
+* `create n/Alex Yeoh p/87438807 e/alexyeo@u.nus.edu`
 * `create n/Ben Koh p/94572431 e/benkoh@u.nus.edu`
 
 Command succeeds: Success message shown to user, profile created successfully and stored in database, change in GUI.
