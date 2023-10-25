@@ -36,8 +36,8 @@ public class MainWindow extends UiPart<Stage> {
 
     // Independent Ui parts residing in this Ui container
     private SplashWindow splashWindow;
-    private StudentListPanel studentListPanel;
     private CourseListPanel courseListPanel;
+    private CombinedPanel combinedPanel;
     private ResultDisplay resultDisplay;
     private HelpWindow helpWindow;
 
@@ -149,16 +149,19 @@ public class MainWindow extends UiPart<Stage> {
         splashWindow = new SplashWindow();
         itemListPanelPlaceholder.getChildren().add(splashWindow.getRoot());
     }
-    void loadStudentListPanel() {
-        itemListPanelPlaceholder.getChildren().clear();
-        studentListPanel = new StudentListPanel(StageManager.getSelectedCourse().getFilteredStudentList());
-        itemListPanelPlaceholder.getChildren().add(studentListPanel.getRoot());
-    }
 
     void loadCourseListPanel() {
         itemListPanelPlaceholder.getChildren().clear();
         courseListPanel = new CourseListPanel(logic.getFilteredCourseList());
         itemListPanelPlaceholder.getChildren().add(courseListPanel.getRoot());
+    }
+
+    void loadCombinedPanel() {
+        itemListPanelPlaceholder.getChildren().clear();
+        combinedPanel = new CombinedPanel(logic.getFilteredCourseList(),
+                StageManager.getSelectedCourse().getFilteredStudentList());
+        itemListPanelPlaceholder.getChildren().add(combinedPanel.getRoot());
+
     }
 
     /**
@@ -201,10 +204,6 @@ public class MainWindow extends UiPart<Stage> {
         primaryStage.hide();
     }
 
-    public StudentListPanel getPersonListPanel() {
-        return studentListPanel;
-    }
-
     /**
      * Executes the command and returns the result.
      *
@@ -227,11 +226,9 @@ public class MainWindow extends UiPart<Stage> {
 
             Stages current = StageManager.getStage();
             if (current == Stages.COURSE) {
-                System.out.println("Stage is COURSE");
-                loadStudentListPanel();
+                loadCombinedPanel();
 
             } else if (current == Stages.HOME) {
-                System.out.println("Stage is HOME");
                 loadCourseListPanel();
 
             }

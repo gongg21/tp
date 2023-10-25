@@ -1,16 +1,17 @@
-package seedu.codesphere.testutil;
+package seedu.address.testutil;
 
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import seedu.codesphere.logic.commands.EditCommand.EditStudentDescriptor;
-import seedu.codesphere.model.person.Email;
-import seedu.codesphere.model.person.Name;
-import seedu.codesphere.model.person.Remark;
-import seedu.codesphere.model.person.Student;
-import seedu.codesphere.model.tag.StudentRank;
-import seedu.codesphere.model.tag.Tag;
+import seedu.address.logic.commands.EditCommand.EditStudentDescriptor;
+import seedu.address.model.person.Email;
+import seedu.address.model.person.Name;
+import seedu.address.model.person.PendingQuestion;
+import seedu.address.model.person.Remark;
+import seedu.address.model.person.Student;
+import seedu.address.model.tag.StudentRank;
+import seedu.address.model.tag.Tag;
 
 /**
  * A utility class to help with building EditPersonDescriptor objects.
@@ -35,6 +36,7 @@ public class EditStudentDescriptorBuilder {
         descriptor.setName(student.getName());
         descriptor.setEmail(student.getEmail());
         descriptor.setRemark(student.getRemark());
+        descriptor.setPendingQuestion(student.getPendingQuestion());
         descriptor.setTags(student.getTags());
     }
 
@@ -59,6 +61,14 @@ public class EditStudentDescriptorBuilder {
      */
     public EditStudentDescriptorBuilder withRemark(String remark) {
         descriptor.setRemark(new Remark(remark));
+        return this;
+    }
+
+    /**
+     * Sets the {@code Pending Question} of the {@code EditPersonDescriptor} that we are building.
+     */
+    public EditStudentDescriptorBuilder withPendingQuestion(String pendingQuestion) {
+        descriptor.setPendingQuestion(new PendingQuestion(pendingQuestion));
         return this;
     }
 

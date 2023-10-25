@@ -1,33 +1,32 @@
-package seedu.codesphere.logic.commands;
+package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
-import static seedu.codesphere.logic.parser.CliSyntax.PREFIX_COURSE_NAME;
-import static seedu.codesphere.logic.parser.CliSyntax.PREFIX_EMAIL;
-import static seedu.codesphere.logic.parser.CliSyntax.PREFIX_NAME;
-import static seedu.codesphere.logic.parser.CliSyntax.PREFIX_REMARK;
-import static seedu.codesphere.logic.parser.CliSyntax.PREFIX_TAG;
-import static seedu.codesphere.model.Model.PREDICATE_SHOW_ALL_COURSES;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_COURSE_NAME;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_PENDINGQUESTION;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_REMARK;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
+import static seedu.address.model.Model.PREDICATE_SHOW_ALL_COURSES;
 
-import java.util.Collections;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
-import java.util.Set;
 
-import seedu.codesphere.commons.core.index.Index;
-import seedu.codesphere.commons.util.CollectionUtil;
-import seedu.codesphere.commons.util.ToStringBuilder;
-import seedu.codesphere.logic.Messages;
-import seedu.codesphere.logic.commands.exceptions.CommandException;
-import seedu.codesphere.logic.parser.StageManager;
-import seedu.codesphere.model.Model;
-import seedu.codesphere.model.course.Course;
-import seedu.codesphere.model.person.Email;
-import seedu.codesphere.model.person.Name;
-import seedu.codesphere.model.person.Remark;
-import seedu.codesphere.model.person.Student;
-import seedu.codesphere.model.tag.Tag;
+import seedu.address.commons.core.index.Index;
+import seedu.address.commons.util.CollectionUtil;
+import seedu.address.commons.util.ToStringBuilder;
+import seedu.address.logic.Messages;
+import seedu.address.logic.commands.exceptions.CommandException;
+import seedu.address.logic.parser.StageManager;
+import seedu.address.model.Model;
+import seedu.address.model.course.Course;
+import seedu.address.model.person.Email;
+import seedu.address.model.person.Name;
+import seedu.address.model.person.PendingQuestion;
+import seedu.address.model.person.Remark;
+import seedu.address.model.person.Student;
+import seedu.address.model.tag.Tag;
 
 /**
  * Edits the details of an existing person in the address book.
@@ -43,6 +42,7 @@ public class EditCommand extends Command {
             + "[" + PREFIX_NAME + "NAME] "
             + "[" + PREFIX_EMAIL + "EMAIL] "
             + "[" + PREFIX_REMARK + "REMARK] "
+            + "[" + PREFIX_PENDINGQUESTION + "PENDING QUESTION] "
             + "[" + PREFIX_TAG + "TAG]...\n"
             + "Example: " + COMMAND_WORD + " 1 "
             + PREFIX_COURSE_NAME + "CS2103T "
@@ -100,9 +100,11 @@ public class EditCommand extends Command {
         Name updatedName = editStudentDescriptor.getName().orElse(studentToEdit.getName());
         Email updatedEmail = editStudentDescriptor.getEmail().orElse(studentToEdit.getEmail());
         Remark updatedRemark = editStudentDescriptor.getRemark().orElse(studentToEdit.getRemark());
-        Set<Tag> updatedTags = editStudentDescriptor.getTags().orElse(studentToEdit.getTags());
+        PendingQuestion updatedPq = editStudentDescriptor.getPendingQuestion()
+                .orElse(studentToEdit.getPendingQuestion());
+        Tag updatedTag = editStudentDescriptor.getTag().orElse(studentToEdit.getTag());
 
-        return new Student(updatedName, updatedEmail, updatedRemark, updatedTags);
+        return new Student(updatedName, updatedEmail, updatedRemark, updatedPq, updatedTag);
     }
 
     @Override
@@ -137,7 +139,8 @@ public class EditCommand extends Command {
         private Name name;
         private Email email;
         private Remark remark;
-        private Set<Tag> tags;
+        private PendingQuestion pendingQuestion;
+        private Tag tag;
 
         public EditStudentDescriptor() {}
 
@@ -149,14 +152,15 @@ public class EditCommand extends Command {
             setName(toCopy.name);
             setEmail(toCopy.email);
             setRemark(toCopy.remark);
-            setTags(toCopy.tags);
+            setPendingQuestion(toCopy.pendingQuestion);
+            setTag(toCopy.tag);
         }
 
         /**
          * Returns true if at least one field is edited.
          */
         public boolean isAnyFieldEdited() {
-            return CollectionUtil.isAnyNonNull(name, email, remark, tags);
+            return CollectionUtil.isAnyNonNull(name, email, remark, pendingQuestion, tag);
         }
 
         public void setName(Name name) {
@@ -179,16 +183,26 @@ public class EditCommand extends Command {
             this.remark = remark;
         }
 
+
         public Optional<Remark> getRemark() {
             return Optional.ofNullable(remark);
         }
+
+        public void setPendingQuestion(PendingQuestion pq) {
+            this.pendingQuestion = pendingQuestion;
+        }
+
+        public Optional<PendingQuestion> getPendingQuestion() {
+            return Optional.ofNullable(pendingQuestion);
+        }
+
 
         /**
          * Sets {@code tags} to this object's {@code tags}.
          * A defensive copy of {@code tags} is used internally.
          */
-        public void setTags(Set<Tag> tags) {
-            this.tags = (tags != null) ? new HashSet<>(tags) : null;
+        public void setTag(Tag tag) {
+            this.tag = tag;
         }
 
         /**
@@ -196,8 +210,8 @@ public class EditCommand extends Command {
          * if modification is attempted.
          * Returns {@code Optional#empty()} if {@code tags} is null.
          */
-        public Optional<Set<Tag>> getTags() {
-            return (tags != null) ? Optional.of(Collections.unmodifiableSet(tags)) : Optional.empty();
+        public Optional<Tag> getTag() {
+            return Optional.ofNullable(tag);
         }
 
         @Override
@@ -215,7 +229,8 @@ public class EditCommand extends Command {
             return Objects.equals(name, otherEditStudentDescriptor.name)
                     && Objects.equals(email, otherEditStudentDescriptor.email)
                     && Objects.equals(remark, otherEditStudentDescriptor.remark)
-                    && Objects.equals(tags, otherEditStudentDescriptor.tags);
+                    && Objects.equals(pendingQuestion, otherEditStudentDescriptor.pendingQuestion)
+                    && Objects.equals(tag, otherEditStudentDescriptor.tag);
         }
 
         @Override
@@ -224,7 +239,8 @@ public class EditCommand extends Command {
                     .add("name", name)
                     .add("email", email)
                     .add("remark", remark)
-                    .add("tags", tags)
+                    .add("pending question", pendingQuestion)
+                    .add("tag", tag)
                     .toString();
         }
     }

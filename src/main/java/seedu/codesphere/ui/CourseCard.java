@@ -21,6 +21,14 @@ public class CourseCard extends UiPart<Region> {
     @FXML
     private Label courseName;
     @FXML
+    private Label classSize;
+    @FXML
+    private Label goodTagCount;
+    @FXML
+    private Label averageTagCount;
+    @FXML
+    private Label poorTagCount;
+    @FXML
     private Label id;
 
     /**
@@ -31,5 +39,10 @@ public class CourseCard extends UiPart<Region> {
         this.course = course;
         id.setText(displayedIndex + ". ");
         courseName.setText(course.getCourseName().fullCourseName);
+        classSize.setText("Total number of students: " + course.getCourseSize());
+        goodTagCount.setText("GOOD tag count: " + course.getGoodTagCount());
+        averageTagCount.setText("AVERAGE tag count: " + course.getAverageTagCount());
+        poorTagCount.setText("POOR tag count: " + course.getPoorTagCount());
+
     }
 }

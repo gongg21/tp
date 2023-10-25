@@ -1,13 +1,13 @@
-package seedu.codesphere.testutil;
+package seedu.address.testutil;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-import seedu.codesphere.commons.core.index.Index;
-import seedu.codesphere.model.Model;
-import seedu.codesphere.model.person.Student;
+import seedu.address.commons.core.index.Index;
+import seedu.address.model.Model;
+import seedu.address.model.course.Course;
 
 /**
  * A utility class for test cases.
@@ -33,23 +33,23 @@ public class TestUtil {
     }
 
     /**
-     * Returns the middle index of the person in the {@code model}'s person list.
+     * Returns the middle index of the course in the {@code model}'s course list.
      */
     public static Index getMidIndex(Model model) {
-        return Index.fromOneBased(model.getFilteredStudentList().size() / 2);
+        return Index.fromOneBased(model.getFilteredCourseList().size() / 2);
     }
 
     /**
-     * Returns the last index of the person in the {@code model}'s person list.
+     * Returns the last index of the course in the {@code model}'s course list.
      */
     public static Index getLastIndex(Model model) {
-        return Index.fromOneBased(model.getFilteredStudentList().size());
+        return Index.fromOneBased(model.getFilteredCourseList().size());
     }
 
     /**
      * Returns the person in the {@code model}'s person list at {@code index}.
      */
-    public static Student getStudent(Model model, Index index) {
-        return model.getFilteredStudentList().get(index.getZeroBased());
+    public static Course getCourse(Model model, Index index) {
+        return model.getFilteredCourseList().get(index.getZeroBased());
     }
 }

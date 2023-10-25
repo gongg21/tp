@@ -10,13 +10,9 @@ import static seedu.codesphere.commons.util.AppUtil.checkArgument;
 public class CourseName {
 
     public static final String MESSAGE_CONSTRAINTS =
-            "Names should only contain alphanumeric characters and spaces, and it should not be blank";
-
-    /*
-     * The first character of the address must not be a whitespace,
-     * otherwise " " (a blank string) becomes a valid input.
-     */
-    public static final String VALIDATION_REGEX = "[\\p{Alpha}][\\p{Alnum} ]*";
+            "Course code should contain a two or three letter prefix, "
+                    + "a four digit course code, and an optional one letter suffix";
+    public static final String VALIDATION_REGEX = "\\w{2,3}\\d{4}\\w?";
 
     public final String fullCourseName;
 
@@ -28,7 +24,7 @@ public class CourseName {
     public CourseName(String courseName) {
         requireNonNull(courseName);
         checkArgument(isValidCourseName(courseName), MESSAGE_CONSTRAINTS);
-        fullCourseName = courseName;
+        fullCourseName = courseName.toUpperCase();
     }
 
     /**

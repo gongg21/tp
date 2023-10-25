@@ -1,18 +1,18 @@
-package seedu.codesphere.logic.commands;
+package seedu.address.logic.commands;
 
-import static seedu.codesphere.logic.commands.CommandTestUtil.assertCommandFailure;
-import static seedu.codesphere.logic.commands.CommandTestUtil.assertCommandSuccess;
-import static seedu.codesphere.testutil.TypicalCourses.getTypicalCourseList;
+import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
+import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
+import static seedu.address.testutil.TypicalCourses.getTypicalCourseList;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import seedu.codesphere.logic.Messages;
-import seedu.codesphere.model.course.Course;
-import seedu.codesphere.model.Model;
-import seedu.codesphere.model.ModelManager;
-import seedu.codesphere.model.UserPrefs;
-import seedu.codesphere.testutil.CourseBuilder;
+import seedu.address.logic.Messages;
+import seedu.address.model.Model;
+import seedu.address.model.ModelManager;
+import seedu.address.model.UserPrefs;
+import seedu.address.model.course.Course;
+import seedu.address.testutil.CourseBuilder;
 
 /**
  * Contains integration tests (interaction with the Model) for {@code AddCommand}.

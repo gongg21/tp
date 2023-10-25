@@ -1,28 +1,29 @@
-package seedu.codesphere.logic.parser;
+package seedu.address.logic.parser;
 
-import static seedu.codesphere.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import static seedu.codesphere.logic.Messages.MESSAGE_UNKNOWN_COMMAND;
+import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+import static seedu.address.logic.Messages.MESSAGE_UNKNOWN_COMMAND;
 
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import seedu.codesphere.commons.core.LogsCenter;
-import seedu.codesphere.logic.commands.AddCommand;
-import seedu.codesphere.logic.commands.AddCourseCommand;
-import seedu.codesphere.logic.commands.ClearCommand;
-import seedu.codesphere.logic.commands.Command;
-import seedu.codesphere.logic.commands.DeleteCommand;
-import seedu.codesphere.logic.commands.DeleteCourseCommand;
-import seedu.codesphere.logic.commands.EditCommand;
-import seedu.codesphere.logic.commands.EditCourseCommand;
-import seedu.codesphere.logic.commands.ExitCommand;
-import seedu.codesphere.logic.commands.FindCommand;
-import seedu.codesphere.logic.commands.HelpCommand;
-import seedu.codesphere.logic.commands.ListCommand;
-import seedu.codesphere.logic.commands.RemarkCommand;
-import seedu.codesphere.logic.commands.SelectCommand;
-import seedu.codesphere.logic.parser.exceptions.ParseException;
+import seedu.address.commons.core.LogsCenter;
+import seedu.address.logic.commands.AddCommand;
+import seedu.address.logic.commands.AddCourseCommand;
+import seedu.address.logic.commands.ClearCommand;
+import seedu.address.logic.commands.Command;
+import seedu.address.logic.commands.DeleteCommand;
+import seedu.address.logic.commands.DeleteCourseCommand;
+import seedu.address.logic.commands.EditCommand;
+import seedu.address.logic.commands.EditCourseCommand;
+import seedu.address.logic.commands.ExitCommand;
+import seedu.address.logic.commands.FindCommand;
+import seedu.address.logic.commands.HelpCommand;
+import seedu.address.logic.commands.ListCommand;
+import seedu.address.logic.commands.PendingQuestionCommand;
+import seedu.address.logic.commands.RemarkCommand;
+import seedu.address.logic.commands.SelectCommand;
+import seedu.address.logic.parser.exceptions.ParseException;
 
 /**
  * Parses user input.
@@ -126,6 +127,9 @@ public class CodeSphereParser {
 
         case RemarkCommand.COMMAND_WORD:
             return new RemarkCommandParser().parse(arguments);
+
+        case PendingQuestionCommand.COMMAND_WORD:
+            return new PendingQuestionCommandParser().parse(arguments);
 
         case ListCommand.COMMAND_WORD:
             return new ListCommand();

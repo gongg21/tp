@@ -11,18 +11,11 @@ import seedu.codesphere.commons.util.ToStringBuilder;
 import seedu.codesphere.model.person.Student;
 import seedu.codesphere.model.person.UniqueStudentList;
 
-
-
 /**
  * Represents a Course in the course list.
  * Guarantees: details are present and not null, field values are validated, immutable.
  */
 public class Course {
-
-    public static final String MESSAGE_CONSTRAINTS =
-            "Course code should contain a two- or three-letter prefix, "
-                    + "four digits course code and an optional one-letter suffix";
-    public static final String VALIDATION_REGEX = "\\w{2,3}\\d{4}\\w?";
 
     // Course identity field
     public final CourseName courseName;
@@ -60,6 +53,27 @@ public class Course {
      */
     public int getCourseSize() {
         return this.students.size();
+    }
+
+    /**
+     * Returns the number of students tagged with GOOD StudentRank.
+     */
+    public long getGoodTagCount() {
+        return this.students.getGoodTagCount();
+    }
+
+    /**
+     * Returns the number of students tagged with AVERAGE StudentRank.
+     */
+    public long getAverageTagCount() {
+        return this.students.getAverageTagCount();
+    }
+
+    /**
+     * Returns the number of students tagged with POOR StudentRank.
+     */
+    public long getPoorTagCount() {
+        return this.students.getPoorTagCount();
     }
 
     /**

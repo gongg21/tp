@@ -103,11 +103,11 @@ public class ParserUtil {
         if (!Tag.isValidTagName(trimmedTag)) {
             throw new ParseException(Tag.MESSAGE_CONSTRAINTS);
         }
-        if (trimmedTag.equals(StudentRank.GOOD.toString())) {
+        if (trimmedTag.toUpperCase().equals(StudentRank.GOOD.toString())) {
             return new Tag(StudentRank.GOOD);
-        } else if (trimmedTag.equals(StudentRank.POOR.toString())) {
+        } else if (trimmedTag.toUpperCase().equals(StudentRank.POOR.toString())) {
             return new Tag(StudentRank.POOR);
-        } else if (trimmedTag.equals(StudentRank.AVERAGE.toString())) {
+        } else if (trimmedTag.toUpperCase().equals(StudentRank.AVERAGE.toString())) {
             return new Tag(StudentRank.AVERAGE);
         } else {
             throw new ParseException(Tag.MESSAGE_CONSTRAINTS_ENUMS);

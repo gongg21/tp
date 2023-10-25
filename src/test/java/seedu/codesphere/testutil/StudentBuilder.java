@@ -1,15 +1,16 @@
-package seedu.codesphere.testutil;
+package seedu.address.testutil;
 
 import java.util.HashSet;
 import java.util.Set;
 
-import seedu.codesphere.model.person.Email;
-import seedu.codesphere.model.person.Name;
-import seedu.codesphere.model.person.Remark;
-import seedu.codesphere.model.person.Student;
-import seedu.codesphere.model.tag.StudentRank;
-import seedu.codesphere.model.tag.Tag;
-import seedu.codesphere.model.util.SampleDataUtil;
+import seedu.address.model.person.Email;
+import seedu.address.model.person.Name;
+import seedu.address.model.person.PendingQuestion;
+import seedu.address.model.person.Remark;
+import seedu.address.model.person.Student;
+import seedu.address.model.tag.StudentRank;
+import seedu.address.model.tag.Tag;
+import seedu.address.model.util.SampleDataUtil;
 
 /**
  * A utility class to help with building Person objects.
@@ -19,11 +20,13 @@ public class StudentBuilder {
     public static final String DEFAULT_NAME = "Amy Bee";
     public static final String DEFAULT_EMAIL = "amy@gmail.com";
     public static final String DEFAULT_REMARK = "Likes skiing.";
+    public static final String DEFAULT_PENDING_QUESTION = "What is the meaning of life?";
 
     private Name name;
     private Email email;
     private Remark remark;
     private Set<Tag> tags;
+    private PendingQuestion pendingQuestion;
 
     /**
      * Creates a {@code PersonBuilder} with the default details.
@@ -32,6 +35,7 @@ public class StudentBuilder {
         name = new Name(DEFAULT_NAME);
         email = new Email(DEFAULT_EMAIL);
         remark = new Remark("");
+        pendingQuestion = new PendingQuestion(DEFAULT_PENDING_QUESTION);
         tags = new HashSet<>();
     }
 
@@ -42,6 +46,7 @@ public class StudentBuilder {
         name = personToCopy.getName();
         email = personToCopy.getEmail();
         remark = personToCopy.getRemark();
+        pendingQuestion = personToCopy.getPendingQuestion();
         tags = new HashSet<>(personToCopy.getTags());
     }
 
@@ -77,7 +82,15 @@ public class StudentBuilder {
         return this;
     }
 
+    /**
+     * Sets the {@code Pending Question} of the {@code Pending Question} that we are building.
+     */
+    public StudentBuilder withPendingQuestion(String pendingQuestion) {
+        this.pendingQuestion = new PendingQuestion(pendingQuestion);
+        return this;
+    }
+
     public Student build() {
-        return new Student(name, email, remark, tags);
+        return new Student(name, email, remark, pendingQuestion, tags);
     }
 }

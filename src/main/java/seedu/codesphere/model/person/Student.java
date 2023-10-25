@@ -2,10 +2,7 @@ package seedu.codesphere.model.person;
 
 import static seedu.codesphere.commons.util.CollectionUtil.requireAllNonNull;
 
-import java.util.Collections;
-import java.util.HashSet;
 import java.util.Objects;
-import java.util.Set;
 
 import seedu.codesphere.commons.util.ToStringBuilder;
 import seedu.codesphere.model.tag.Tag;
@@ -21,18 +18,20 @@ public class Student {
     private final Email email;
 
     // Data fields
+    private final Tag tag;
     private final Remark remark;
-    private final Set<Tag> tags = new HashSet<>();
+    private final PendingQuestion pendingQuestion;
 
     /**
      * Every field must be present and not null.
      */
-    public Student(Name name, Email email, Remark remark, Set<Tag> tags) {
-        requireAllNonNull(name, email, remark, tags);
+    public Student(Name name, Email email, Remark remark, PendingQuestion pendingQuestion, Tag tag) {
+        requireAllNonNull(name, email, remark, tag);
         this.name = name;
         this.email = email;
         this.remark = remark;
-        this.tags.addAll(tags);
+        this.pendingQuestion = pendingQuestion;
+        this.tag = tag;
     }
 
     public Name getName() {
@@ -47,12 +46,12 @@ public class Student {
         return remark;
     }
 
-    /**
-     * Returns an immutable tag set, which throws {@code UnsupportedOperationException}
-     * if modification is attempted.
-     */
-    public Set<Tag> getTags() {
-        return Collections.unmodifiableSet(tags);
+    public PendingQuestion getPendingQuestion() {
+        return pendingQuestion;
+    }
+
+    public Tag getTag() {
+        return tag;
     }
 
     /**
@@ -89,13 +88,14 @@ public class Student {
         return otherStudent.getName().equals(getName())
                 && otherStudent.getEmail().equals(getEmail())
                 && otherStudent.getRemark().equals(getRemark())
-                && otherStudent.getTags().equals(getTags());
+                && otherStudent.getPendingQuestion().equals(getPendingQuestion())
+                && otherStudent.getTag().equals(getTag());
     }
 
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, email, remark, tags);
+        return Objects.hash(name, email, remark, tag);
     }
 
     @Override
@@ -104,7 +104,8 @@ public class Student {
                 .add("name", name)
                 .add("email", email)
                 .add("remark", remark)
-                .add("tags", tags)
+                .add("pending question", pendingQuestion)
+                .add("tag", tag)
                 .toString();
     }
 

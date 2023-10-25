@@ -1,17 +1,17 @@
-package seedu.codesphere.logic.commands;
+package seedu.address.logic.commands;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static seedu.codesphere.logic.commands.CommandTestUtil.DESC_CS2100;
-import static seedu.codesphere.logic.commands.CommandTestUtil.DESC_CS2101;
-import static seedu.codesphere.logic.commands.CommandTestUtil.VALID_COURSE_NAME_2100;
+import static seedu.address.logic.commands.CommandTestUtil.DESC_CS2100;
+import static seedu.address.logic.commands.CommandTestUtil.DESC_CS2101;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_COURSE_NAME_2100;
 
 import org.junit.jupiter.api.Test;
 
-import seedu.codesphere.logic.commands.EditCourseCommand.EditCourseDescriptor;
-import seedu.codesphere.logic.commands.EditCommand.EditStudentDescriptor;
-import seedu.codesphere.testutil.EditCourseDescriptorBuilder;
+import seedu.address.logic.commands.EditCommand.EditStudentDescriptor;
+import seedu.address.logic.commands.EditCourseCommand.EditCourseDescriptor;
+import seedu.address.testutil.EditCourseDescriptorBuilder;
 
 public class EditCourseDescriptorTest {
 

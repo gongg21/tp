@@ -1,10 +1,9 @@
 package seedu.address.logic.commands;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_REMARK_AMY;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_REMARK_BOB;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_PENDING_QUESTION_AMY;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_PENDING_QUESTION_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.logic.commands.CommandTestUtil.showStudentAtIndex;
@@ -17,7 +16,6 @@ import static seedu.address.testutil.TypicalCourses.getTypicalCourseList;
 import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_STUDENT;
 import static seedu.address.testutil.TypicalIndexes.INDEX_SECOND_STUDENT;
 
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -26,14 +24,13 @@ import org.junit.jupiter.api.Test;
 
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.Messages;
-import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.parser.StageManager;
 import seedu.address.model.CourseList;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
 import seedu.address.model.course.Course;
-import seedu.address.model.person.Remark;
+import seedu.address.model.person.PendingQuestion;
 import seedu.address.model.person.Student;
 import seedu.address.testutil.StudentBuilder;
 import seedu.address.testutil.TypicalStudents;
@@ -42,9 +39,9 @@ import seedu.address.testutil.TypicalStudents;
 /**
  * Contains integration tests (interaction with the Model) and unit tests for RemarkCommand.
  */
-public class RemarkCommandTest {
+public class PendingQuestionCommandTest {
 
-    private static final String REMARK_STUB = "Some remark";
+    private static final String PENDING_QUESTION_STUB = "Some question";
 
     private Model model = new ModelManager(getTypicalCourseList(), new UserPrefs());
 
@@ -80,63 +77,66 @@ public class RemarkCommandTest {
 
 
     @Test
-    public void execute_addRemarkUnfilteredList_success() throws CommandException {
-        Course validCourse = getTypicalCourses().get(1);
-  
+    public void execute_addPendingQuestionUnfilteredList_success() {
+        Course validCourse1 = activateStudent1().get(1);
         StageManager stageManager = StageManager.getCurrent();
         stageManager.setCourseStage(validCourse1);
 
         Student firstPerson = validCourse1.getStudentList().getStudent(INDEX_FIRST_STUDENT);
-        Student editedPerson = new StudentBuilder(firstPerson).withRemark(REMARK_STUB).build();
+        Student editedPerson = new StudentBuilder(firstPerson).withPendingQuestion(PENDING_QUESTION_STUB).build();
 
-        RemarkCommand remarkCommand = new RemarkCommand(INDEX_FIRST_STUDENT, new Remark(REMARK_STUB));
-        CommandResult commandResult = remarkCommand.execute(model);
-        String expectedMessage = String.format(RemarkCommand.MESSAGE_ADD_REMARK_SUCCESS, editedPerson);
-        CommandResult expectedResult = new CommandResult(expectedMessage);
+        PendingQuestionCommand pendingQuestionCommand = new PendingQuestionCommand(INDEX_FIRST_STUDENT,
+                new PendingQuestion(editedPerson.getPendingQuestion().value));
 
-        assertEquals(commandResult, expectedResult);
+        String expectedMessage = String.format(PendingQuestionCommand
+                .MESSAGE_ADD_PENDING_QUESTION_SUCCESS, editedPerson);
+
+        Model expectedModel = new ModelManager(new CourseList(model.getCourseList()), new UserPrefs());
+        validCourse1.setStudent(firstPerson, editedPerson);
+        assertCommandSuccess(pendingQuestionCommand, model, expectedMessage, expectedModel);
     }
 
     @Test
-    public void execute_deleteRemarkUnfilteredList_success() throws CommandException {
-        Course validCourse = getTypicalCourses().get(1);
+    public void execute_deletePendingQuestionUnfilteredList_success() {
+        Course validCourse2 = activateStudent2().get(2);
         StageManager stageManager = StageManager.getCurrent();
-        stageManager.setCourseStage(validCourse);
+        stageManager.setCourseStage(validCourse2);
+        Student firstPerson = validCourse2.getFilteredStudentList().get(INDEX_FIRST_STUDENT.getZeroBased());
+        Student editedPerson = new StudentBuilder(firstPerson).withPendingQuestion("").build();
 
+        PendingQuestionCommand pendingQuestionCommand = new PendingQuestionCommand(INDEX_FIRST_STUDENT,
+                new PendingQuestion(editedPerson.getPendingQuestion().toString()));
 
-        Student firstPerson = validCourse.getStudentList().getStudent(INDEX_FIRST_STUDENT);
-        Student editedPerson = new StudentBuilder(firstPerson).withRemark("").build();
+        String expectedMessage = String.format(
+                pendingQuestionCommand.MESSAGE_DELETE_PENDING_QUESTION_SUCCESS, editedPerson);
 
-        RemarkCommand remarkCommand = new RemarkCommand(INDEX_FIRST_STUDENT, new Remark(""));
-        CommandResult commandResult = remarkCommand.execute(model);
-        String expectedMessage = String.format(RemarkCommand.MESSAGE_ADD_REMARK_SUCCESS, editedPerson);
-        CommandResult expectedResult = new CommandResult(expectedMessage);
+        Model expectedModel = new ModelManager(new CourseList(model.getCourseList()), new UserPrefs());
+        validCourse2.setStudent(firstPerson, editedPerson);
 
-        assertEquals(commandResult, expectedResult);
+        assertCommandSuccess(pendingQuestionCommand, model, expectedMessage, expectedModel);
     }
 
     @Test
     public void execute_filteredList_success() {
-        Course validCourse = getTypicalCourses().get(1);
+        Course validCourse3 = activateStudent3().get(3);
         StageManager stageManager = StageManager.getCurrent();
-        stageManager.setCourseStage(validCourse);
-
-        showStudentAtIndex(validCourse, INDEX_FIRST_STUDENT);
-
-        Student firstPerson = validCourse.getFilteredStudentList().get(INDEX_FIRST_STUDENT.getZeroBased());
-        Student editedPerson = new StudentBuilder(validCourse.getFilteredStudentList()
+        stageManager.setCourseStage(validCourse3);
+        showStudentAtIndex(validCourse3, INDEX_FIRST_STUDENT);
+        Student firstPerson = validCourse3.getFilteredStudentList().get(INDEX_FIRST_STUDENT.getZeroBased());
+        Student editedPerson = new StudentBuilder(validCourse3.getFilteredStudentList()
                 .get(INDEX_FIRST_STUDENT.getZeroBased()))
-                .withRemark(REMARK_STUB).build();
+                .withRemark(PENDING_QUESTION_STUB).build();
 
-        RemarkCommand remarkCommand = new RemarkCommand(INDEX_FIRST_STUDENT, new Remark(REMARK_STUB));
+        PendingQuestionCommand pendingQuestionCommand = new PendingQuestionCommand(INDEX_FIRST_STUDENT,
+                new PendingQuestion(editedPerson.getPendingQuestion().value));
 
-        String expectedMessage = String.format(RemarkCommand.MESSAGE_ADD_REMARK_SUCCESS, editedPerson);
-
+        String expectedMessage = String.format(
+                PendingQuestionCommand.MESSAGE_ADD_PENDING_QUESTION_SUCCESS, editedPerson);
 
         Model expectedModel = new ModelManager(new CourseList(model.getCourseList()), new UserPrefs());
         validCourse3.setStudent(firstPerson, editedPerson);
 
-        assertCommandSuccess(remarkCommand, model, expectedMessage, expectedModel);
+        assertCommandSuccess(pendingQuestionCommand, model, expectedMessage, expectedModel);
     }
 
     @Test
@@ -145,9 +145,10 @@ public class RemarkCommandTest {
         StageManager stageManager = StageManager.getCurrent();
         stageManager.setCourseStage(validCourse0);
         Index outOfBoundIndex = Index.fromOneBased(validCourse0.getFilteredStudentList().size() + 1);
-        RemarkCommand remarkCommand = new RemarkCommand(outOfBoundIndex, new Remark(VALID_REMARK_BOB));
+        PendingQuestionCommand pendingQuestionCommand = new PendingQuestionCommand(
+                outOfBoundIndex, new PendingQuestion(VALID_PENDING_QUESTION_BOB));
 
-        assertCommandFailure(remarkCommand, model, Messages.MESSAGE_INVALID_STUDENT_DISPLAYED_INDEX);
+        assertCommandFailure(pendingQuestionCommand, model, Messages.MESSAGE_INVALID_STUDENT_DISPLAYED_INDEX);
     }
 
     /**
@@ -164,19 +165,21 @@ public class RemarkCommandTest {
         // ensures that outOfBoundIndex is still in bounds of address book list
         assertFalse(outOfBoundIndex.getZeroBased() < validCourse4.getStudentList().size());
 
-        RemarkCommand remarkCommand = new RemarkCommand(outOfBoundIndex, new Remark(VALID_REMARK_BOB));
+        PendingQuestionCommand pendingQuestionCommand = new PendingQuestionCommand(
+                outOfBoundIndex, new PendingQuestion(VALID_PENDING_QUESTION_BOB));
 
-        assertCommandFailure(remarkCommand, model, Messages.MESSAGE_INVALID_STUDENT_DISPLAYED_INDEX);
+        assertCommandFailure(pendingQuestionCommand, model, Messages.MESSAGE_INVALID_STUDENT_DISPLAYED_INDEX);
     }
 
     @Test
     public void equals() {
-        final RemarkCommand standardCommand = new RemarkCommand(INDEX_FIRST_STUDENT,
-                new Remark(VALID_REMARK_AMY));
+        final PendingQuestionCommand standardCommand = new PendingQuestionCommand(INDEX_FIRST_STUDENT,
+                new PendingQuestion(VALID_PENDING_QUESTION_AMY));
+        final PendingQuestionCommand commandWithSameValues = new PendingQuestionCommand(INDEX_FIRST_STUDENT,
+                new PendingQuestion(VALID_PENDING_QUESTION_AMY));
+        System.out.println(commandWithSameValues);
 
         // same values -> returns true
-        RemarkCommand commandWithSameValues = new RemarkCommand(INDEX_FIRST_STUDENT,
-                new Remark(VALID_REMARK_AMY));
         assertTrue(standardCommand.equals(commandWithSameValues));
 
         // same object -> returns true
@@ -189,11 +192,11 @@ public class RemarkCommandTest {
         assertFalse(standardCommand.equals(new ClearCommand()));
 
         // different index -> returns false
-        assertFalse(standardCommand.equals(new RemarkCommand(INDEX_SECOND_STUDENT,
-                new Remark(VALID_REMARK_AMY))));
+        assertFalse(standardCommand.equals(new PendingQuestionCommand(INDEX_SECOND_STUDENT,
+                new PendingQuestion(VALID_PENDING_QUESTION_AMY))));
 
         // different remark -> returns false
-        assertFalse(standardCommand.equals(new RemarkCommand(INDEX_FIRST_STUDENT,
-                new Remark(VALID_REMARK_BOB))));
+        assertFalse(standardCommand.equals(new PendingQuestionCommand(INDEX_FIRST_STUDENT,
+                new PendingQuestion(VALID_PENDING_QUESTION_BOB))));
     }
 }

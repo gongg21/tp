@@ -57,7 +57,7 @@ public class RemarkCommand extends Command {
 
         Student studentToEdit = lastShownList.get(index.getZeroBased());
         Student editedPerson = new Student(studentToEdit.getName(), studentToEdit.getEmail(),
-                remark, studentToEdit.getTags());
+                remark, studentToEdit.getPendingQuestion(), studentToEdit.getTag());
 
         course.setStudent(studentToEdit, editedPerson);
 

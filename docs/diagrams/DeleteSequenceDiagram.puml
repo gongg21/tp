@@ -28,7 +28,7 @@ DeleteCourseCommandParser --> CodeSphereParser
 deactivate DeleteCourseCommandParser
 
 CodeSphereParser -> DeleteCourseCommandParser : parse("1")
-activate DeleteCommandParser
+activate DeleteCourseCommandParser
 
 create DeleteCourseCommand
 DeleteCourseCommandParser -> DeleteCourseCommand
@@ -44,7 +44,7 @@ DeleteCourseCommandParser -[hidden]-> CodeSphereParser
 destroy DeleteCourseCommandParser
 
 CodeSphereParser --> LogicManager : d
-deactivate CourseListParser
+deactivate CodeSphereParser
 
 LogicManager -> DeleteCourseCommand : execute()
 activate DeleteCourseCommand

@@ -1,20 +1,20 @@
-package seedu.codesphere.logic.parser;
+package seedu.address.logic.parser;
 
-import static seedu.codesphere.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import static seedu.codesphere.logic.parser.CliSyntax.PREFIX_EMAIL;
-import static seedu.codesphere.logic.parser.CliSyntax.PREFIX_NAME;
-import static seedu.codesphere.logic.parser.CliSyntax.PREFIX_TAG;
+import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 
-import java.util.Set;
 import java.util.stream.Stream;
 
-import seedu.codesphere.logic.commands.AddCommand;
-import seedu.codesphere.logic.parser.exceptions.ParseException;
-import seedu.codesphere.model.person.Email;
-import seedu.codesphere.model.person.Name;
-import seedu.codesphere.model.person.Remark;
-import seedu.codesphere.model.person.Student;
-import seedu.codesphere.model.tag.Tag;
+import seedu.address.logic.commands.AddCommand;
+import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.person.Email;
+import seedu.address.model.person.Name;
+import seedu.address.model.person.PendingQuestion;
+import seedu.address.model.person.Remark;
+import seedu.address.model.person.Student;
+import seedu.address.model.tag.Tag;
 
 /**
  * Parses input arguments and creates a new AddCommand object
@@ -38,9 +38,11 @@ public class AddCommandParser implements Parser<AddCommand> {
         argMultimap.verifyNoDuplicatePrefixesFor(PREFIX_NAME, PREFIX_EMAIL);
         Name name = ParserUtil.parseName(argMultimap.getValue(PREFIX_NAME).get());
         Email email = ParserUtil.parseEmail(argMultimap.getValue(PREFIX_EMAIL).get());
-        Set<Tag> tagList = ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG));
-        Remark remark = new Remark(""); // add command does not allow adding remarks straight away
-        Student student = new Student(name, email, remark, tagList);
+        Tag tag = ParserUtil.parseTag(argMultimap.getValue(PREFIX_TAG).get());
+        Remark remark = new Remark("");
+        PendingQuestion pendingQuestion = new PendingQuestion("");
+        // add command does not allow adding pending question straight away
+        Student student = new Student(name, email, remark, pendingQuestion, tag);
 
         return new AddCommand(student);
     }

@@ -16,6 +16,11 @@ Class UniqueCourseList
 Class UniqueStudentList
 Class Course
 Class CourseName
+Class Student
+Class Name
+Class Email
+Class Remark
+Class Tag
 
 Class I #FFFFFF
 }
@@ -34,8 +39,14 @@ ModelManager --> "~* filtered" Course
 UserPrefs .up.|> ReadOnlyUserPrefs
 
 CourseList *--> "1" UniqueCourseList
-UniqueCourseList --> "~* all" Course
+UniqueCourseList -right-> "~* all" Course
 Course *-down-> CourseName
-Course *-down-> UniqueStudentList
+Course *-right-> UniqueStudentList
+Course --> "~* filtered" Student
+UniqueStudentList -down-> "*" Student
+Student *-down-> Name
+Student *-down-> Email
+Student *-down-> Remark
+Student *-down-> "*" Tag
 
 @enduml

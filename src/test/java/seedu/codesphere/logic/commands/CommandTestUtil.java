@@ -39,7 +39,8 @@ public class CommandTestUtil {
     public static final String VALID_EMAIL_AMY = "amy@example.com";
     public static final String VALID_EMAIL_BOB = "bob@example.com";
     public static final String VALID_EMAIL_CLARA = "clara@example.com";
-
+    public static final String VALID_PENDING_QUESTION_AMY = "How to study more effectively?";
+    public static final String VALID_PENDING_QUESTION_BOB = "How to sleep 8 hours a day?";
     public static final String VALID_REMARK_AMY = "Like skiing.";
     public static final String VALID_REMARK_BOB = "Favourite pastime: Eating";
 
@@ -76,9 +77,11 @@ public class CommandTestUtil {
 
     static {
         DESC_AMY = new EditStudentDescriptorBuilder().withName(VALID_NAME_AMY)
-                .withEmail(VALID_EMAIL_AMY).withTags(VALID_TAG_AVERAGE).build();
+                .withEmail(VALID_EMAIL_AMY).withRemark(VALID_REMARK_AMY)
+                .withPendingQuestion(VALID_PENDING_QUESTION_AMY).withTags(VALID_TAG_AVERAGE).build();
         DESC_BOB = new EditStudentDescriptorBuilder().withName(VALID_NAME_BOB)
-                .withEmail(VALID_EMAIL_BOB).withTags(VALID_TAG_POOR).build();
+                .withEmail(VALID_EMAIL_BOB).withRemark(VALID_REMARK_BOB)
+                .withPendingQuestion(VALID_PENDING_QUESTION_BOB).withTags(VALID_TAG_POOR).build();
         DESC_CLARA = new EditStudentDescriptorBuilder().withName(VALID_NAME_CLARA)
                     .withEmail(VALID_EMAIL_CLARA).withTags(VALID_TAG_GOOD).build();
     }

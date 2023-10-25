@@ -1,19 +1,21 @@
-package seedu.codesphere.testutil;
+package seedu.address.testutil;
 
-import static seedu.codesphere.logic.commands.CommandTestUtil.VALID_EMAIL_AMY;
-import static seedu.codesphere.logic.commands.CommandTestUtil.VALID_EMAIL_BOB;
-import static seedu.codesphere.logic.commands.CommandTestUtil.VALID_NAME_AMY;
-import static seedu.codesphere.logic.commands.CommandTestUtil.VALID_NAME_BOB;
-import static seedu.codesphere.logic.commands.CommandTestUtil.VALID_TAG_AVERAGE;
-import static seedu.codesphere.logic.commands.CommandTestUtil.VALID_TAG_GOOD;
-import static seedu.codesphere.logic.commands.CommandTestUtil.VALID_TAG_POOR;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_AMY;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_BOB;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_AMY;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_BOB;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_AVERAGE;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_GOOD;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_POOR;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import seedu.codesphere.model.StudentList;
-import seedu.codesphere.model.person.Student;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import seedu.address.model.StudentList;
+import seedu.address.model.person.Student;
 
 /**
  * A utility class containing a list of {@code Student} objects to be used in tests.
@@ -51,6 +53,8 @@ public class TypicalStudents {
             .build();
 
     public static final String KEYWORD_MATCHING_MEIER = "Meier"; // A keyword that matches MEIER
+    private final ObservableList<Student> internalList = FXCollections.observableArrayList();
+
 
     private TypicalStudents() {} // prevents instantiation
 
@@ -68,4 +72,5 @@ public class TypicalStudents {
     public static List<Student> getTypicalStudents() {
         return new ArrayList<>(Arrays.asList(ALICE, BENSON, CARL, DANIEL, ELLE, FIONA, GEORGE));
     }
+
 }

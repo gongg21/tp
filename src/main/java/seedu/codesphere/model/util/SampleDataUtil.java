@@ -1,41 +1,39 @@
-package seedu.codesphere.model.util;
+package seedu.address.model.util;
 
-import java.util.Arrays;
-import java.util.Set;
-import java.util.stream.Collectors;
-
-import seedu.codesphere.model.CourseList;
-import seedu.codesphere.model.ReadOnlyCourseList;
-import seedu.codesphere.model.ReadOnlyStudentList;
-import seedu.codesphere.model.StudentList;
-import seedu.codesphere.model.course.Course;
-import seedu.codesphere.model.course.CourseName;
-import seedu.codesphere.model.person.Email;
-import seedu.codesphere.model.person.Name;
-import seedu.codesphere.model.person.Remark;
-import seedu.codesphere.model.person.Student;
-import seedu.codesphere.model.tag.StudentRank;
-import seedu.codesphere.model.tag.Tag;
+import seedu.address.model.CourseList;
+import seedu.address.model.ReadOnlyCourseList;
+import seedu.address.model.ReadOnlyStudentList;
+import seedu.address.model.StudentList;
+import seedu.address.model.course.Course;
+import seedu.address.model.course.CourseName;
+import seedu.address.model.person.Email;
+import seedu.address.model.person.Name;
+import seedu.address.model.person.PendingQuestion;
+import seedu.address.model.person.Remark;
+import seedu.address.model.person.Student;
+import seedu.address.model.tag.StudentRank;
+import seedu.address.model.tag.Tag;
 
 /**
  * Contains utility methods for populating {@code StudentList} with sample data.
  */
 public class SampleDataUtil {
     public static final Remark EMPTY_REMARK = new Remark("");
+    public static final PendingQuestion EMPTY_PENDING_QUESTION = new PendingQuestion("");
     public static Student[] getSampleStudents() {
         return new Student[] {
-            new Student(new Name("Alex Yeoh"), new Email("alexyeoh@u.nus.edu"), EMPTY_REMARK,
-                    getTagSet(StudentRank.GOOD)),
+            new Student(new Name("Alex Yeoh"), new Email("alexyeoh@u.nus.edu"), EMPTY_REMARK, EMPTY_PENDING_QUESTION,
+                    new Tag(StudentRank.GOOD)),
             new Student(new Name("Bernice Yu"), new Email("berniceyu@u.nus.edu"),
-                    EMPTY_REMARK, getTagSet(StudentRank.POOR)),
+                    EMPTY_REMARK, EMPTY_PENDING_QUESTION, new Tag(StudentRank.POOR)),
             new Student(new Name("Charlotte Oliveiro"), new Email("charlotte@u.nus.edu"),
-                    EMPTY_REMARK, getTagSet(StudentRank.POOR)),
-            new Student(new Name("David Li"), new Email("lidavid@u.nus.edu"), EMPTY_REMARK,
-                    getTagSet(StudentRank.AVERAGE)),
+                    EMPTY_REMARK, EMPTY_PENDING_QUESTION, new Tag(StudentRank.POOR)),
+            new Student(new Name("David Li"), new Email("lidavid@u.nus.edu"), EMPTY_REMARK, EMPTY_PENDING_QUESTION,
+                    new Tag(StudentRank.AVERAGE)),
             new Student(new Name("Irfan Ibrahim"), new Email("irfan@u.nus.edu"),
-                    EMPTY_REMARK, getTagSet(StudentRank.GOOD)),
+                    EMPTY_REMARK, EMPTY_PENDING_QUESTION, new Tag(StudentRank.GOOD)),
             new Student(new Name("Roy Balakrishnan"), new Email("royb@u.nus.edu"),
-                    EMPTY_REMARK, getTagSet(StudentRank.GOOD))
+                    EMPTY_REMARK, EMPTY_PENDING_QUESTION, new Tag(StudentRank.GOOD))
         };
     }
 
@@ -65,14 +63,4 @@ public class SampleDataUtil {
         }
         return sampleCl;
     }
-
-    /**
-     * Returns a tag set containing the list of strings given.
-     */
-    public static Set<Tag> getTagSet(StudentRank... ranking) {
-        return Arrays.stream(ranking)
-                .map(Tag::new)
-                .collect(Collectors.toSet());
-    }
-
 }

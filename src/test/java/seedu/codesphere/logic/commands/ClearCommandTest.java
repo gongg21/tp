@@ -1,11 +1,15 @@
-package seedu.codesphere.logic.commands;
+package seedu.address.logic.commands;
 
-import static seedu.codesphere.logic.commands.CommandTestUtil.assertCommandSuccess;
-import static seedu.codesphere.testutil.TypicalCourses.getTypicalCourseList;
+import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
+import static seedu.address.testutil.TypicalCourses.getTypicalCourseList;
 
 import org.junit.jupiter.api.Test;
 
-import seedu.codesphere.model.*;
+import seedu.address.model.CourseList;
+import seedu.address.model.Model;
+import seedu.address.model.ModelManager;
+import seedu.address.model.UserPrefs;
+
 
 public class ClearCommandTest {
 

@@ -1,7 +1,5 @@
 package seedu.codesphere.ui;
 
-import java.util.Comparator;
-
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.FlowPane;
@@ -37,7 +35,9 @@ public class StudentCard extends UiPart<Region> {
     @FXML
     private Label remark;
     @FXML
-    private FlowPane tags;
+    private Label pendingQuestion;
+    @FXML
+    private FlowPane tag;
 
     /**
      * Creates a {@code StudentCode} with the given {@code Student} and index to display.
@@ -47,10 +47,11 @@ public class StudentCard extends UiPart<Region> {
         this.student = student;
         id.setText(displayedIndex + ". ");
         name.setText(student.getName().fullName);
-        email.setText(student.getEmail().value);
-        remark.setText(student.getRemark().value);
-        student.getTags().stream()
-                .sorted(Comparator.comparing(tag -> tag.ranking))
-                .forEach(tag -> tags.getChildren().add(new Label(tag.ranking.toString())));
+        email.setText("Email: " + student.getEmail().value);
+        tag.getChildren().add(new Label(student.getTag().ranking.toString()));
+        remark.setText("Remark: " + student.getRemark().value);
+        pendingQuestion.setText("Pending Question: " + student.getPendingQuestion().value);
     }
 }
+
+

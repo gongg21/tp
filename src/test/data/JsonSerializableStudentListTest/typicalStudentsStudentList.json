@@ -5,6 +5,7 @@
     "course" : "CS2103T",
     "email" : "alice@example.com",
     "remark" : "She likes aardvarks.",
+    "pendingQuestion" : "Why is life so boring?",
     "tags" : [ "AVERAGE" ]
 
   }, {
@@ -12,6 +13,7 @@
     "course" : "CS2103T",
     "email" : "johnd@example.com",
     "remark" : "He can't take beer!",
+    "pendingQuestion" : "Why is CS2103T important?",
     "tags" : [ "GOOD" ]
 
   }, {
@@ -19,6 +21,7 @@
     "course" : "CS2103T",
     "email" : "heinz@example.com",
     "remark" : "",
+    "pendingQuestion" : "How to draw an UML diagram fast and accurate?",
     "tags" : [ ]
 
   }, {
@@ -26,6 +29,7 @@
     "course" : "CS2103T",
     "email" : "cornelia@example.com",
     "remark" : "",
+    "pendingQuestion" : "",
     "tags" : [ "GOOD" ]
 
   }, {
@@ -33,6 +37,7 @@
     "course" : "CS2103T",
     "email" : "werner@example.com",
     "remark" : "",
+    "pendingQuestion" : "",
     "tags" : [ ]
 
   }, {
@@ -40,6 +45,7 @@
     "course" : "CS2103T",
     "email" : "lydia@example.com",
     "remark" : "",
+    "pendingQuestion" : "",
     "tags" : [ ]
 
   }, {
@@ -47,6 +53,7 @@
     "course" : "CS2103T",
     "email" : "anna@example.com",
     "remark" : "",
+    "pendingQuestion" : "",
     "tags" : [ ]
   } ]
 }

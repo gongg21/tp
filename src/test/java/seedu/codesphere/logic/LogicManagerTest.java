@@ -1,10 +1,10 @@
-package seedu.codesphere.logic;
+package seedu.address.logic;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static seedu.codesphere.logic.Messages.MESSAGE_INVALID_COURSE_DISPLAYED_INDEX;
-import static seedu.codesphere.logic.Messages.MESSAGE_UNKNOWN_COMMAND;
-import static seedu.codesphere.testutil.Assert.assertThrows;
-import static seedu.codesphere.testutil.TypicalCourses.CS2100;
+import static seedu.address.logic.Messages.MESSAGE_INVALID_COURSE_DISPLAYED_INDEX;
+import static seedu.address.logic.Messages.MESSAGE_UNKNOWN_COMMAND;
+import static seedu.address.testutil.Assert.assertThrows;
+import static seedu.address.testutil.TypicalCourses.CS2100;
 
 import java.io.IOException;
 import java.nio.file.AccessDeniedException;
@@ -14,18 +14,20 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 
-import seedu.codesphere.logic.commands.*;
-import seedu.codesphere.logic.commands.exceptions.CommandException;
-import seedu.codesphere.logic.parser.exceptions.ParseException;
-import seedu.codesphere.model.course.Course;
-import seedu.codesphere.model.Model;
-import seedu.codesphere.model.ModelManager;
-import seedu.codesphere.model.ReadOnlyCourseList;
-import seedu.codesphere.model.UserPrefs;
-import seedu.codesphere.storage.JsonCourseListStorage;
-import seedu.codesphere.storage.JsonUserPrefsStorage;
-import seedu.codesphere.storage.StorageManager;
-import seedu.codesphere.testutil.CourseBuilder;
+import seedu.address.logic.commands.AddCourseCommand;
+import seedu.address.logic.commands.CommandResult;
+import seedu.address.logic.commands.ExitCommand;
+import seedu.address.logic.commands.exceptions.CommandException;
+import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.Model;
+import seedu.address.model.ModelManager;
+import seedu.address.model.ReadOnlyCourseList;
+import seedu.address.model.UserPrefs;
+import seedu.address.model.course.Course;
+import seedu.address.storage.JsonCourseListStorage;
+import seedu.address.storage.JsonUserPrefsStorage;
+import seedu.address.storage.StorageManager;
+import seedu.address.testutil.CourseBuilder;
 
 public class LogicManagerTest {
     private static final IOException DUMMY_IO_EXCEPTION = new IOException("dummy IO exception");

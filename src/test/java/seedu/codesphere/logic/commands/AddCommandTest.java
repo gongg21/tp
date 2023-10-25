@@ -1,11 +1,11 @@
-package seedu.codesphere.logic.commands;
+package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static seedu.codesphere.testutil.Assert.assertThrows;
-import static seedu.codesphere.testutil.TypicalStudents.ALICE;
+import static seedu.address.testutil.Assert.assertThrows;
+import static seedu.address.testutil.TypicalStudents.ALICE;
 
 import java.nio.file.Path;
 import java.util.function.Predicate;
@@ -13,17 +13,17 @@ import java.util.function.Predicate;
 import org.junit.jupiter.api.Test;
 
 import javafx.collections.ObservableList;
-import seedu.codesphere.commons.core.GuiSettings;
-import seedu.codesphere.logic.Messages;
-import seedu.codesphere.logic.commands.exceptions.CommandException;
-import seedu.codesphere.logic.parser.StageManager;
-import seedu.codesphere.model.Model;
-import seedu.codesphere.model.ReadOnlyCourseList;
-import seedu.codesphere.model.ReadOnlyUserPrefs;
-import seedu.codesphere.model.course.Course;
-import seedu.codesphere.model.person.Student;
-import seedu.codesphere.testutil.CourseBuilder;
-import seedu.codesphere.testutil.StudentBuilder;
+import seedu.address.commons.core.GuiSettings;
+import seedu.address.logic.Messages;
+import seedu.address.logic.commands.exceptions.CommandException;
+import seedu.address.logic.parser.StageManager;
+import seedu.address.model.Model;
+import seedu.address.model.ReadOnlyCourseList;
+import seedu.address.model.ReadOnlyUserPrefs;
+import seedu.address.model.course.Course;
+import seedu.address.model.person.Student;
+import seedu.address.testutil.CourseBuilder;
+import seedu.address.testutil.StudentBuilder;
 
 public class AddCommandTest {
 

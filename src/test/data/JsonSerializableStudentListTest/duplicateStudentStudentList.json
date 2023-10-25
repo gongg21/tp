@@ -4,11 +4,13 @@
     "course": "CS2103T",
     "email": "alice@example.com",
     "remark" : "",
+    "pendingQuestion" : "",
     "tags": [ "GOOD" ]
   }, {
     "name": "Alice Pauline",
     "course": "CS2103T",
     "remark" : "",
+    "pendingQuestion" : "",
     "email": "pauline@example.com"
   } ]
 }

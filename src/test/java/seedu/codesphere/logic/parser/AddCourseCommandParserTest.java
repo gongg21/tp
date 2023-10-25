@@ -1,16 +1,20 @@
-package seedu.codesphere.logic.parser;
+package seedu.address.logic.parser;
 
-import static seedu.codesphere.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import static seedu.codesphere.logic.commands.CommandTestUtil.*;
-import static seedu.codesphere.logic.parser.CommandParserTestUtil.assertParseFailure;
-import static seedu.codesphere.logic.parser.CommandParserTestUtil.assertParseSuccess;
-import static seedu.codesphere.testutil.TypicalCourses.CS2100;
+import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+import static seedu.address.logic.commands.CommandTestUtil.COURSE_DESC_CS2100;
+import static seedu.address.logic.commands.CommandTestUtil.INVALID_COURSE_NAME_DESC;
+import static seedu.address.logic.commands.CommandTestUtil.PREAMBLE_WHITESPACE;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_COURSE_NAME_2100;
+import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
+import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSuccess;
+import static seedu.address.testutil.TypicalCourses.CS2100;
 
 import org.junit.jupiter.api.Test;
-import seedu.codesphere.logic.commands.AddCourseCommand;
-import seedu.codesphere.model.course.Course;
-import seedu.codesphere.model.course.CourseName;
-import seedu.codesphere.testutil.CourseBuilder;
+
+import seedu.address.logic.commands.AddCourseCommand;
+import seedu.address.model.course.Course;
+import seedu.address.model.course.CourseName;
+import seedu.address.testutil.CourseBuilder;
 
 public class AddCourseCommandParserTest {
     private AddCourseCommandParser parser = new AddCourseCommandParser();

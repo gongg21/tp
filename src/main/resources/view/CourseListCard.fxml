@@ -24,8 +24,12 @@
             <Region fx:constant="USE_PREF_SIZE" />
           </minWidth>
         </Label>
-        <Label fx:id="courseName" text="\$first" styleClass="cell_big_label" />
+        <Label fx:id="courseName" text="\$courseName" styleClass="cell_big_label" />
       </HBox>
+      <Label fx:id="classSize" text="\$classSize" styleClass="cell_small_label" />
+      <Label fx:id="goodTagCount" text="\$goodTagCount" styleClass="cell_small_label" />
+      <Label fx:id="averageTagCount" text="\$averageTagCount" styleClass="cell_small_label" />
+      <Label fx:id="poorTagCount" text="\$poorTagCount" styleClass="cell_small_label" />
     </VBox>
   </GridPane>
 </HBox>

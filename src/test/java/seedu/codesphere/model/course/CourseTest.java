@@ -1,17 +1,16 @@
-package seedu.codesphere.model.course;
+package seedu.address.model.course;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static seedu.codesphere.logic.commands.CommandTestUtil.VALID_COURSE_NAME_2100;
-import static seedu.codesphere.logic.commands.CommandTestUtil.VALID_COURSE_NAME_2101;
-import static seedu.codesphere.testutil.Assert.assertThrows;
-import static seedu.codesphere.testutil.TypicalCourses.CS2100;
-import static seedu.codesphere.testutil.TypicalCourses.CS2103T;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_COURSE_NAME_2100;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_COURSE_NAME_2101;
+import static seedu.address.testutil.TypicalCourses.CS2100;
+import static seedu.address.testutil.TypicalCourses.CS2103T;
 
 import org.junit.jupiter.api.Test;
 
-import seedu.codesphere.testutil.CourseBuilder;
+import seedu.address.testutil.CourseBuilder;
 
 public class CourseTest {
 

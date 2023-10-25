@@ -1,25 +1,24 @@
-package seedu.codesphere.logic.commands;
+package seedu.address.logic.commands;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static seedu.codesphere.logic.commands.CommandTestUtil.assertCommandFailure;
-import static seedu.codesphere.logic.commands.CommandTestUtil.assertCommandSuccess;
-import static seedu.codesphere.testutil.TypicalCourses.getTypicalCourseList;
-import static seedu.codesphere.testutil.TypicalIndexes.INDEX_FIRST_STUDENT;
-import static seedu.codesphere.testutil.TypicalIndexes.INDEX_SECOND_STUDENT;
+import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
+import static seedu.address.testutil.TypicalCourses.getTypicalCourseList;
+import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_STUDENT;
+import static seedu.address.testutil.TypicalIndexes.INDEX_SECOND_STUDENT;
 
 import org.junit.jupiter.api.Test;
 
-import seedu.codesphere.commons.core.index.Index;
-import seedu.codesphere.logic.Messages;
-import seedu.codesphere.logic.commands.exceptions.CommandException;
-import seedu.codesphere.logic.parser.StageManager;
-import seedu.codesphere.model.course.Course;
-import seedu.codesphere.model.Model;
-import seedu.codesphere.model.ModelManager;
-import seedu.codesphere.model.UserPrefs;
-import seedu.codesphere.model.person.Student;
+import seedu.address.commons.core.index.Index;
+import seedu.address.logic.Messages;
+import seedu.address.logic.commands.exceptions.CommandException;
+import seedu.address.logic.parser.StageManager;
+import seedu.address.model.Model;
+import seedu.address.model.ModelManager;
+import seedu.address.model.UserPrefs;
+import seedu.address.model.course.Course;
+import seedu.address.model.person.Student;
 
 /**
  * Contains integration tests (interaction with the Model) and unit tests for

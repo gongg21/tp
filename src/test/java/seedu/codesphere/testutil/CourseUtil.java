@@ -1,10 +1,11 @@
-package seedu.codesphere.testutil;
+package seedu.address.testutil;
 
-import seedu.codesphere.logic.commands.AddCourseCommand;
-import seedu.codesphere.logic.commands.EditCourseCommand.EditCourseDescriptor;
-import seedu.codesphere.model.course.Course;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_COURSE_NAME;
 
-import static seedu.codesphere.logic.parser.CliSyntax.*;
+import seedu.address.logic.commands.AddCourseCommand;
+import seedu.address.logic.commands.EditCourseCommand.EditCourseDescriptor;
+import seedu.address.model.course.Course;
+
 
 /**
  * A utility class for Course.

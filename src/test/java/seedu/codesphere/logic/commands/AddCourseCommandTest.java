@@ -1,11 +1,11 @@
-package seedu.codesphere.logic.commands;
+package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static seedu.codesphere.testutil.Assert.assertThrows;
-import static seedu.codesphere.testutil.TypicalCourses.CS2100;
+import static seedu.address.testutil.Assert.assertThrows;
+import static seedu.address.testutil.TypicalCourses.CS2100;
 
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -15,15 +15,15 @@ import java.util.function.Predicate;
 import org.junit.jupiter.api.Test;
 
 import javafx.collections.ObservableList;
-import seedu.codesphere.commons.core.GuiSettings;
-import seedu.codesphere.logic.Messages;
-import seedu.codesphere.logic.commands.exceptions.CommandException;
-import seedu.codesphere.model.Model;
-import seedu.codesphere.model.ReadOnlyCourseList;
-import seedu.codesphere.model.ReadOnlyUserPrefs;
-import seedu.codesphere.model.course.Course;
-import seedu.codesphere.model.CourseList;
-import seedu.codesphere.testutil.CourseBuilder;
+import seedu.address.commons.core.GuiSettings;
+import seedu.address.logic.Messages;
+import seedu.address.logic.commands.exceptions.CommandException;
+import seedu.address.model.CourseList;
+import seedu.address.model.Model;
+import seedu.address.model.ReadOnlyCourseList;
+import seedu.address.model.ReadOnlyUserPrefs;
+import seedu.address.model.course.Course;
+import seedu.address.testutil.CourseBuilder;
 
 public class AddCourseCommandTest {
 
