@@ -1,35 +1,35 @@
-package seedu.address.logic.commands;
+package seedu.codesphere.logic.commands;
 
 import static java.util.Objects.requireNonNull;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_COURSE_NAME;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_PENDINGQUESTION;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_REMARK;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
-import static seedu.address.model.Model.PREDICATE_SHOW_ALL_COURSES;
+import static seedu.codesphere.logic.parser.CliSyntax.PREFIX_COURSE_NAME;
+import static seedu.codesphere.logic.parser.CliSyntax.PREFIX_EMAIL;
+import static seedu.codesphere.logic.parser.CliSyntax.PREFIX_NAME;
+import static seedu.codesphere.logic.parser.CliSyntax.PREFIX_PENDINGQUESTION;
+import static seedu.codesphere.logic.parser.CliSyntax.PREFIX_REMARK;
+import static seedu.codesphere.logic.parser.CliSyntax.PREFIX_TAG;
+import static seedu.codesphere.model.Model.PREDICATE_SHOW_ALL_COURSES;
 
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
-import seedu.address.commons.core.index.Index;
-import seedu.address.commons.util.CollectionUtil;
-import seedu.address.commons.util.ToStringBuilder;
-import seedu.address.logic.Messages;
-import seedu.address.logic.commands.exceptions.CommandException;
-import seedu.address.logic.parser.StageManager;
-import seedu.address.model.Model;
-import seedu.address.model.course.Course;
-import seedu.address.model.person.Email;
-import seedu.address.model.person.Name;
-import seedu.address.model.person.PendingQuestion;
-import seedu.address.model.person.Remark;
-import seedu.address.model.person.Student;
-import seedu.address.model.tag.Tag;
+import seedu.codesphere.commons.core.index.Index;
+import seedu.codesphere.commons.util.CollectionUtil;
+import seedu.codesphere.commons.util.ToStringBuilder;
+import seedu.codesphere.logic.Messages;
+import seedu.codesphere.logic.commands.exceptions.CommandException;
+import seedu.codesphere.logic.parser.StageManager;
+import seedu.codesphere.model.Model;
+import seedu.codesphere.model.course.Course;
+import seedu.codesphere.model.person.Email;
+import seedu.codesphere.model.person.Name;
+import seedu.codesphere.model.person.PendingQuestion;
+import seedu.codesphere.model.person.Remark;
+import seedu.codesphere.model.person.Student;
+import seedu.codesphere.model.tag.Tag;
 
 /**
- * Edits the details of an existing person in the address book.
+ * Edits the details of an existing person in the codesphere book.
  */
 public class EditCommand extends Command {
 
