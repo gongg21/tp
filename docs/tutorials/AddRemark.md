@@ -26,21 +26,21 @@ For now, let’s keep `RemarkCommand` as simple as possible and print some outpu
 **`RemarkCommand.java`:**
 
 ```java
-package seedu.address.logic.commands;
+package seedu.codesphere.logic.commands;
 
-import seedu.address.model.Model;
+import seedu.codesphere.model.Model;
 
 /**
  * Changes the remark of an existing person in the address book.
  */
 public class RemarkCommand extends Command {
 
-    public static final String COMMAND_WORD = "remark";
+  public static final String COMMAND_WORD = "remark";
 
-    @Override
-    public CommandResult execute(Model model) {
-        return new CommandResult("Hello from remark");
-    }
+  @Override
+  public CommandResult execute(Model model) {
+    return new CommandResult("Hello from remark");
+  }
 }
 ```
 
@@ -94,46 +94,48 @@ Let’s change `RemarkCommand` to parse input from the user.
 We start by modifying the constructor of `RemarkCommand` to accept an `Index` and a `String`. While we are at it, let’s change the error message to echo the values. While this is not a replacement for tests, it is an obvious way to tell if our code is functioning as intended.
 
 ```java
-import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
+import static seedu.codesphere.commons.util.CollectionUtil.requireAllNonNull;
+
 //...
 public class RemarkCommand extends Command {
-    //...
-    public static final String MESSAGE_ARGUMENTS = "Index: %1$d, Remark: %2$s";
+  //...
+  public static final String MESSAGE_ARGUMENTS = "Index: %1$d, Remark: %2$s";
 
-    private final Index index;
-    private final String remark;
+  private final Index index;
+  private final String remark;
 
-    /**
-     * @param index of the person in the filtered person list to edit the remark
-     * @param remark of the person to be updated to
-     */
-    public RemarkCommand(Index index, String remark) {
-        requireAllNonNull(index, remark);
+  /**
+   * @param index of the person in the filtered person list to edit the remark
+   * @param remark of the person to be updated to
+   */
+  public RemarkCommand(Index index, String remark) {
+    requireAllNonNull(index, remark);
 
-        this.index = index;
-        this.remark = remark;
+    this.index = index;
+    this.remark = remark;
+  }
+
+  @Override
+  public CommandResult execute(Model model) throws CommandException {
+    throw new CommandException(
+            String.format(MESSAGE_ARGUMENTS, index.getOneBased(), remark));
+  }
+
+  @Override
+  public boolean equals(Object other) {
+    if (other == this) {
+      return true;
     }
-    @Override
-    public CommandResult execute(Model model) throws CommandException {
-        throw new CommandException(
-                String.format(MESSAGE_ARGUMENTS, index.getOneBased(), remark));
+
+    // instanceof handles nulls
+    if (!(other instanceof RemarkCommand)) {
+      return false;
     }
 
-    @Override
-    public boolean equals(Object other) {
-        if (other == this) {
-            return true;
-        }
-
-        // instanceof handles nulls
-        if (!(other instanceof RemarkCommand)) {
-            return false;
-        }
-
-        RemarkCommand e = (RemarkCommand) other;
-        return index.equals(e.index)
-                && remark.equals(e.remark);
-    }
+    RemarkCommand e = (RemarkCommand) other;
+    return index.equals(e.index)
+            && remark.equals(e.remark);
+  }
 }
 ```
 
@@ -143,7 +145,7 @@ Your code should look something like [this](https://github.com/se-edu/addressboo
 
 Now let’s move on to writing a parser that will extract the index and remark from the input provided by the user.
 
-Create a `RemarkCommandParser` class in the `seedu.address.logic.parser` package. The class must extend the `Parser` interface.
+Create a `RemarkCommandParser` class in the `seedu.codesphere.logic.parser` package. The class must extend the `Parser` interface.
 
 <puml src="../diagrams/add-remark/ParserClass.puml" alt="The relationship between Parser and RemarkCommandParser"/>
 
@@ -230,7 +232,7 @@ Now that we have all the information that we need, let’s lay the groundwork fo
 
 ### Add a new `Remark` class
 
-Create a new `Remark` in `seedu.address.model.person`. Since a `Remark` is a field that is similar to `Address`, we can reuse a significant bit of code.
+Create a new `Remark` in `seedu.codesphere.model.person`. Since a `Remark` is a field that is similar to `Address`, we can reuse a significant bit of code.
 
 A copy-paste and search-replace later, you should have something like [this](https://github.com/se-edu/addressbook-level3/commit/4516e099699baa9e2d51801bd26f016d812dedcc#diff-41bb13c581e280c686198251ad6cc337cd5e27032772f06ed9bf7f1440995ece). Note how `Remark` has no constrains and thus does not require input
 validation.
@@ -243,7 +245,7 @@ Let’s change `RemarkCommand` and `RemarkCommandParser` to use the new `Remark`
 
 Without getting too deep into `fxml`, let’s go on a 5 minute adventure to get some placeholder text to show up for each person.
 
-Simply add the following to [`seedu.address.ui.PersonCard`](https://github.com/se-edu/addressbook-level3/commit/850b78879582f38accb05dd20c245963c65ea599#diff-639834f1e05afe2276a86372adf0fe5f69314642c2d93cfa543d614ce5a76688).
+Simply add the following to [`seedu.codesphere.ui.PersonCard`](https://github.com/se-edu/addressbook-level3/commit/850b78879582f38accb05dd20c245963c65ea599#diff-639834f1e05afe2276a86372adf0fe5f69314642c2d93cfa543d614ce5a76688).
 
 **`PersonCard.java`:**
 

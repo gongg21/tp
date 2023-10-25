@@ -5,6 +5,7 @@
 !include style.puml
 
 Package " "<<Rectangle>>{
+    Class StageManager STAGE_COLOR
     Class UI UI_COLOR
     Class Logic LOGIC_COLOR
     Class Storage STORAGE_COLOR
@@ -19,6 +20,8 @@ Class "<$documents>" as File UI_COLOR_T1
 
 UI -[#green]> Logic
 UI -right[#green]-> Model
+UI -up[#green]-> StageManager
+Logic -down[#blue]-> StageManager
 Logic -[#blue]-> Storage
 Logic -down[#blue]-> Model
 Main -[#grey]-> UI

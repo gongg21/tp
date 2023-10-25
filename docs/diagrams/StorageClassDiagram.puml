@@ -4,7 +4,9 @@ skinparam arrowThickness 1.1
 skinparam arrowColor STORAGE_COLOR
 skinparam classBackgroundColor STORAGE_COLOR
 
-package StorageUML {
+Class HiddenOutside #FFFFFF
+
+package Storage as StoragePackage {
 
 package "UserPrefs Storage" #F4F6F6{
 Class "<<interface>>\nUserPrefsStorage" as UserPrefsStorage
@@ -25,9 +27,7 @@ Class JsonAdaptedTag
 
 }
 
-Class HiddenOutside #FFFFFF
 HiddenOutside ..> Storage
-
 StorageManager .up.|> Storage
 StorageManager -up-> "1" UserPrefsStorage
 StorageManager -up-> "1" CourseListStorage
@@ -36,7 +36,7 @@ Storage -left-|> UserPrefsStorage
 Storage -right-|> CourseListStorage
 
 JsonUserPrefsStorage .up.|> UserPrefsStorage
-JsonCourseListStorage ..|> CourseListStorage
+JsonCourseListStorage .up.|> CourseListStorage
 JsonCourseListStorage ..> JsonSerializableCourseList
 JsonSerializableCourseList --> "*" JsonAdaptedCourse
 JsonAdaptedCourse --> "*" JsonAdaptedStudent

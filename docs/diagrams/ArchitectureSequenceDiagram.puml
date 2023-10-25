@@ -5,6 +5,7 @@ skinparam ArrowFontStyle plain
 Actor User as user USER_COLOR
 Participant ":UI" as ui UI_COLOR
 Participant ":Logic" as logic LOGIC_COLOR
+Participant ":StageManager" as stage STAGE_COLOR
 Participant ":Model" as model MODEL_COLOR
 Participant ":Storage" as storage STORAGE_COLOR
 
@@ -14,13 +15,35 @@ activate ui UI_COLOR
 ui -[UI_COLOR]> logic : execute("delete 1")
 activate logic LOGIC_COLOR
 
-logic -[LOGIC_COLOR]> model : deletePerson(p)
-activate model MODEL_COLOR
+logic -[LOGIC_COLOR]> stage : getCurrent()
+activate stage STAGE_COLOR
 
-model -[MODEL_COLOR]-> logic
-deactivate model
+stage -[STAGE_COLOR]->logic
+deactivate stage
 
-logic -[LOGIC_COLOR]> storage : saveAddressBook(addressBook)
+logic -[LOGIC_COLOR]> stage : current.getCurrentCourse()
+activate stage STAGE_COLOR
+
+stage -[STAGE_COLOR]->logic
+deactivate stage
+
+alt Stages.HOME
+    logic -[LOGIC_COLOR]> model : deleteCourse(i)
+    activate model MODEL_COLOR
+
+    model -[MODEL_COLOR]-> logic
+    deactivate model
+
+else Stages.COURSE
+    logic -[LOGIC_COLOR]> model : deleteStudent(i)
+    activate model MODEL_COLOR
+
+    model -[MODEL_COLOR]-> logic
+    deactivate model
+
+end
+
+logic -[LOGIC_COLOR]> storage : saveCourseList(courseList)
 activate storage STORAGE_COLOR
 
 storage -[STORAGE_COLOR]> storage : Save to file

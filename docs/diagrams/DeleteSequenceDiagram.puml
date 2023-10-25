@@ -4,9 +4,9 @@ skinparam ArrowFontStyle plain
 
 box Logic LOGIC_COLOR_T1
 participant ":LogicManager" as LogicManager LOGIC_COLOR
-participant ":AddressBookParser" as AddressBookParser LOGIC_COLOR
-participant ":DeleteCommandParser" as DeleteCommandParser LOGIC_COLOR
-participant "d:DeleteCommand" as DeleteCommand LOGIC_COLOR
+participant ":CodeSphereParser" as CodeSphereParser LOGIC_COLOR
+participant ":DeleteCourseCommandParser" as DeleteCourseCommandParser LOGIC_COLOR
+participant "d:DeleteCourseCommand" as DeleteCourseCommand LOGIC_COLOR
 participant ":CommandResult" as CommandResult LOGIC_COLOR
 end box
 
@@ -17,53 +17,56 @@ end box
 [-> LogicManager : execute("delete 1")
 activate LogicManager
 
-LogicManager -> AddressBookParser : parseCommand("delete 1")
-activate AddressBookParser
+LogicManager -> CodeSphereParser : parseCommand("delete 1")
+activate CodeSphereParser
 
-create DeleteCommandParser
-AddressBookParser -> DeleteCommandParser
+create DeleteCourseCommandParser
+CodeSphereParser -> DeleteCourseCommandParser
+activate DeleteCourseCommandParser
+
+DeleteCourseCommandParser --> CodeSphereParser
+deactivate DeleteCourseCommandParser
+
+CodeSphereParser -> DeleteCourseCommandParser : parse("1")
 activate DeleteCommandParser
 
-DeleteCommandParser --> AddressBookParser
-deactivate DeleteCommandParser
+create DeleteCourseCommand
+DeleteCourseCommandParser -> DeleteCourseCommand
+activate DeleteCourseCommand
 
-AddressBookParser -> DeleteCommandParser : parse("1")
-activate DeleteCommandParser
+DeleteCourseCommand --> DeleteCourseCommandParser : d
+deactivate DeleteCourseCommand
 
-create DeleteCommand
-DeleteCommandParser -> DeleteCommand
-activate DeleteCommand
-
-DeleteCommand --> DeleteCommandParser : d
-deactivate DeleteCommand
-
-DeleteCommandParser --> AddressBookParser : d
-deactivate DeleteCommandParser
+DeleteCourseCommandParser --> CodeSphereParser : d
+deactivate DeleteCourseCommandParser
 'Hidden arrow to position the destroy marker below the end of the activation bar.
-DeleteCommandParser -[hidden]-> AddressBookParser
-destroy DeleteCommandParser
+DeleteCourseCommandParser -[hidden]-> CodeSphereParser
+destroy DeleteCourseCommandParser
 
-AddressBookParser --> LogicManager : d
-deactivate AddressBookParser
+CodeSphereParser --> LogicManager : d
+deactivate CourseListParser
 
-LogicManager -> DeleteCommand : execute()
-activate DeleteCommand
+LogicManager -> DeleteCourseCommand : execute()
+activate DeleteCourseCommand
 
-DeleteCommand -> Model : deletePerson(1)
+DeleteCourseCommand -> Model : deleteCourse(1)
 activate Model
 
-Model --> DeleteCommand
+Model --> DeleteCourseCommand
 deactivate Model
 
 create CommandResult
-DeleteCommand -> CommandResult
+DeleteCourseCommand -> CommandResult
 activate CommandResult
 
-CommandResult --> DeleteCommand
+CommandResult --> DeleteCourseCommand
 deactivate CommandResult
 
-DeleteCommand --> LogicManager : result
-deactivate DeleteCommand
+DeleteCourseCommand --> CodeSphereParser : result
+deactivate DeleteCourseCommand
+
+CodeSphereParser --> LogicManager : result
+deactivate CodeSphereParser
 
 [<--LogicManager
 deactivate LogicManager
