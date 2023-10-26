@@ -5,8 +5,41 @@ title: User Guide
 
 CodeSphere is a **desktop contact management app, optimised for use via a Command Line Interface (CLI)** while still having the benefits of a Graphical User Interface (GUI). It is an app targeted at connecting Year 1 Computer Science students in the NUS School of Computing.
 
-* Table of Contents
-{:toc}
+--------------------------------------------------------------------------------------------------------------------
+
+## Table of Contents
+1. [**User Guide Tips**](#user-guide-tips)
+2. [**Quick start**](#quick-start)
+3. [**Tutorial for beginners**](#tutorial-for-beginners)
+4. [**Features**](#features)
+    1. [**Universal Commands**](#universal-commands)
+        1. [`help` Viewing help](#viewing-help--help)
+        2. [`exit` Exiting the program](#exiting-the-program--exit)
+    2. [**Home Page Commands**](#home-page-commands)
+        1. [`add` Adding a new course](#adding-a-course--add)
+        2. [`edit` Editing the details of a course](#editing-a-course--edit)
+        3. [`delete` Delete a course](#deleting-a-course--delete)
+        4. [`clear` Selecting a course](#clearing-all-course--clear)
+        5. [`select` Selecting an itinerary](#selecting-a-course--select)
+    3. [**Course Page Commands**](#course-page-commands)
+        1. [`add` Adding a student](#adding-a-student--add)
+        2. [`edit` Editing the details of a student](#editing-a-student--edit-coming-soon)
+        3. [`delete` Deleting a student](#deleting-a-student--delete-coming-soon)
+        4. [`list` Viewing vacant timeslots](#listing-all-students--list-coming-soon)
+        5. [`find` Scheduling an activity](#finding-a-student--find-coming-soon)
+        6. [`remark` Unscheduling an activity](#adding-a-remark-for-a-student--remark-coming-soon)
+        7. [`pq` Copying to clipboard](#adding-a-pending-question-for-a-student--pq-coming-soon)
+        8. [`remove` Exporting as PDF file](#removing-a-remarkpending-question-of-a-student--remove-coming-soon)
+        9. [`home` Returning to home page](#returning-to-the-home-page--home-coming-soon)
+    4. [**Miscellaneous**](#miscellaneous)
+        1. [Saving the data](#saving-the-data)
+        2. [Editing the data file](#editing-the-data-file)
+5. [**FAQ**](#faq)
+6. [**Known Issues**](#known-issues)
+7. [**Command summary**](#command-summary)
+    1. [**Home Page**](#home-page)
+    2. [**Course Page**](#course-page)
+8. [**Glossary**](#glossary)
 
 --------------------------------------------------------------------------------------------------------------------
 ## **User Guide Tips**
@@ -214,6 +247,12 @@ Command succeeds:
 Command failure:
 * Users enter the command with incorrect formatting, resulting in an error message shown to the user and the specified student is not deleted and removed from the database.
 
+### Listing all students: `list` [coming soon]
+
+
+### Finding a student: `find` [coming soon]
+
+
 ### Adding a remark for a student: `remark` [coming soon]
 
 Adds a tag to the specified student from the list of students.
@@ -230,6 +269,15 @@ Command succeeds:
 
 Command failure:
 * Users enter the command with incorrect formatting, resulting in an error message shown to the user and no new remark is added to the specified student.
+
+### Adding a pending question for a student: `pq` [coming soon]
+
+
+
+### Removing a remark/pending question of a student: `remove` [coming soon]
+
+
+### Returning to the home page: `home` [coming soon]
 
 --------------------------------------------------------------------------------------------------------------------
 ### **Miscellaneous**
