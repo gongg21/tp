@@ -13,35 +13,35 @@ CodeSphere is a **desktop contact management app, optimised for use via a Comman
 2. [**Quick Start**](#quick-start)
 3. [**Tutorial for Beginners**](#tutorial-for-beginners)
 4. [**Features**](#features)
-    1. [**Universal Commands**](#universal-commands)
-        1. [`help` Viewing help](#viewing-help--help)
-        2. [`exit` Exiting the program](#exiting-the-program--exit)
-    2. [**Home Page Commands**](#home-page-commands)
-        1. [`add` Adding a new course](#adding-a-course--add)
-        2. [`edit` Editing the details of a course](#editing-a-course--edit)
-        3. [`delete` Deleting a course](#deleting-a-course--delete)
-        4. [`clear` Selecting a course](#clearing-all-course--clear)
-        5. [`select` Selecting a course](#selecting-a-course--select)
-    3. [**Course Page Commands**](#course-page-commands)
-        1. [`add` Adding a student](#adding-a-student--add)
-        2. [`edit` Editing the details of a student](#editing-a-student--edit)
-        3. [`delete` Deleting a student](#deleting-a-student--delete)
-        4. [`list` Listing all students](#listing-all-students--list)
-        5. [`sort` Sorting all students](#sorting-all-students--sort-coming-soon)
-        6. [`find` Finding a student by name](#finding-a-student--find)
-        7. [`find pq` Finding students with pending questions](#find-students-with-pending-questions--find-pq)
-        8. [`remark` Adding a remark for a student](#adding-a-remark-for-a-student--remark)
-        9. [`pq` Adding a pending question for a student](#adding-a-pending-question-for-a-student--pq)
-        10. [`remove` Removing a remark/pending question](#removing-a-remarkpending-question-of-a-student--remove)
-        11. [`home` Returning to home page](#returning-to-the-home-page--home)
-    4. [**Miscellaneous**](#miscellaneous)
-        1. [Saving the data](#saving-the-data)
-        2. [Editing the data file](#editing-the-data-file)
+    * [**Universal Commands**](#universal-commands)
+        * [`help` Viewing help](#viewing-help--help)
+        * [`exit` Exiting the program](#exiting-the-program--exit)
+    * [**Home Page Commands**](#home-page-commands)
+        * [`add` Adding a new course](#adding-a-course--add)
+        * [`edit` Editing the details of a course](#editing-a-course--edit)
+        * [`delete` Deleting a course](#deleting-a-course--delete)
+        * [`clear` Selecting a course](#clearing-all-course--clear)
+        * [`select` Selecting a course](#selecting-a-course--select)
+    * [**Course Page Commands**](#course-page-commands)
+        * [`add` Adding a student](#adding-a-student--add)
+        * [`edit` Editing the details of a student](#editing-a-student--edit)
+        * [`delete` Deleting a student](#deleting-a-student--delete)
+        * [`list` Listing all students](#listing-all-students--list)
+        * [`sort` Sorting all students](#sorting-all-students--sort-coming-soon)
+        * [`find` Finding a student by name](#finding-a-student--find)
+        * [`find pq` Finding students with pending questions](#find-students-with-pending-questions--find-pq)
+        * [`remark` Adding a remark for a student](#adding-a-remark-for-a-student--remark)
+        * [`pq` Adding a pending question for a student](#adding-a-pending-question-for-a-student--pq)
+        * [`remove` Removing a remark/pending question](#removing-a-remarkpending-question-of-a-student--remove)
+        * [`home` Returning to home page](#returning-to-the-home-page--home)
+    * [**Miscellaneous**](#miscellaneous)
+        * [Saving the data](#saving-the-data)
+        * [Editing the data file](#editing-the-data-file)
 5. [**FAQ**](#faq)
 6. [**Known Issues**](#known-issues)
 7. [**Command summary**](#command-summary)
-    1. [**Home Page**](#home-page)
-    2. [**Course Page**](#course-page)
+    * [**Home Page**](#home-page)
+    * [**Course Page**](#course-page)
 8. [**Glossary**](#glossary)
 
 --------------------------------------------------------------------------------------------------------------------
@@ -57,8 +57,9 @@ CodeSphere is a **desktop contact management app, optimised for use via a Comman
 4. [FAQ](#faq) answers the most common questions from our users. If you have questions for us, this section might just prove extremely useful!
 5. [Command Summary](#command-summary) provides a summarised list of our features for your easy reference.
 6. [Glossary](#glossary) explains some of the more complicated terms we used in the guide. If you do not understand some terms, this section might help!
+7. Return to the table of contents by using [_Back to Top_](#table-of-contents) at the bottom of each page.
 
-### Understanding the symbols and syntax
+### Understanding symbols and syntax
 
 | Symbol/Syntax        | Meaning                                                |
 |----------------------|--------------------------------------------------------|
@@ -66,6 +67,8 @@ CodeSphere is a **desktop contact management app, optimised for use via a Comman
 | :exclamation:        | Warning or some important information for you to know. |
 | :bulb:               | Tips from us!                                          |
 | :information_source: | Information that you should take note of.              |
+
+[_Back to Top_](#table-of-contents)
 
 --------------------------------------------------------------------------------------------------------------------
 <div style="page-break-after: always"></div>
@@ -91,11 +94,15 @@ Eg. typing `help` and hitting enter after will show the Help window. Some other 
 For a more detailed walk-through on how to use CodeSphere to start managing your students, head to [Tutorial for Beginners](#tutorial-for-beginners).
 Else, if you prefer exploring the app yourself, head to [Features](#features) below for the list of commands.
 
+[_Back to Top_](#table-of-contents)
+
 --------------------------------------------------------------------------------------------------------------------
 <div style="page-break-after: always"></div>
 
 ## **Tutorial for Beginners**
 *{to be added}*
+
+[_Back to Top_](#table-of-contents)
 
 --------------------------------------------------------------------------------------------------------------------
 <div style="page-break-after: always"></div>
@@ -120,8 +127,13 @@ Else, if you prefer exploring the app yourself, head to [Features](#features) be
 
 </div>
 
+[_Back to Top_](#table-of-contents)
+
+<div style="page-break-after: always"></div>
+
 ### **Universal Commands**
-Commands in CodeSphere are mostly only used exclusively on the home page or the course page. However, commands in this section can be used on either page at any time.
+Commands in CodeSphere are mostly only used exclusively on the [home page](#home-page-commands) or the [course page](#course-page-commands).
+However, commands in this section can be used on either page at any time.
 
 ### Viewing help : `help`
 
@@ -134,6 +146,8 @@ Shows a message explaining how to access the help page.
 Exits the program.
 
 **Format:** `exit`
+
+[_Back to Top_](#table-of-contents)
 
 --------------------------------------------------------------------------------------------------------------------
 <div style="page-break-after: always"></div>
@@ -151,6 +165,10 @@ Commands exclusive to the home page can help you:
 
 The `select` command brings you to the Course page of the selected course.
 
+[_Back to Top_](#table-of-contents)
+
+<div style="page-break-after: always"></div>
+
 ### Adding a course : `add`
 Adds a course to the list of courses.
 
@@ -164,7 +182,6 @@ Adds a course to the list of courses.
 **Command succeeds:** Success message shown, course successfully added and stored in database, change in GUI.
 
 **Command failure:** Incorrect format results in an error message shown and the course is not added/stored in the database.
-
 
 ### Editing a course : `edit`
 Edits the details of an existing course from the list of courses.
@@ -181,7 +198,6 @@ Edits the details of an existing course from the list of courses.
 
 **Command failure:** Incorrect format results in an error message shown and the course is not edited in the database.
 
-
 ### Deleting a course : `delete`
 Deletes the specified course from the list of courses.
 
@@ -193,7 +209,6 @@ Deletes the specified course from the list of courses.
 **Command succeeds:** Success message shown, course successfully deleted and removed from database, change in GUI.
 
 **Command failure:** Incorrect format results in an error message shown and the course is not removed from the database.
-
 
 **Examples:** `delete 2` Deletes the course at index 2 of the displayed course list.
 
@@ -216,6 +231,8 @@ Selects the specified course from the list of courses.
 
 **Command failure:** Incorrect format/index results in an error message shown and the course is not selected.
 
+[_Back to Top_](#table-of-contents)
+
 --------------------------------------------------------------------------------------------------------------------
 <div style="page-break-after: always"></div>
 
@@ -236,6 +253,9 @@ Commands exclusive to the course page can help you:
 * add a pending question `pq` to a student 
 * `remove` a remark or pending question from a student
 
+[_Back to Top_](#table-of-contents)
+
+<div style="page-break-after: always"></div>
 
 ### Adding a student : `add`
 Adds a student to the list of students in the selected course that the user is overseeing.
@@ -287,7 +307,6 @@ Deletes the specified student from the list of students you are overseeing in th
 **Command succeeds:** Success message shown, student successfully removed from database, change in GUI.
 
 **Command failure:** Incorrect format results in an error message shown and the student is not removed from the database.
-
 
 ### Listing all students: `list`
 
@@ -365,9 +384,11 @@ Removes a remark or pending question of a specified student from the list of stu
 **Command failure:** Incorrect format results in an error message shown and the remark/pending question is not removed from the student.
 
 ### Returning to the home page: `home`
-Returns to the home page showing the list of courses you are overseeing.
+Returns to the [home page](#home-page-commands) showing the list of courses you are overseeing.
 
 **Format:** `home`
+
+[_Back to Top_](#table-of-contents)
 
 --------------------------------------------------------------------------------------------------------------------
 <div style="page-break-after: always"></div>
@@ -382,6 +403,8 @@ CodeSphere data is saved in the hard disk automatically after any command that c
 
 CodeSphere data is saved automatically as a JSON file `[JAR file location]/data/codesphere.json`. Advanced users are welcome to update data directly by editing that data file.
 
+[_Back to Top_](#table-of-contents)
+
 --------------------------------------------------------------------------------------------------------------------
 <div style="page-break-after: always"></div>
 
@@ -395,6 +418,8 @@ A: Install the app in the other computer and overwrite the empty data file it cr
 
 1. When using multiple screens, if you move the application to a secondary screen, and later switch to using only the primary screen, 
 the GUI will open off-screen. The remedy is to delete the preferences.json file created by the application before running the application again.
+
+[_Back to Top_](#table-of-contents)
 
 --------------------------------------------------------------------------------------------------------------------
 <div style="page-break-after: always"></div>
@@ -413,6 +438,8 @@ the GUI will open off-screen. The remedy is to delete the preferences.json file 
 | **Select Course**     | `select INDEX` e.g. `select 1`                             |
 | **Exit**              | `exit`                                                     |
 
+[_Back to Top_](#table-of-contents)
+
 <div style="page-break-after: always"></div>
 
 ### Course Page
@@ -421,7 +448,7 @@ the GUI will open off-screen. The remedy is to delete the preferences.json file 
 |----------------------------------------|----------------------------------------------------------------------------------------|
 | **Help**                               | `help`                                                                                 |                              
 | **Add Student**                        | `add n/NAME e/EMAIL t/ENUM_TAG`<br/>e.g. `add n/Susan Tan e/e0123456@u.nus.edu t/GOOD` |
-| **Edit Student**                       | `edit INDEX [n/NAME] [e/EMAIL] [t/ENUM_TAG] [r/REMARK]`<br/> e.g. `edit 1 n/JOHN`      |
+| **Edit Student**                       | `edit INDEX [n/NAME] [e/EMAIL] [t/ENUM_TAG]`<br/> e.g. `edit 1 n/JOHN`                 |
 | **Delete Student**                     | `delete INDEX` e.g. `delete 1`                                                         |
 | **List Student**                       | `list`                                                                                 |                              
 | **Sort Students**<br/>[coming soon]    | `sort`                                                                                 |
@@ -433,12 +460,16 @@ the GUI will open off-screen. The remedy is to delete the preferences.json file 
 | **Home**                               | `home`                                                                                 |
 | **Exit**                               | `exit`                                                                                 |
 
+[_Back to Top_](#table-of-contents)
+
 --------------------------------------------------------------------------------------------------------------------
 <div style="page-break-after: always"></div>
 
 ## **Glossary**
 
 *{to be added}*
+
+[_Back to Top_](#table-of-contents)
 
 
 
