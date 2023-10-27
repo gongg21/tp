@@ -11,6 +11,7 @@ Class UiManager
 Class MainWindow
 Class HelpWindow
 
+Class DisplayPanel
 Class SplashPanel
 Class CombinedPanel
 Class CourseListPanel
@@ -49,9 +50,11 @@ MainWindow *-left->  "1" CommandBox
 MainWindow *-left-> "1" ResultDisplay
 MainWindow *-left-> "1" StatusBarFooter
 
-MainWindow *-down-> "0...1" SplashPanel
-MainWindow *-down-> "0...1" CombinedPanel
-MainWindow *-down-> "0...1" CourseListPanel
+MainWindow *-down-> "1" DisplayPanel
+
+DisplayPanel *-down-> "0...1" SplashPanel
+DisplayPanel *-down-> "0...1" CombinedPanel
+DisplayPanel *-down-> "0...1" CourseListPanel
 
 MainWindow -right> Logic
 MainWindow -right> StageManager

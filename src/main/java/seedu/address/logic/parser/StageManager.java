@@ -13,7 +13,6 @@ public class StageManager {
     private static Course selectedCourse = null;
 
     private StageManager() {
-
     }
 
     public static StageManager getCurrent() {

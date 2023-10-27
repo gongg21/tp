@@ -5,9 +5,10 @@ import static seedu.address.model.Model.PREDICATE_SHOW_ALL_STUDENTS;
 
 import seedu.address.logic.parser.StageManager;
 import seedu.address.model.Model;
+import seedu.address.model.course.Course;
 
 /**
- * Lists all persons in the address book to the user.
+ * Lists all students in the student list to the user.
  */
 public class ListCommand extends Command {
 
@@ -18,7 +19,13 @@ public class ListCommand extends Command {
     @Override
     public CommandResult execute(Model model) {
         requireNonNull(model);
-        StageManager.getSelectedCourse().updateFilteredStudentList(PREDICATE_SHOW_ALL_STUDENTS);
+
+        StageManager stageManager = StageManager.getCurrent();
+        Course course = stageManager.getCurrentCourse();
+
+        // Resets the student list to its origin state
+        course.resetFilteredStudentList();
+
         return new CommandResult(MESSAGE_SUCCESS);
     }
 }

@@ -2,11 +2,13 @@ package seedu.address.model.course;
 
 import static java.util.Objects.requireNonNull;
 
+import java.util.Comparator;
 import java.util.Objects;
 import java.util.function.Predicate;
 
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import seedu.address.commons.util.ToStringBuilder;
 import seedu.address.model.person.Student;
 import seedu.address.model.person.UniqueStudentList;
@@ -22,7 +24,8 @@ public class Course {
 
     // Course data field
     private final UniqueStudentList students;
-    private final FilteredList<Student> filteredStudents;
+    private FilteredList<Student> filteredStudents;
+    private final SortedList<Student> sortedStudents;
 
     /**
      * Every field must be present and not null.
@@ -32,6 +35,7 @@ public class Course {
         this.courseName = courseName;
         this.students = new UniqueStudentList();
         this.filteredStudents = new FilteredList<>(this.students.asUnmodifiableObservableList());
+        this.sortedStudents = new SortedList<>(this.students.asUnmodifiableObservableList());
     }
 
     /**
@@ -128,6 +132,23 @@ public class Course {
     public void updateFilteredStudentList(Predicate<Student> predicate) {
         requireNonNull(predicate);
         filteredStudents.setPredicate(predicate);
+    }
+
+    /**
+     * Returns an unmodifiable view of the sorted list of {@code Student}
+     * @param comparator The comparator filter to run on the student list
+     */
+    public void updateSortedStudentList(Comparator<Student> comparator) {
+        requireNonNull(comparator);
+        sortedStudents.setComparator(comparator);
+        this.filteredStudents = new FilteredList<>(sortedStudents);
+    }
+
+    /**
+     * Returns an unmodifiable view of the filtered list of {@code Student} in the original order
+     */
+    public void resetFilteredStudentList() {
+        this.filteredStudents = new FilteredList<>(this.students.asUnmodifiableObservableList());
     }
 
     /**

@@ -9,8 +9,8 @@ CodeSphere is a **desktop contact management app, optimised for use via a Comman
 
 ## Table of Contents
 1. [**User Guide Tips**](#user-guide-tips)
-2. [**Quick start**](#quick-start)
-3. [**Tutorial for beginners**](#tutorial-for-beginners)
+2. [**Quick Start**](#quick-start)
+3. [**Tutorial for Beginners**](#tutorial-for-beginners)
 4. [**Features**](#features)
     1. [**Universal Commands**](#universal-commands)
         1. [`help` Viewing help](#viewing-help--help)
@@ -52,6 +52,7 @@ CodeSphere is a **desktop contact management app, optimised for use via a Comman
 4. [FAQ](#faq) answers the most common questions from our users. If you have questions for us, this section might just prove extremely useful!
 5. [Command Summary](#command-summary) provides a summarised list of our features for your easy reference.
 6. [Glossary](#glossary) explains some of the more complicated terms we used in the guide. If you do not understand some terms, this section might help!
+
 --------------------------------------------------------------------------------------------------------------------
 
 ## **Quick Start**
@@ -199,14 +200,17 @@ Commands exclusive to the course page can help you:
 Adds a student to the list of students in the selected course that the user is overseeing.
 
 Format: `add n/NAME e/EMAIL t/ENUM_TAG`
-* NAME is a string that is a valid name.
-* COURSE is a string that is a valid course in the NUS School of Computing.
+* NAME: a string that is a valid name.
 * EMAIL: string ending with @u.nus.edu.
+* ENUM_TAG: a pre-defined enumerated tag definitions GOOD, AVERAGE, POOR.
 
 Examples:
-* `add n/Susan Tan e/susantan@u.nus.edu t/GOOD`
-* `add n/Ben Koh e/benkoh@u.nus.edu t/AVERAGE`
+* `add n/Susan Tan e/e0946283@u.nus.edu t/GOOD`
+* `add n/Ben Koh e/e9739423@u.nus.edu t/AVERAGE`
 
+**Command succeeds:** Success message shown to user, student successfully added and stored in the database, change in GUI.
+
+**Command failure:** Users enter the command with incorrect formatting, resulting in an error message shown to the user and the student is not added and stored into the database.
 
 ### Editing a student : `edit` [coming soon]
 
@@ -221,12 +225,12 @@ Format: `edit INDEX [n/NAME] [c/COURSE] [e/EMAIL] [r/REMARK]...`
 * You can remove all the person’s tags by typing t/ without specifying any tags after.
 
 Examples:
-* `edit 1 c/CS1101S e/susantan@u.nus.edu` Edits the course and email address of the 1st person to be CS1101S and susantan@u.nus.edu respectively.
+* `edit 1 c/CS1101S e/e0946283@u.nus.edu` Edits the course and email address of the 1st person to be CS1101S and e0946283@u.nus.edu respectively.
 * `edit 2 n/Alex Yeoh t/` Edits the name of the 2nd person to be Alex Yeoh and clears all existing tags.
 
-Command succeeds: Success message shown to user, relevant fields of the specified student successfully updated and stored in database, change in GUI.
+**Command succeeds:** Success message shown to user, relevant fields of the specified student successfully updated and stored in database, change in GUI.
 
-Command failure: Users enter the command with incorrect formatting, resulting in an error message shown to the user and the relevant fields of the specified student are not updated.
+**Command failure:** Users enter the command with incorrect formatting, resulting in an error message shown to the user and the relevant fields of the specified student are not updated.
 
 ### Deleting a student: `delete` [coming soon]
 
@@ -241,54 +245,129 @@ Examples:
 * `delete 2` Deletes the student at index 2 of the displayed students list.
 
 
-Command succeeds:
-* Success message shown to user, the specified student is successfully deleted and removed from the database, change in GUI.
+**Command succeeds:** Success message shown to user, the specified student is successfully deleted and removed from the database, change in GUI.
 
-Command failure:
-* Users enter the command with incorrect formatting, resulting in an error message shown to the user and the specified student is not deleted and removed from the database.
+**Command failure:** Users enter the command with incorrect formatting, resulting in an error message shown to the user and the specified student is not deleted and removed from the database.
 
 ### Listing all students: `list` [coming soon]
+<<<<<<< HEAD
 
 
 ### Finding a student: `find` [coming soon]
 
 
 ### Adding a remark for a student: `remark` [coming soon]
+=======
+Shows a list of all students the user is overseeing in the selected course.
+>>>>>>> master
 
-Adds a tag to the specified student from the list of students.
+**Format:** `list`
+
+### Finding a student: `find`
+Find a student from the list of students by name.
+
+**Format:** `find [KEYWORDS]`
+* The search is case-insensitive. e.g hans will match Hans.
+* The order of the keywords does not matter. e.g. Hans Bo will match Bo Hans.
+* Only the name is searched.
+* Only full words will be matched e.g. Han will not match Hans.
+
+**Example:**
+* `find John` returns `john` and `John Doe`.
+* `find Fiona Alissa` Find the student(s) with name Fiona or Alissa, and the details of the student(s) will be displayed.
+
+**Command succeeds:** Success message shown to user, no change in the database, a change in GUI is displayed.
+
+**Command failure:** Users enter the command with incorrect formatting, resulting in an error message shown to the user and no matched course is shown.
+
+### Find a pending question: `find pq`
+List all the students with pending questions. 
+
+**Format:** `find pq`
+
+**Example:**
+* `find John` returns all students with non-empty pending questions.
+
+**Command succeeds:** Success message shown to user, no change in the database, a change in GUI is displayed.
+
+**Command failure:** Users enter the command with incorrect formatting, resulting in an error message shown to the user and no matched course is shown.
+
+
+### Adding a remark for a student: `remark`
+Adds a remark to the specified student from the list of students.
 
 Format: `remark INDEX r/REMARK`
 * Adds a remark for the student at the specified `INDEX`. The index refers to the index number shown in the displayed students list.
 * The index must be a **positive integer** 1, 2, 3, …
 
-Examples:
+**Example:**
 * `remark 2 r/needs more help` Adds a remark to the student at index 2 of the displayed students list saying needs more help.
 
-Command succeeds:
+**Command succeeds:**
 * Success message shown to user, a remark is added to the specified student and this information is updated to the database, change in GUI.
 
-Command failure:
+**Command failure:**
 * Users enter the command with incorrect formatting, resulting in an error message shown to the user and no new remark is added to the specified student.
 
+<<<<<<< HEAD
 ### Adding a pending question for a student: `pq` [coming soon]
 
 
 
 ### Removing a remark/pending question of a student: `remove` [coming soon]
+=======
+### Adding a pending question for a student: `pq`
+Adds a pending question to a specified student from the list of students of a course.
+
+**Format:** `pq INDEX pq/PENDINGQUESTION`
+* Adds a pending question for the student at the specified `INDEX`. The index refers to the index number shown in the displayed students list.
+* The index must be a **positive integer** 1, 2, 3, …
+
+**Example:**
+* `pq 2 pq/What is a logic gate?` Adds a pending question to the student at index 2 of the displayed student list asking the question “What is a logic gate?”. This indicates a requirement to follow-up with the student.
+
+**Command succeeds:**
+* Success message shown to user, a remark is added to the specified student and this information is updated to the database, change in GUI.
+
+**Command failure:**
+* Users enter the command with incorrect formatting, resulting in an error message shown to the user and no new remark is added to the specified student.
+
+### Removing a remark/pending question of a student: `remove`
+Removes a remark or pending question of a specified student from the list of students.
+
+**Format:** `remove INDEX r/ pq/`
+* Removes a pending question of the student at the specified `INDEX`. The index refers to the index number shown in the displayed students list.
+* The index must be a **positive integer** 1, 2, 3, …
+
+**Example:**
+* `remove 2 pq/` Removes a pending question of the student at index 2 of the displayed students list.
+
+**Command succeeds:** 
+* Success message shown to user, a pending question is removed from the specified student and this information is updated to the database, change in GUI.
+
+
+**Command failure:**
+* Users enter the command with incorrect formatting, resulting in an error message shown to the user and no new remark is added to the specified student.
+>>>>>>> master
 
 
 ### Returning to the home page: `home` [coming soon]
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> master
 --------------------------------------------------------------------------------------------------------------------
 ### **Miscellaneous**
 
 ### Saving the data
 
-*{to be added}*
+CodeSphere data is saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
 
 ### Editing the data file
 
-*{to be added}*
+CodeSphere data is saved automatically as a JSON file `[JAR file location]/data/codesphere.json`. Advanced users are welcome to update data directly by editing that data file.
 
 --------------------------------------------------------------------------------------------------------------------
 ## **FAQ**

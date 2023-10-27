@@ -2,13 +2,16 @@ package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
 
+import java.util.function.Predicate;
+
 import seedu.address.commons.util.ToStringBuilder;
 import seedu.address.logic.Messages;
 import seedu.address.logic.parser.StageManager;
 import seedu.address.model.Model;
 import seedu.address.model.course.Course;
-import seedu.address.model.person.NameContainsKeywordsPredicate;
+import seedu.address.model.person.Student;
 import seedu.address.model.person.UniqueStudentList;
+
 
 /**
  * Finds and lists all students in the class whose name contains any of the argument keywords.
@@ -23,9 +26,15 @@ public class FindCommand extends Command {
             + "Parameters: KEYWORD [MORE_KEYWORDS]...\n"
             + "Example: " + COMMAND_WORD + " CS";
 
-    private final NameContainsKeywordsPredicate predicate;
+    private final Predicate<Student> predicate;
+    //private final AllPendingQuestionPredicate pendingQuestionPredicate;
 
-    public FindCommand(NameContainsKeywordsPredicate predicate) {
+    /**
+     * Constructs a FindCommand with the specified predicate for filtering.
+     *
+     * @param predicate A predicate that filters entities based on their names.
+     */
+    public FindCommand(Predicate <Student> predicate) {
         this.predicate = predicate;
     }
 
@@ -35,7 +44,6 @@ public class FindCommand extends Command {
 
         StageManager stageManager = StageManager.getCurrent();
         Course course = stageManager.getCurrentCourse();
-        UniqueStudentList studentList = course.getStudentList();
 
         // TO DO UP FIND COMMAND
         course.updateFilteredStudentList(predicate);
@@ -55,6 +63,7 @@ public class FindCommand extends Command {
         }
 
         FindCommand otherFindCommand = (FindCommand) other;
+
         return predicate.equals(otherFindCommand.predicate);
     }
 

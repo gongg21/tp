@@ -35,9 +35,7 @@ public class MainWindow extends UiPart<Stage> {
     private Logic logic;
 
     // Independent Ui parts residing in this Ui container
-    private SplashPanel splashPanel;
-    private CourseListPanel courseListPanel;
-    private CombinedPanel combinedPanel;
+    private DisplayPanel displayPanel;
     private ResultDisplay resultDisplay;
     private HelpWindow helpWindow;
 
@@ -117,24 +115,10 @@ public class MainWindow extends UiPart<Stage> {
      */
     void fillInnerParts() throws InterruptedException {
 
-        loadSplashScreen();
+        displayPanel = new DisplayPanel();
+        panelPlaceholder.getChildren().add(displayPanel.getRoot());
 
-        FadeTransition fadeIn = new FadeTransition(Duration.seconds(1), panelPlaceholder);
-        fadeIn.setFromValue(0);
-        fadeIn.setToValue(1);
-
-        FadeTransition fadeOut = new FadeTransition(Duration.seconds(1), panelPlaceholder);
-        fadeOut.setFromValue(1);
-        fadeOut.setToValue(0);
-
-        fadeIn.play();
-        fadeIn.setOnFinished(fadein -> {
-            fadeOut.play();
-            fadeOut.setOnFinished(fadeout -> {
-                panelPlaceholder.setOpacity(1);
-                loadCourseListPanel();
-            });
-        });
+        displayPanel.loadStartSequence(logic.getFilteredCourseList());
 
         resultDisplay = new ResultDisplay();
         resultDisplayPlaceholder.getChildren().add(resultDisplay.getRoot());
@@ -144,26 +128,6 @@ public class MainWindow extends UiPart<Stage> {
 
         CommandBox commandBox = new CommandBox(this::executeCommand);
         commandBoxPlaceholder.getChildren().add(commandBox.getRoot());
-    }
-
-    void loadSplashScreen() {
-        panelPlaceholder.getChildren().clear();
-        splashPanel = new SplashPanel();
-        panelPlaceholder.getChildren().add(splashPanel.getRoot());
-    }
-
-    void loadCourseListPanel() {
-        panelPlaceholder.getChildren().clear();
-        courseListPanel = new CourseListPanel(logic.getFilteredCourseList());
-        panelPlaceholder.getChildren().add(courseListPanel.getRoot());
-    }
-
-    void loadCombinedPanel() {
-        panelPlaceholder.getChildren().clear();
-        combinedPanel = new CombinedPanel(logic.getFilteredCourseList(),
-                StageManager.getSelectedCourse().getFilteredStudentList());
-        panelPlaceholder.getChildren().add(combinedPanel.getRoot());
-
     }
 
     /**
@@ -199,6 +163,7 @@ public class MainWindow extends UiPart<Stage> {
      */
     @FXML
     private void handleExit() {
+        logger.info("Exiting application");
         GuiSettings guiSettings = new GuiSettings(primaryStage.getWidth(), primaryStage.getHeight(),
                 (int) primaryStage.getX(), (int) primaryStage.getY());
         logic.setGuiSettings(guiSettings);
@@ -228,10 +193,11 @@ public class MainWindow extends UiPart<Stage> {
 
             Stages current = StageManager.getStage();
             if (current == Stages.COURSE) {
-                loadCombinedPanel();
+                displayPanel.loadCombinedPanel(logic.getFilteredCourseList(),
+                        StageManager.getSelectedCourse().getFilteredStudentList());
 
             } else if (current == Stages.HOME) {
-                loadCourseListPanel();
+                displayPanel.loadCourseListPanel(logic.getFilteredCourseList());
 
             }
 

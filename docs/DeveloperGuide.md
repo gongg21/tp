@@ -74,11 +74,15 @@ The sections below give more details of each component.
 ### UI component
 
 The **API** of this component is specified in [`Ui.java`](https://github.com/AY2324S1-CS2103T-W15-4/tp/blob/master/src/main/java/seedu/address/ui/Ui.java)
-
 ![Interactions Inside the Ui Component](images/UiClassDiagram.png)
 
 The UI consists of a `MainWindow` that is made up of parts e.g.`CommandBox`, `ResultDisplay`, `CourseListPanel`, `CombinedPanel`, `StatusBarFooter` etc.
 All these, including the `MainWindow`, inherit from the abstract `UiPart` class which captures the commonalities between classes that represent parts of the visible GUI.
+
+The `MainWindow` includes a `DisplayPanel`, which has three different states it can toggle between
+1) The `SplashPanel` for the opening splash window
+2) The `CombinedPanel` that displays the student list and a course list sidebar
+3) The `CoursePanel` that displays the course list
 
 The `UI` component uses the JavaFx UI framework.
 The layout of these UI parts are defined in matching `.fxml` files that are in the `src/main/resources/view` folder.
@@ -86,8 +90,9 @@ For example, the layout of the [`MainWindow`](https://github.com/AY2324S1-CS2103
 
 The `UI` component,
 * executes user commands using the `Logic` component.
-* listens for changes to `Model` data so that the UI can be updated with the modified data.
-* keeps a reference to the `Logic` and `StageManager` component, because the `UI` relies on the `Logic` to execute commands.
+* listens for changes to `Model` data so that the `UI` can be updated with the modified data.
+* keeps a reference to the `Logic` component, because the `UI` relies on the `Logic` to execute the commands.
+* keeps a reference to the `StageManager` to update the `UI` with its corresponding display panel
 * depends on some classes in the `Model` component, as it displays `Course` and `Student` objects residing in the `Model`.
 
 ### Logic component
@@ -116,8 +121,9 @@ Here are the other classes in `Logic` (omitted from the class diagram above) tha
 <img src="images/ParserClasses.png" width="600"/>
 
 How the parsing works:
-* When called upon to parse a user command, the `CodeSphereParser` class creates an `XYZCommandParser` (`XYZ` is a placeholder for the specific command name e.g., `AddCommandParser`) which uses the other classes shown above to parse the user command and create a `XYZCommand` object (e.g., `AddCommand`) which the `WaddleParser` returns back as a `Command` object.
+* When called upon to parse a user command, the `CodeSphereParser` class creates an `XYZCommandParser` (`XYZ` is a placeholder for the specific command name e.g., `AddCommandParser`) which uses the other classes shown above to parse the user command and create a `XYZCommand` object (e.g., `AddCommand`) which the `CodeSphereParser` returns back as a `Command` object.
 * All `XYZCommandParser` classes (e.g., `AddCommandParser`, `DeleteCommandParser`, ...) inherit from the `Parser` interface so that they can be treated similarly where possible e.g, during testing.
+* All `XYZCommandParser` classes throw a ParseException if there are any errors with the arguments.
 
 ### Model component
 **API** : [`Model.java`](https://github.com/AY2324S1-CS2103T-W15-4/tp/blob/master/src/main/java/seedu/address/model/Model.java)
@@ -163,7 +169,7 @@ Given below is an example usage scenario and how the adding mechanism works. We 
 
 ### Edit a student
 `Student` objects are stored in their respective Course’s `UniqueStudentList`. The details (name, email, remark, pending question, tag) of a student in a course can be edited by changing the fields of the `Student` object.
-Given below is an example usage scenario and how the editing mechanism is carried out on a `Student` in a course. We will skip to where the `EditCommand#execute(`) method is called.
+Given below is an example usage scenario and how the editing mechanism is carried out on a `Student` in a course. We will skip to where the `EditCommand#execute()` method is called.
 
 * Step 1. The `EditCommand` object’s `execute()` method is called.
 * Step 2. The index provided is checked to be within bounds of the course’s student list. If it is not, a `CommandException` is thrown.
@@ -173,13 +179,25 @@ Given below is an example usage scenario and how the editing mechanism is carrie
 
 ### Edit a course
 A course’s course name can be edited by changing the `CourseName` field of a `Course` object.
-Given below is an example usage scenario and how the editing mechanism is carried out. As per the examples above, we will skip to where the `EditCourseCommand#execute(`) method is called.
+Given below is an example usage scenario and how the editing mechanism is carried out. As per the examples above, we will skip to where the `EditCourseCommand#execute()` method is called.
 
 * Step 1. The `EditCourseCommand` object’s `execute()` method is called.
 * Step 2. The index provided is checked to be within bounds of the course’s student list. If it is not, a `CommandException` is thrown.
 * Step 3. A new `Course` object, `editedCourse` is created with the edited course name.
 * Step 4. A check for duplicates in the model is done. If there is a duplicate, a `CommandException` is thrown.
 * Step 5. The original course is replaced with `editedCourse`.
+
+### Add a Pending Question to a Student
+After selecting a list of `Students` of the current `Course`, the targeted `Student` object is identified from the list of `Students`.
+A new `Student` object is created , and it will replace the old `Student` object in the list.
+Given below is an example usage scenario and how the adding pending question mechanism works. We will skip to where the `PendingQuestionCommand#execute()` method is called.
+
+* Step 1. The `execute()` method of the `PendingQuestionCommand` object is invoked.
+* Step 2. `StageManager` is used to retrieve the current `Course` by calling `StageManager#getCurrentCourse()`.
+* Step 3. The list of `Student` belong to the course object will be obtained by calling `Course#getFilteredStudentList()` and identify the targeted `Student` from the list.
+* Step 4. A check for index from user input will be done. If the index is invalid,  a `CommandException` will be thrown.
+* Step 5. A new `Student` object is created by passing in the `PendingQuestion` instance to the `Student` constructor.
+* Step 6. Update the newly created `Student` instance to replace the old `Student` instance.
 
 --------------------------------------------------------------------------------------------------------------------
 ## **Documentation, logging, testing, configurations, dev-ops**
@@ -216,6 +234,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* * *` | user                    | tag students based on how well they are coping | I can easily identify students who may need additional support. |
 | `* *`  | user                    | add remarks for individual students            | maintain a log of anything noteworthy.                          |
 | `* *`  | user                    | add pending question for individual students   | efficiently manage and respond to their queries.                |
+| `* *`  | user                    | see a filtered view of students for each class | efficiently manage my classes and students.                     |
+| `* *`  | user                    | sort students by their tag level               | see which students need more of my help                         |
 | `*`    | user with many students | sort students by name                          | locate a student easily.                                        |
 
 
@@ -278,25 +298,19 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **MSS**
 
-1. User chooses to add a pending question for a student.
+1. User chooses to delete a student.
 2. CodeSphere displays the student’s current information.
-3. CodeSphere prompts the user to confirm the deletion.
-4. User confirms the deletion.
-5. CodeSphere deletes the student.
+3. CodeSphere prompts the user to confirm the addition.
+4. User confirms the addition.
+5. CodeSphere adds a pending question tag to the student.
    Use Case Ends.
 
 **Extensions**
 
 * 1a. CodeSphere detects that the target student does not exist.
-    * 1a1. CodeSphere prompts the user to choose an existing student to be deleted.
-    * 1a2. User chooses an existing student to be deleted.</br>
-      Use case resumes at step 4
-
-* a. At any time, the User chooses to cancel the edit.
-    * *a1. CodeSphere requests to confirm the cancellation.
-    * *a2. User confirms the cancellation.
-      Use case ends.
-
+    * 1a1. CodeSphere prompts the user to choose an existing student to be tagged with a pending question.
+    * 1a2. User chooses an existing student to be tagged.</br>
+    Use case resumes at step 4
 
 *{More to be added}*
 
