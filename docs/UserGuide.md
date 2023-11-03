@@ -3,7 +3,8 @@ layout: page
 title: User Guide
 ---
 
-CodeSphere is a **desktop contact management app, optimised for use via a Command Line Interface (CLI)** while still having the benefits of a Graphical User Interface (GUI). It is an app targeted at connecting Year 1 Computer Science students in the NUS School of Computing.
+CodeSphere is a **desktop contact management app, optimised for use via a Command Line Interface (CLI)** while still having the benefits of a Graphical User Interface (GUI). 
+It is an app targeted at helping Teaching Assistants (TAs) of the NUS School of Computing manage the administration of their students better.
 
 --------------------------------------------------------------------------------------------------------------------
 <div style="page-break-after: always"></div>
@@ -21,16 +22,17 @@ CodeSphere is a **desktop contact management app, optimised for use via a Comman
         * [`add` Adding a new course](#adding-a-course--add)
         * [`edit` Editing the details of a course](#editing-a-course--edit)
         * [`delete` Deleting a course](#deleting-a-course--delete)
-        * [`clear` Selecting a course](#clearing-all-course--clear)
+        * [`clear` Clearing all courses](#clearing-all-courses--clear)
         * [`select` Selecting a course](#selecting-a-course--select)
     * [**Course Page Commands**](#course-page-commands)
         * [`add` Adding a student](#adding-a-student--add)
         * [`edit` Editing the details of a student](#editing-a-student--edit)
         * [`delete` Deleting a student](#deleting-a-student--delete)
-        * [`list` Listing all students](#listing-all-students--list)
-        * [`sort` Sorting all students](#sorting-all-students--sort-coming-soon)
-        * [`find` Finding a student by name](#finding-a-student--find)
-        * [`find pq` Finding students with pending questions](#find-students-with-pending-questions--find-pq)
+        * [`clear` Clearing all students](#clearing-all-students--clear)
+        * [`reset` Listing all students](#listing-all-students--reset)
+        * [`sort` Sorting all students](#sorting-all-students--sort)
+        * [`find` Finding a student](#finding-a-student--find)
+        * [`list` Finding students with pending questions](#list-all-pending-questions--list)
         * [`remark` Adding a remark for a student](#adding-a-remark-for-a-student--remark)
         * [`pq` Adding a pending question for a student](#adding-a-pending-question-for-a-student--pq)
         * [`remove` Removing a remark/pending question](#removing-a-remarkpending-question-of-a-student--remove)
@@ -38,12 +40,12 @@ CodeSphere is a **desktop contact management app, optimised for use via a Comman
     * [**Miscellaneous**](#miscellaneous)
         * [Saving the data](#saving-the-data)
         * [Editing the data file](#editing-the-data-file)
-6. [**FAQ**](#faq)
-7. [**Known Issues**](#known-issues)
-8. [**Command summary**](#command-summary)
+5. [**FAQ**](#faq)
+6. [**Known Issues**](#known-issues)
+7. [**Command summary**](#command-summary)
     * [**Home Page**](#home-page)
     * [**Course Page**](#course-page)
-9. [**Glossary**](#glossary)
+8. [**Glossary**](#glossary)
 
 --------------------------------------------------------------------------------------------------------------------
 <div style="page-break-after: always"></div>
@@ -81,15 +83,18 @@ CodeSphere is a **desktop contact management app, optimised for use via a Comman
 3. Copy the file to the folder you want to use as the _home folder_ for the CodeSphere app.
 4. Double-click the file to run the app. A GUI similar to the below should appear in a few seconds. This is the home page. Note how the app contains some sample data.
 
-   ![Ui](images/Ui.png)
+   ![Ui](images/HomePage.png)
 
 In the command box, type in any command and hit enter to execute the command! 
 Eg. typing `help` and hitting enter after will show the Help window. Some other example commands you can try:
 * `help` : View help.
-* `select 1` : Selects and goes into the 1st course in the course list.
+* `select 1` :  Selects the first course and navigates to the list of students in this course.
 * `add c/CS1101S` : Adds a course named `CS1101S` to the course list.
 * `edit 1 c/CS1231S` : Updates the first course in the course list with the edited course name.
-* `delete 3` : Deletes the third course shown in the course list.
+* `delete 3` : 
+  * If you are currently on the home page, it deletes the third course shown in the current list. 
+  * If you are currently on the course page, it deletes the third student shown in the current list.
+
 * `exit` : Exits the app.
 
 For a more detailed walk-through on how to use CodeSphere to start managing your students, head to [Tutorial for Beginners](#tutorial-for-beginners).
@@ -138,6 +143,7 @@ CodeSphere saves all inputs that you have previously entered.
 In the CLI command box, just use your 'up' and 'down' arrow keys to access any inputs that you have entered before.
 > *For your information*: Inputs that were invalid will be shown in red.
 ---
+
 ### **Universal Commands**
 Commands in CodeSphere are mostly only used exclusively on the [home page](#home-page-commands) or the [course page](#course-page-commands).
 However, commands in this section can be used on either page at any time.
@@ -219,7 +225,7 @@ Deletes the specified course from the list of courses.
 
 **Examples:** `delete 2` Deletes the course at index 2 of the displayed course list.
 
-### Clearing all course: `clear`
+### Clearing all courses: `clear`
 Clears all courses in the displayed list of courses.
 
 Format: `clear`
@@ -254,8 +260,11 @@ Commands exclusive to the course page can help you:
 * `add` new students
 * `edit` the details of existing students
 * `delete` existing students
-* `list` all existing students in the course
-* `find` an existing student in the course
+* `clear` all existing students
+* `reset` the student list back to its original state
+* `sort` students by certain fields
+* `find` students in the course
+* `list` all existing students with pending questions
 * add a `remark` to a student
 * add a pending question `pq` to a student 
 * `remove` a remark or pending question from a student
@@ -315,6 +324,11 @@ Deletes the specified student from the list of students you are overseeing in th
 
 **Command failure:** Incorrect format results in an error message shown and the student is not removed from the database.
 
+### Clearing all students: `clear`
+Clears all students in the displayed list of students in the selected course.
+
+Format: `clear`
+
 ### Listing all students: `reset`
 
 Shows a list of all students in the original state.
@@ -322,21 +336,24 @@ Shows a list of all students in the original state.
 **Format:** `reset`
 * Used to reset the student list back to the original state after filtering or sorting.
 
-### Sorting all students: `sort` [coming soon]
+### Sorting all students: `sort`
 Sorts the list of  students you are overseeing in the selected course by name or by tag.
 
-### Finding a student: `find`
-Find a student **by name** from the list of students you are overseeing in the selected course.
+**Format**: `sort`
 
-**Format:** `find [KEYWORDS]`
+### Finding a student: `find`
+Find a student **by a certain field** from the list of students you are overseeing in the selected course.
+
+**Format:** `find [n/KEYWORD] [t/TAG] [pq/QUESTION] [r/REMARK]`
 * The search is case-insensitive. e.g hans will match Hans.
+* Only ONE prefix can be specified each time you use the command.
+* The search is dependent on the prefix.
 * The order of the keywords does not matter. e.g. Hans Bo will match Bo Hans.
-* Only the name is searched.
 * Only full words will be matched e.g. Han will not match Hans.
 
 **Example:**
-* `find John` returns `john` and `John Doe`.
-* `find Fiona Alissa` Find the student(s) with name Fiona or Alissa, and the details of the student(s) will be displayed.
+* `find n/John` returns `john` and `John Doe`.
+* `find t/good` Find the student(s) tagged as `GOOD`, and the details of the student(s) will be displayed.
 
 ### List all pending questions: `list`
 List all the students with non-empty pending question fields.
@@ -460,9 +477,11 @@ the GUI will open off-screen. The remedy is to delete the preferences.json file 
 | **Add Student**                        | `add n/NAME e/EMAIL t/ENUM_TAG`<br/>e.g. `add n/Susan Tan e/e0123456@u.nus.edu t/GOOD` |
 | **Edit Student**                       | `edit INDEX [n/NAME] [e/EMAIL] [t/ENUM_TAG]`<br/> e.g. `edit 1 n/JOHN`                 |
 | **Delete Student**                     | `delete INDEX` e.g. `delete 1`                                                         |
-| **List Student**                       | `list`                                                                                 |                              
-| **Sort Students**<br/>[coming soon]    | `sort`                                                                                 |
-| **Find Student**                       | `find KEYWORDS` e.g. `find John`                                                       |
+| **Clear All Students**                 | `clear`                                                                                |
+| **Reset Student List**                 | `reset`                                                                                |
+| **Sort Students**                      | `sort`                                                                                 |                                                                                        |
+| **Find Students**                      | `find KEYWORDS` e.g. `find John`                                                       |
+| **List Students**                      | `list`                                                                                 |                              
 | **Add Remark**                         | `remark INDEX r/REMARK`<br/>e.g. `remark 1 r/needs more help`                          |                              
 | **Add Pending Question**               | `pq INDEX r/PENDINGQUESTION`<br/>e.g. `pq 1 pq/What is a logic gate?`                  |
 | **Remove Remark/<br>Pending Question** | `remove INDEX [r/] [pq/]` e.g. `remove 2 r/`                                           |
@@ -476,7 +495,24 @@ the GUI will open off-screen. The remedy is to delete the preferences.json file 
 
 ## **Glossary**
 
-*{to be added}*
+
+| Term/Keyword                           | Definition                                                                                                 |
+|----------------------------------------|------------------------------------------------------------------------------------------------------------|
+| **Command Line Interface (CLI)**       | An interface that allows you to interact with our program by inputting lines of text called command-lines. |                              
+| **Add Student**                        | `add n/NAME e/EMAIL t/ENUM_TAG`<br/>e.g. `add n/Susan Tan e/e0123456@u.nus.edu t/GOOD`                     |
+| **Edit Student**                       | `edit INDEX [n/NAME] [e/EMAIL] [t/ENUM_TAG]`<br/> e.g. `edit 1 n/JOHN`                                     |
+| **Delete Student**                     | `delete INDEX` e.g. `delete 1`                                                                             |
+| **Clear All Students**                 | `clear`                                                                                                    |
+| **Reset Student List**                 | `reset`                                                                                                    |
+| **Sort Students**                      | `sort`                                                                                                     |                                                                                        |
+| **Find Students**                      | `find KEYWORDS` e.g. `find John`                                                                           |
+| **List Students**                      | `list`                                                                                                     |                              
+| **Add Remark**                         | `remark INDEX r/REMARK`<br/>e.g. `remark 1 r/needs more help`                                              |                              
+| **Add Pending Question**               | `pq INDEX r/PENDINGQUESTION`<br/>e.g. `pq 1 pq/What is a logic gate?`                                      |
+| **Remove Remark/<br>Pending Question** | `remove INDEX [r/] [pq/]` e.g. `remove 2 r/`                                                               |
+| **Home**                               | `home`                                                                                                     |
+| **Exit**                               | `exit`                                                                                                     |
+
 
 [_Back to Top_](#table-of-contents)
 
