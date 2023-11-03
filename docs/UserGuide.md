@@ -29,7 +29,7 @@ It is an app targeted at helping Teaching Assistants (TAs) of the NUS School of 
         * [`edit` Editing the details of a student](#editing-a-student--edit)
         * [`delete` Deleting a student](#deleting-a-student--delete)
         * [`clear` Clearing all students](#clearing-all-students--clear)
-        * [`reset` Listing all students](#listing-all-students--reset)
+        * [`reset` Resetting student list to its original state](#resetting-student-list-to-its-original-state--reset)
         * [`sort` Sorting all students](#sorting-all-students--sort)
         * [`find` Finding a student](#finding-a-student--find)
         * [`list` Finding students with pending questions](#list-all-pending-questions--list)
@@ -327,14 +327,13 @@ Deletes the specified student from the list of students you are overseeing in th
 ### Clearing all students: `clear`
 Clears all students in the displayed list of students in the selected course.
 
-Format: `clear`
+**Format:** `clear`
 
-### Listing all students: `reset`
+### Resetting student list to its original state: `reset`
 
-Shows a list of all students in the original state.
+Shows a list of all students in the original state after filtering or sorting.
 
 **Format:** `reset`
-* Used to reset the student list back to the original state after filtering or sorting.
 
 ### Sorting all students: `sort`
 Sorts the list of  students you are overseeing in the selected course by name or by tag.
