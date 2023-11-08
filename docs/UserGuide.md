@@ -115,7 +115,7 @@ feel free to skip this tutorial or jump to whichever portion you require.*
 2. [**Adding students**](#tutorial-adding-students)
 3. [**Adding remarks / pending questions**](#tutorial-adding-remarks--pending-questions)
 
-**Let's explore CodeSphere's features through the eyes of a typical TA.** 
+**Let's explore CodeSphere's features through the eyes of a typical TA.**
 As you enter into the application for the first time, after a brief splash screen of the CodeSphere logo,
 you will see an empty page. This is our `home` page, used to display a list of all the courses that you wish to manage.
 

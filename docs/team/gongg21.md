@@ -13,8 +13,8 @@ Given below are my contributions to the project.
 
 * **New Feature**: AddCourse Command
     * What it does: allows users to add a new course to the home page.
-    * Justification: our app is intended for target users, Teaching Assistants, to be able to better manage the classes that they teach. Hence, there is a need for users to add the courses they teach into the app. 
-    * Highlights: this enhancement affected the existing Model and Storage components. Implementation required clear understanding of the synergy between components and thus changes accordingly. 
+    * Justification: our app is intended for target users, Teaching Assistants, to be able to better manage the classes that they teach. Hence, there is a need for users to add the courses they teach into the app.
+    * Highlights: this enhancement affected the existing Model and Storage components. Implementation required clear understanding of the synergy between components and thus changes accordingly.
 
 * **New Feature**: EditCourse Command
   * What it does: allows users to edit an existing course on the home page.

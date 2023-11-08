@@ -3,7 +3,7 @@
 
 ![Ui](docs/images/Ui.png)
 
-##  CodeSphere
+## CodeSphere
 CodeSphere is a desktop contact management app, optimised for use via a Command Line Interface (CLI)
 while still having the benefits of a Graphical User Interface (GUI).
 It is an app targeted at enabling Teaching Assistants in NUS School of Computing to better manage their students.

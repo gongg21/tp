@@ -26,9 +26,9 @@ Given below are my contributions to the project.
 
 * **Documentation**:
     * User Guide:
-        * To be added soon.
+      * To be added soon.
     * Developer Guide:
-        * To be added soon.
+      * To be added soon.
 
 * **Community**:
     * To be added soon.
