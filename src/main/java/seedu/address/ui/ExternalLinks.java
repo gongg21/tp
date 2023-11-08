@@ -1,5 +1,8 @@
 package seedu.address.ui;
 
+/**
+ * Class containing relevant external links.
+ */
 public class ExternalLinks {
     public static final String USERGUIDE_URL = "https://ay2324s1-cs2103t-w15-4.github.io/tp/UserGuide.html";
     public static final String DEVELOPERGUIDE_URL = "https://ay2324s1-cs2103t-w15-4.github.io/tp/DeveloperGuide.html";

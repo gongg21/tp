@@ -1,16 +1,13 @@
 package seedu.address.logic.parser;
 
 import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import static seedu.address.logic.parser.CliSyntax.*;
-
-import seedu.address.logic.commands.FindCommand;
-import seedu.address.logic.commands.HomeCommand;
-import seedu.address.logic.commands.ListPendingQuestionsCommand;
-import seedu.address.logic.commands.SortCommand;
-import seedu.address.logic.parser.exceptions.ParseException;
-import seedu.address.model.person.predicates.AllPendingQuestionPredicate;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_PENDING_QUESTION;
 
 import java.util.stream.Stream;
+
+import seedu.address.logic.commands.ListPendingQuestionsCommand;
+import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.person.predicates.AllPendingQuestionPredicate;
 
 /**
  * Parses input arguments and creates a new ListPendingQuestionsCommand object

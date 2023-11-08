@@ -1,10 +1,13 @@
 package seedu.address.logic.parser;
 
-import seedu.address.logic.commands.*;
-import seedu.address.logic.parser.exceptions.ParseException;
-
 import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 
+import seedu.address.logic.commands.ClearCourseCommand;
+import seedu.address.logic.parser.exceptions.ParseException;
+
+/**
+ * Parses input arguments and creates a new ClearCourseCommand object
+ */
 public class ClearCourseCommandParser implements Parser<ClearCourseCommand> {
     /**
      * Parses the given {@code String} of arguments in the context of the ClearCourseCommand

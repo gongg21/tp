@@ -1,7 +1,6 @@
 package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
-import static seedu.address.logic.commands.DeleteCommand.MESSAGE_DELETE_STUDENT_SUCCESS;
 
 import java.util.List;
 

@@ -1,15 +1,21 @@
 package seedu.address.storage;
 
-import javafx.util.Pair;
-
 import java.util.ArrayList;
 
+import javafx.util.Pair;
+
+/**
+ * Represents a storage for the history of user inputs.
+ */
 public class InputHistory implements InputStorage {
 
     private static final Pair<Boolean, String> EMPTY_PAIR = new Pair<>(true, "");
     private final ArrayList<Pair<Boolean, String>> inputs;
     private int inputPointer;
 
+    /**
+     * Constructs an InputHistory object.
+     */
     public InputHistory() {
         inputs = new ArrayList<>();
         inputPointer = -1;

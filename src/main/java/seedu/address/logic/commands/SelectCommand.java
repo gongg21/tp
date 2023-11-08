@@ -50,7 +50,8 @@ public class SelectCommand extends Command {
         }
 
         new ResetCourseCommand().execute(model);
-        return new CommandResult(String.format(MESSAGE_SELECT_SUCCESS, selectedCourse.getCourseName()), Stages.SELECTED_COURSE);
+        return new CommandResult(String.format(MESSAGE_SELECT_SUCCESS, selectedCourse.getCourseName()),
+                Stages.SELECTED_COURSE);
     }
 
     @Override

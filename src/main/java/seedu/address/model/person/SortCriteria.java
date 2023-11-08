@@ -11,10 +11,6 @@ public class SortCriteria {
     private final Field field;
 
     /**
-     * Enumeration representing the criteria that can be used to sort a StudentList.
-     */
-
-    /**
      * Constructs a SortCriteria object with the specified field.
      *
      * @param field The sort criteria field (NAME or TAG).

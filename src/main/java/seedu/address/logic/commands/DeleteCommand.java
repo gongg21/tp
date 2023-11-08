@@ -1,6 +1,7 @@
 package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
+import java.util.List;
 
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.ToStringBuilder;
@@ -10,9 +11,6 @@ import seedu.address.logic.parser.StageManager;
 import seedu.address.model.Model;
 import seedu.address.model.course.Course;
 import seedu.address.model.person.Student;
-
-
-import java.util.List;
 
 /**
  * Deletes a student identified using it's displayed index from the student list.

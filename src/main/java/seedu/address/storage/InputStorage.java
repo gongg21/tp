@@ -8,7 +8,7 @@ import javafx.util.Pair;
 public interface InputStorage {
 
     /**
-     * Returns the user input that the current pointer is pointing to as a Pair<Boolean, String>.
+     * Returns the user input that the current pointer is pointing to as a Pair object.
      */
     Pair<Boolean, String> getInput();
 

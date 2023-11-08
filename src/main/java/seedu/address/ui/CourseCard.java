@@ -2,8 +2,9 @@ package seedu.address.ui;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.Region;
 import seedu.address.model.course.Course;
 
 
@@ -33,7 +34,7 @@ public class CourseCard extends UiPart<Region> {
     @FXML
     private Label id;
     @FXML
-    private Pane coursePQPane;
+    private Pane coursePqPane;
 
     /**
      * Creates a {@code StudentCode} with the given {@code Student} and index to display.
@@ -52,7 +53,7 @@ public class CourseCard extends UiPart<Region> {
         classSize.setText("Students: " + course.getCourseSize());
         pqCount.setText("Pending Questions: " + course.getPendingQuestionCount());
         if (course.getPendingQuestionCount() == 0) {
-            coursePQPane.setOpacity(0.3);
+            coursePqPane.setOpacity(0.3);
         }
         goodTagCount.setText(Integer.toString(course.getGoodTagCount()));
         averageTagCount.setText(Integer.toString(course.getAverageTagCount()));
