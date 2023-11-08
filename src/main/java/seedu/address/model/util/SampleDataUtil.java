@@ -58,7 +58,8 @@ public class SampleDataUtil {
 
     public static ReadOnlyCourseList getSampleCourseList() {
         CourseList sampleCl = new CourseList();
-        for (Course sampleCourse : getSampleCourses()) {
+        Course[] sampleCourses = getSampleCourses();
+        for (Course sampleCourse : sampleCourses) {
             sampleCl.addCourse(sampleCourse);
         }
         return sampleCl;

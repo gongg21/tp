@@ -10,13 +10,13 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
 public class Name {
 
     public static final String MESSAGE_CONSTRAINTS =
-            "Names should only contain alphabets and special characters (- / ' ,).";
+            "Name must begin with a letter, and can only contain alphabet and these special characters (- / ' ,).";
 
     /*
-     * The first character of the address must not be a whitespace,
+     * The first character of the address must be an alphanumeric character,
      * otherwise " " (a blank string) becomes a valid input.
      */
-    public static final String VALIDATION_REGEX = "[A-Za-z \\-,'/]+";
+    public static final String VALIDATION_REGEX = "([A-Za-z]+)([A-Za-z\\-,'/ ]*)";
 
     public final String fullName;
 

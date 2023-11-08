@@ -53,6 +53,9 @@ public class CommandTestUtil {
     public static final String EMAIL_DESC_AMY = " " + PREFIX_EMAIL + VALID_EMAIL_AMY;
     public static final String EMAIL_DESC_BOB = " " + PREFIX_EMAIL + VALID_EMAIL_BOB;
 
+    public static final String REMARK_DESC_AMY = " " + PREFIX_REMARK + VALID_REMARK_AMY;
+    public static final String REMARK_DESC_BOB = " " + PREFIX_REMARK + VALID_REMARK_BOB;
+
     public static final String TAG_DESC_AVERAGE = " " + PREFIX_TAG + VALID_TAG_AVERAGE;
     public static final String TAG_DESC_GOOD = " " + PREFIX_TAG + VALID_TAG_GOOD;
     public static final String TAG_DESC_POOR = " " + PREFIX_TAG + VALID_TAG_POOR;

@@ -26,16 +26,18 @@ public class NameTest {
 
         // invalid name
         assertFalse(Name.isValidName("")); // empty string
+        assertFalse(Name.isValidName("12345")); // numbers only
+        assertFalse(Name.isValidName("^")); // only non-approved characters
+        assertFalse(Name.isValidName("-/")); // only approved characters without alphabet
+        assertFalse(Name.isValidName("peter*")); // contains non-approved characters
         assertFalse(Name.isValidName(" ")); // spaces only
-        assertFalse(Name.isValidName("^")); // only non-alphanumeric characters
-        assertFalse(Name.isValidName("peter*")); // contains non-alphanumeric characters
+        assertFalse(Name.isValidName("peter the 2nd")); // contains numbers
 
         // valid name
         assertTrue(Name.isValidName("peter jack")); // alphabets only
-        assertTrue(Name.isValidName("12345")); // numbers only
-        assertTrue(Name.isValidName("peter the 2nd")); // alphanumeric characters
         assertTrue(Name.isValidName("Capital Tan")); // with capital letters
-        assertTrue(Name.isValidName("David Roger Jackson Ray Jr 2nd")); // long names
+        assertTrue(Name.isValidName("Sean O'Brian Jack-Daniel")); // with approved symbols
+        assertTrue(Name.isValidName("David Roger Jackson Ray Jr the Second s/o Somebody Else")); // long names
     }
 
     @Test
@@ -44,6 +46,9 @@ public class NameTest {
 
         // same values -> returns true
         assertTrue(name.equals(new Name("Valid Name")));
+
+        // same values different capitalisation -> returns false
+        assertFalse(name.equals(new Name("valid name")));
 
         // same object -> returns true
         assertTrue(name.equals(name));
