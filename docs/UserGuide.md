@@ -16,8 +16,8 @@ It is an app targeted at helping Teaching Assistants (TAs) of the NUS School of 
 4. [**Features**](#features)
     * [**Accessing Input History**](#accessing-input-history)
     * [**Universal Commands**](#universal-commands)
-         * [`help` Viewing help](#viewing-help--help)
-         * [`exit` Exiting the program](#exiting-the-program--exit)
+        * [`help` Viewing help](#viewing-help--help)
+        * [`exit` Exiting the program](#exiting-the-program--exit)
     * [**Home Page Commands**](#home-page-commands)
         * [`add` Adding a new course](#adding-a-course--add)
         * [`edit` Editing the details of a course](#editing-a-course--edit)
@@ -25,12 +25,13 @@ It is an app targeted at helping Teaching Assistants (TAs) of the NUS School of 
         * [`clear` Clearing all courses](#clearing-all-courses-clear)
         * [`select` Selecting a course](#selecting-a-course-select)
         * [`find` Finding a course](#finding-a-student-find)
+        * [`reset` Resetting the course list](#resetting-the-course-list--reset)
     * [**Course Page Commands**](#course-page-commands)
         * [`add` Adding a student](#adding-a-student--add)
         * [`edit` Editing the details of a student](#editing-a-student--edit)
         * [`delete` Deleting a student](#deleting-a-student-delete)
         * [`clear` Clearing all students](#clearing-all-students-clear)
-        * [`reset` Resetting student list to its original state](#resetting-student-list-to-its-original-state-reset)
+        * [`reset` Resetting student list to its original state](#resetting-student-list-reset)
         * [`sort` Sorting all students](#sorting-all-students-sort)
         * [`find` Finding a student and keywords for each student](#finding-a-student-find)
         * [`list` Finding students with pending questions](#list-all-pending-questions-list)
@@ -93,8 +94,8 @@ Eg. typing `help` and hitting enter after will show the Help window. Some other 
 * `add c/CS1101S` : Adds a course named `CS1101S` to the course list.
 * `edit 1 c/CS1231S` : Updates the first course in the course list with the edited course name.
 * `delete 3` :
-  * If you are currently on the home page, it deletes the third course shown in the current list.
-  * If you are currently on the course page, it deletes the third student shown in the current list.
+    * If you are currently on the home page, it deletes the third course shown in the current list.
+    * If you are currently on the course page, it deletes the third student shown in the current list.
 
 * `exit` : Exits the app.
 
@@ -202,16 +203,16 @@ so have fun and may your administrative work be effortless!
 **:information_source: Notes about the command format:**<br>
 
 * Words in `UPPER_CASE` are the parameters to be supplied by the user.<br>
-  * e.g. in `add n/NAME`, `NAME` is a parameter which can be used as `add n/John Doe`.
+    * e.g. in `add n/NAME`, `NAME` is a parameter which can be used as `add n/John Doe`.
 
 * Items in square brackets are optional.<br>
-  * e.g `n/NAME [t/TAG]` can be used as `n/John Doe t/GOOD` or as `n/John Doe`.
+    * e.g `n/NAME [t/TAG]` can be used as `n/John Doe t/GOOD` or as `n/John Doe`.
 
 * Items with `…` after them can be used multiple times including zero times.<br>
-  * e.g. `[t/TAG]…` can be used as ` ` (i.e. 0 times), `t/GOOD`, `t/GOOD t/AVERAGE` etc.
+    * e.g. `[t/TAG]…` can be used as ` ` (i.e. 0 times), `t/GOOD`, `t/GOOD t/AVERAGE` etc.
 
 * Extraneous parameters for commands that do not take in parameters (such as `help`, `list`, `exit` and `clear`) will be ignored.<br>
-  * e.g. if the command specifies `help 123`, it will be interpreted as `help`.
+    * e.g. if the command specifies `help 123`, it will be interpreted as `help`.
 
 </div>
 
@@ -261,6 +262,7 @@ Commands exclusive to the home page can help you:
 * `delete` existing courses
 * `clear` all existing courses
 * `find` finding a course
+* `reset` resetting the course list to original state
 
 
 The `select` command brings you to the Course page of the selected course.
@@ -331,6 +333,9 @@ Selects the specified course from the list of courses.
 
 **Command failure:** Incorrect format/index results in an error message shown and the course is not selected.
 
+### Finding a course: `find`
+Find a course **given a keyword** from the list of courses you are teaching.
+
 **Format:** `find KEYWORD`
 * The search is case-insensitive. e.g `cs` will match any course name with `CS` containted.
 * As long as the keyword is containted the course name, the course will be filtered out and displayed.
@@ -340,6 +345,11 @@ Selects the specified course from the list of courses.
 **Command succeeds:** Success message shown, courses successfully filtered, resulting in a change in GUI.
 
 **Command failure:** Incorrect format results in an error message shown and the course is not filtered.
+
+### Resetting the course list: `reset`
+Shows a list of all courses in the original state after filtering.
+
+**Format:** `reset`
 
 [_Back to Top_](#table-of-contents)
 
@@ -391,16 +401,18 @@ Adds a student to the list of students in the selected course that the user is o
 
 Edits an existing student that the user is currently overseeing.
 
-**Format:** `edit INDEX [n/NAME] [e/EMAIL] [r/REMARK]...`
+**Format:** `edit INDEX [n/NAME] [e/EMAIL] [r/REMARK] [pq/PENDING_QUESTION]`
 * Edits the person at the specified `INDEX`. The index refers to the index number shown in the displayed students list.
 * The index must be a positive integer (1, 2, 3, …​), and it should fall within the range of students currently displayed such that it corresponds to a valid student.
 * Optional fields are indicated by square brackets [ ], but at least one of the optional fields must be provided.
 * Existing values will be updated to the input values.
-* When editing tags, the existing tags of the person will be removed i.e adding of tags is not cumulative.
+* When editing tags/remarks/pending questions, the respective existing fields of the person will be removed i.e adding of tags/remarks/pending questions is not cumulative.
 
 **Examples:**
 * `edit 1 t/good` Edits the tag of the first student in the displayed student list to be GOOD.
 * `edit 2 n/Alex Yeoh t/average` Edits the name of the second student to be Alex Yeoh and changes the tag to AVERAGE.
+* `edit 3 r/participative` Edits the remark of the third student to be "participative".
+* `edit 4 pq/what is a logic gate?` Edits the pending question field of the fourth student to be "what is a logic gate?".
 
 **Command succeeds:** Success message shown, student successfully edited and updated in database, change in GUI.
 
@@ -426,14 +438,13 @@ Clears all students in the displayed list of students in the selected course.
 
 **Format:** `clear`
 
-### Resetting student list to its original state: `reset`
-
+### Resetting student list: `reset`
 Shows a list of all students in the original state after filtering or sorting.
 
 **Format:** `reset`
 
 ### Sorting all students: `sort`
-Sorts the list of  students you are overseeing in the selected course by name or by tag.
+Sorts the list of students you are overseeing in the selected course **by name or by tag**.
 
 **Format**: `sort`
 
@@ -539,7 +550,7 @@ A: Install the app in the other computer and overwrite the empty data file it cr
 ## **Known Issues**
 
 1. When using multiple screens, if you move the application to a secondary screen, and later switch to using only the primary screen,
-the GUI will open off-screen. The remedy is to delete the preferences.json file created by the application before running the application again.
+   the GUI will open off-screen. The remedy is to delete the preferences.json file created by the application before running the application again.
 
 [_Back to Top_](#table-of-contents)
 
@@ -597,6 +608,3 @@ the GUI will open off-screen. The remedy is to delete the preferences.json file 
 
 
 [_Back to Top_](#table-of-contents)
-
-
-
