@@ -606,7 +606,7 @@ A: Install the app in the other computer and overwrite the empty data file it cr
 | Term/Keyword                       | Definition                                                                                                 |
 |------------------------------------|------------------------------------------------------------------------------------------------------------|
 | **Command Line Interface (CLI)**   | An interface that allows you to interact with our program by inputting lines of text called command-lines. |
-| **Graphical User Interface (GUI)** | An interface that displays information to you and allows you to interact with visual elements.             |                                                                                                            |
+| **Graphical User Interface (GUI)** | An interface that displays information to you and allows you to interact with visual elements.             |
 
 
 [_Back to Top_](#table-of-contents)
