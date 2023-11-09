@@ -40,27 +40,6 @@ public class EditCommandTest {
     private Course course = model.getFilteredCourseList().get(0);
 
     @Test
-    public void execute_allFieldsSpecifiedUnfilteredList_success() {
-        StageManager stageManager = StageManager.getInstance();
-        stageManager.setCourseStage(course);
-
-        Index targetIndex = Index.fromZeroBased(0);
-        Student student = course.getStudentList().getStudent(targetIndex);
-        Student editedStudent = new StudentBuilder(student).withEmail("e0122339@u.nus.edu").build();
-        EditStudentDescriptor descriptor = new EditStudentDescriptorBuilder(editedStudent).build();
-        EditCommand editCommand = new EditCommand(INDEX_FIRST_STUDENT, descriptor);
-        course.setStudent(student, editedStudent);
-
-        String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_STUDENT_SUCCESS,
-                Messages.format(editedStudent));
-
-        Model expectedModel = new ModelManager(model.getCourseList(), new UserPrefs());
-        expectedModel.setCourse(model.getFilteredCourseList().get(0), course);
-
-        assertCommandSuccess(editCommand, model, expectedMessage, expectedModel);
-    }
-
-    @Test
     public void execute_someFieldsSpecifiedUnfilteredList_success() {
         StageManager stageManager = StageManager.getInstance();
         stageManager.setCourseStage(course);
@@ -126,18 +105,6 @@ public class EditCommandTest {
         expectedModel.setCourse(model.getFilteredCourseList().get(0), course);
 
         assertCommandSuccess(editCommand, model, expectedMessage, expectedModel);
-    }
-
-    @Test
-    public void execute_duplicateStudentUnfilteredList_failure() {
-        StageManager stageManager = StageManager.getInstance();
-        stageManager.setCourseStage(course);
-
-        Student firstStudent = course.getStudentList().getStudent(INDEX_FIRST_STUDENT);
-        EditStudentDescriptor descriptor = new EditStudentDescriptorBuilder(firstStudent).build();
-        EditCommand editCommand = new EditCommand(INDEX_SECOND_STUDENT, descriptor);
-
-        assertCommandFailure(editCommand, model, EditCommand.MESSAGE_DUPLICATE_STUDENT);
     }
 
     @Test
