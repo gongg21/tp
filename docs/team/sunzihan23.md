@@ -25,7 +25,7 @@ Given below are my contributions to the project.
 * **Enhancements to existing features**:
   * Adapted AB3's original add person command to be used in CodeSphere as the command to add a student into a course (PR [\#65]()).
   * Added summary statistics for each course in the course list to show the total number of students in that course, the number of students with non-empty pending question fields, and the number of students who are tagged as GOOD, AVERAGE and POOR. (PR [\#94](), [\#135]()).
-  * Added new tests and modified existing tests (PR [\#241](), [\#253](), [\#256](), [\#260](), [\#261](), [\#262]()). 
+  * Added new tests and modified existing tests (PR [\#241](), [\#253](), [\#256](), [\#260](), [\#261](), [\#262]()).
 
 * **Code contributed**: [RepoSense link](https://nus-cs2103-ay2324s1.github.io/tp-dashboard/?search=sunzihan23&breakdown=true)
 

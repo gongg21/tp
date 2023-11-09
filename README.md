@@ -11,10 +11,7 @@ It is an app targeted at enabling Teaching Assistants in NUS School of Computing
 This project is based on the AddressBook-Level3 project created by the [SE-EDU initiative](https://se-education.org).
 
 ### Project Links
-[Project Website](https://ay2324s1-cs2103t-w15-4.github.io/tp/)  
-[User Guide](https://ay2324s1-cs2103t-w15-4.github.io/tp/UserGuide.html)  
-[Developer Guide](https://ay2324s1-cs2103t-w15-4.github.io/tp/DeveloperGuide.html)  
+[Project Website](https://ay2324s1-cs2103t-w15-4.github.io/tp/)
+[User Guide](https://ay2324s1-cs2103t-w15-4.github.io/tp/UserGuide.html)
+[Developer Guide](https://ay2324s1-cs2103t-w15-4.github.io/tp/DeveloperGuide.html)
 [About Us](https://ay2324s1-cs2103t-w15-4.github.io/tp/AboutUs.html)
-
-
-
