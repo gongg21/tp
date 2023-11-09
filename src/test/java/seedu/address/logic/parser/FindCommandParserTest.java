@@ -29,7 +29,7 @@ import seedu.address.model.person.predicates.*;
 public class FindCommandParserTest {
 
     private FindCommandParser parser = new FindCommandParser();
-    
+
     @Test
     public void parse_emptyArg_throwsParseException() {
         assertParseFailure(parser, "     ", String.format(MESSAGE_INVALID_COMMAND_FORMAT, FindCommand.MESSAGE_USAGE));
@@ -103,7 +103,7 @@ public class FindCommandParserTest {
         // multiple tags
         assertParseFailure(parser, TAG_DESC_AVERAGE + TAG_DESC_AVERAGE,
                 Messages.getErrorMessageForDuplicatePrefixes(PREFIX_TAG));
-        
+
         assertParseFailure(parser, EMAIL_DESC_AMY + EMAIL_DESC_BOB,
                 Messages.getErrorMessageForDuplicatePrefixes(PREFIX_EMAIL));
     }
