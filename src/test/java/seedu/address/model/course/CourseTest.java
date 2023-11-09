@@ -10,6 +10,7 @@ import static seedu.address.testutil.TypicalCourses.CS2100;
 import static seedu.address.testutil.TypicalCourses.CS2103T;
 
 import org.junit.jupiter.api.Test;
+
 import seedu.address.testutil.CourseBuilder;
 import seedu.address.testutil.TypicalStudents;
 

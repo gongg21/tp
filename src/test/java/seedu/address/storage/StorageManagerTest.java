@@ -6,16 +6,15 @@ import static seedu.address.testutil.TypicalCourses.getTypicalCourseList;
 
 import java.nio.file.Path;
 
-import javafx.util.Pair;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 
+import javafx.util.Pair;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.model.CourseList;
 import seedu.address.model.ReadOnlyCourseList;
 import seedu.address.model.UserPrefs;
-
 
 public class StorageManagerTest {
 

@@ -22,7 +22,7 @@ public class SortCommandParserTest {
     }
 
     @Test
-    public void parse_validArgsSortByTag_success () {
+    public void parse_validArgsSortByTag_success() {
         String userInput = " " + PREFIX_SORT + "tag";
         SortCommand expectedCommand = new SortCommand(new SortCriteria(Field.TAG));
         assertParseSuccess(parser, userInput, expectedCommand);

@@ -49,6 +49,9 @@ public class CourseBuilder {
         return this;
     }
 
+    /**
+     * Sets the {@code UniqueStudentList} of the {@code Course} that we are building.
+     */
     public CourseBuilder withStudents(StudentList studentList) {
         for (Student student : studentList.getStudentList()) {
             this.students.add(student);
@@ -56,6 +59,9 @@ public class CourseBuilder {
         return this;
     }
 
+    /**
+     * Builds a {@code Course} with the given courseName and students (if present).
+     */
     public Course build() {
         Course course = new Course(courseName);
         if (students != null) {

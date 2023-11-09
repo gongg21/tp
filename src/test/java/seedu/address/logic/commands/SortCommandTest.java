@@ -12,12 +12,12 @@ import org.junit.jupiter.api.Test;
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.logic.Messages;
 import seedu.address.logic.parser.ParserUtil;
+import seedu.address.logic.parser.StageManager;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
 import seedu.address.model.course.Course;
 import seedu.address.model.person.Field;
-import seedu.address.logic.parser.StageManager;
 import seedu.address.model.person.SortCriteria;
 import seedu.address.testutil.SortCriteriaBuilder;
 

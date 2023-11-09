@@ -1,8 +1,11 @@
 package seedu.address.testutil;
 
-import seedu.address.model.person.SortCriteria;
 import seedu.address.model.person.Field;
+import seedu.address.model.person.SortCriteria;
 
+/**
+ * A utility class to help with building SortCriteria objects.
+ */
 public class SortCriteriaBuilder {
 
     private Field sortField;

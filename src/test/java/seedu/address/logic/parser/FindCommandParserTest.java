@@ -24,7 +24,11 @@ import org.junit.jupiter.api.Test;
 
 import seedu.address.logic.Messages;
 import seedu.address.logic.commands.FindCommand;
-import seedu.address.model.person.predicates.*;
+import seedu.address.model.person.predicates.EmailContainsKeywordsPredicate;
+import seedu.address.model.person.predicates.NameContainsKeywordsPredicate;
+import seedu.address.model.person.predicates.PqContainsKeywordsPredicate;
+import seedu.address.model.person.predicates.RemarkContainsKeywordsPredicate;
+import seedu.address.model.person.predicates.TagFilterPredicate;
 
 public class FindCommandParserTest {
 

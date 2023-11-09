@@ -1,13 +1,13 @@
 package seedu.address.testutil;
 
+import static seedu.address.testutil.TypicalStudents.getTypicalStudentList;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import seedu.address.model.CourseList;
 import seedu.address.model.course.Course;
-
-import static seedu.address.testutil.TypicalStudents.getTypicalStudentList;
 
 /**
  * A utility class containing a list of {@code Course} objects to be used in tests.

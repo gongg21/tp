@@ -2,8 +2,9 @@ package seedu.address.storage;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import javafx.util.Pair;
 import org.junit.jupiter.api.Test;
+
+import javafx.util.Pair;
 
 public class InputHistoryTest {
 

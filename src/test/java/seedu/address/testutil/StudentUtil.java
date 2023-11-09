@@ -43,7 +43,8 @@ public class StudentUtil {
         descriptor.getEmail().ifPresent(email -> sb.append(PREFIX_EMAIL).append(email.value).append(" "));
         descriptor.getTag().ifPresent(tag -> sb.append(PREFIX_TAG).append(tag.getRanking()).append(" "));
         descriptor.getRemark().ifPresent(remark -> sb.append(PREFIX_REMARK).append(remark.value).append(" "));
-        descriptor.getPendingQuestion().ifPresent(pendingQuestion -> sb.append(PREFIX_PENDING_QUESTION).append(pendingQuestion.value).append(" "));
+        descriptor.getPendingQuestion().ifPresent(pendingQuestion -> sb.append(PREFIX_PENDING_QUESTION)
+                .append(pendingQuestion.value).append(" "));
         return sb.toString();
     }
 }
