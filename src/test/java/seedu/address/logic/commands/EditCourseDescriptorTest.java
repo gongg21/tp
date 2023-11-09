@@ -8,7 +8,6 @@ import static seedu.address.logic.commands.CommandTestUtil.DESC_CS2101;
 
 import org.junit.jupiter.api.Test;
 
-import seedu.address.logic.commands.EditCommand.EditStudentDescriptor;
 import seedu.address.logic.commands.EditCourseCommand.EditCourseDescriptor;
 import seedu.address.testutil.EditCourseDescriptorBuilder;
 

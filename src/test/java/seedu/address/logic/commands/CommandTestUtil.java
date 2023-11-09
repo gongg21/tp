@@ -2,7 +2,12 @@ package seedu.address.logic.commands;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static seedu.address.logic.parser.CliSyntax.*;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_COURSE_NAME;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_PENDING_QUESTION;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_REMARK;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 import static seedu.address.testutil.Assert.assertThrows;
 
 import java.util.ArrayList;
@@ -68,7 +73,8 @@ public class CommandTestUtil {
     public static final String COURSE_DESC_CS2102 = " " + PREFIX_COURSE_NAME + VALID_COURSE_NAME_2102;
 
     public static final String INVALID_NAME_DESC = " " + PREFIX_NAME + "James&"; // '&' not allowed in names
-    public static final String INVALID_COURSE_NAME_DESC = " " + PREFIX_COURSE_NAME + "911CS"; // 'a' not allowed in COURSEs
+    // 'a' not allowed in COURSEs
+    public static final String INVALID_COURSE_NAME_DESC = " " + PREFIX_COURSE_NAME + "911CS";
     public static final String INVALID_EMAIL_DESC = " " + PREFIX_EMAIL + "bob!yahoo"; // invalid email format
     public static final String INVALID_TAG_DESC = " " + PREFIX_TAG + "hubby*"; // tag must be good, average or poor
 

@@ -32,7 +32,8 @@ public class FindCommandParserTest {
 
     @Test
     public void parse_emptyArg_throwsParseException() {
-        assertParseFailure(parser, "     ", String.format(MESSAGE_INVALID_COMMAND_FORMAT, FindCommand.MESSAGE_USAGE));
+        assertParseFailure(parser, "     ",
+                String.format(MESSAGE_INVALID_COMMAND_FORMAT, FindCommand.MESSAGE_USAGE));
     }
 
     @Test
@@ -94,7 +95,7 @@ public class FindCommandParserTest {
     public void parse_repeatedPrefixValue_failure() {
 
         assertParseFailure(parser, NAME_DESC_AMY + NAME_DESC_AMY,
-        Messages.getErrorMessageForDuplicatePrefixes(PREFIX_NAME));
+                Messages.getErrorMessageForDuplicatePrefixes(PREFIX_NAME));
 
         // multiple emails
         assertParseFailure(parser, EMAIL_DESC_AMY + EMAIL_DESC_AMY,
@@ -115,5 +116,4 @@ public class FindCommandParserTest {
         assertParseFailure(parser, EMAIL_DESC_AMY + NAME_DESC_AMY,
                 String.format(MESSAGE_INVALID_COMMAND_FORMAT, FindCommand.MESSAGE_USAGE));
     }
-
 }

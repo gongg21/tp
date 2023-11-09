@@ -15,11 +15,8 @@ import java.util.stream.Collectors;
 
 import org.junit.jupiter.api.Test;
 
-import seedu.address.logic.commands.AddCommand;
 import seedu.address.logic.commands.AddCourseCommand;
-import seedu.address.logic.commands.ClearCommand;
 import seedu.address.logic.commands.ClearCourseCommand;
-import seedu.address.logic.commands.DeleteCommand;
 import seedu.address.logic.commands.DeleteCourseCommand;
 import seedu.address.logic.commands.EditCommand;
 import seedu.address.logic.commands.EditCommand.EditStudentDescriptor;
@@ -30,22 +27,21 @@ import seedu.address.logic.commands.FindCommand;
 import seedu.address.logic.commands.FindCourseCommand;
 import seedu.address.logic.commands.HelpCommand;
 import seedu.address.logic.commands.HomeCommand;
+import seedu.address.logic.commands.RemarkCommand;
 import seedu.address.logic.commands.ResetCommand;
 import seedu.address.logic.commands.ResetCourseCommand;
-import seedu.address.logic.commands.RemarkCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.course.Course;
 import seedu.address.model.course.CourseNameContainsKeywordsPredicate;
 import seedu.address.model.person.Remark;
 import seedu.address.model.person.Student;
 import seedu.address.model.person.predicates.NameContainsKeywordsPredicate;
-import seedu.address.testutil.EditCourseDescriptorBuilder;
-import seedu.address.testutil.EditStudentDescriptorBuilder;
 import seedu.address.testutil.CourseBuilder;
 import seedu.address.testutil.CourseUtil;
+import seedu.address.testutil.EditCourseDescriptorBuilder;
+import seedu.address.testutil.EditStudentDescriptorBuilder;
 import seedu.address.testutil.StudentBuilder;
 import seedu.address.testutil.StudentUtil;
-
 
 public class CodeSphereParserTest {
 

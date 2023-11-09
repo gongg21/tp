@@ -50,7 +50,8 @@ public class NameContainsKeywordsPredicateTest {
         // Multiple keywords
         predicate = new NameContainsKeywordsPredicate(Arrays.asList("Alice", "Bob"));
         assertTrue(predicate.test(new StudentBuilder()
-                .withName("Alice Bob").withEmail(StudentBuilder.DEFAULT_EMAIL).withTag(StudentBuilder.DEFAULT_STUDENT_RANK).build()));
+                .withName("Alice Bob").withEmail(StudentBuilder.DEFAULT_EMAIL)
+                .withTag(StudentBuilder.DEFAULT_STUDENT_RANK).build()));
 
         // Mixed-case keywords
         predicate = new NameContainsKeywordsPredicate(Arrays.asList("aLIce", "bOB"));
@@ -60,10 +61,8 @@ public class NameContainsKeywordsPredicateTest {
 
     @Test
     public void test_nameDoesNotContainKeywords_returnsFalse() {
-//        // Zero keywords
+        // Zero keywords
         NameContainsKeywordsPredicate predicate = new NameContainsKeywordsPredicate(Collections.emptyList());
-//        assertFalse(predicate.test(new StudentBuilder().withName("Alice")
-//                .withEmail(StudentBuilder.DEFAULT_EMAIL).withTag(StudentBuilder.DEFAULT_STUDENT_RANK).build()));
 
         // Only one matching keyword does not find
         predicate = new NameContainsKeywordsPredicate(Arrays.asList("Bob", "KURZ"));

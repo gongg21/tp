@@ -50,7 +50,7 @@
          </HBox>
          <HBox>
             <children>
-               <Pane fx:id="coursePQPane">
+               <Pane fx:id="coursePqPane">
                   <children>
                      <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                         <image>

@@ -60,7 +60,8 @@ public class FindCommandTest {
 
     @Test
     public void execute_falseKeywords_noPersonsFound() {
-        Course validCourse = new CourseBuilder().withCourseName("CS1101S").withStudents(getTypicalStudentList()).build();
+        Course validCourse = new CourseBuilder().withCourseName("CS1101S")
+                .withStudents(getTypicalStudentList()).build();
 
         StageManager stageManager = StageManager.getInstance();
         stageManager.setCourseStage(validCourse);
@@ -75,7 +76,8 @@ public class FindCommandTest {
 
     @Test
     public void execute_multipleKeywords_multiplePersonsFound() {
-        Course validCourse = new CourseBuilder().withCourseName("CS1101S").withStudents(getTypicalStudentList()).build();
+        Course validCourse = new CourseBuilder().withCourseName("CS1101S")
+                .withStudents(getTypicalStudentList()).build();
 
         StageManager stageManager = StageManager.getInstance();
         stageManager.setCourseStage(validCourse);

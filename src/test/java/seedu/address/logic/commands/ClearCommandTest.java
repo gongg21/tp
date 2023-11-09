@@ -1,25 +1,18 @@
 package seedu.address.logic.commands;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.testutil.TypicalCourses.getTypicalCourseList;
 import static seedu.address.testutil.TypicalCourses.getTypicalCourses;
 
 import org.junit.jupiter.api.Test;
 
-import seedu.address.logic.Messages;
 import seedu.address.logic.parser.StageManager;
-import seedu.address.model.CourseList;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
 import seedu.address.model.course.Course;
-import seedu.address.model.person.Field;
-import seedu.address.model.person.SortCriteria;
 import seedu.address.testutil.CourseBuilder;
-import seedu.address.testutil.SortCriteriaBuilder;
 import seedu.address.testutil.TypicalStudents;
-
 
 public class ClearCommandTest {
     private Model model = new ModelManager(getTypicalCourseList(), new UserPrefs());

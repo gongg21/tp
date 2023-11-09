@@ -1,6 +1,15 @@
 package seedu.address.logic.commands;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static seedu.address.logic.commands.RemoveCommand.MESSAGE_EDIT_STUDENT_SUCCESS;
+import static seedu.address.testutil.Assert.assertThrows;
+import static seedu.address.testutil.TypicalCourses.getTypicalCourseList;
+import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_STUDENT;
+
 import org.junit.jupiter.api.Test;
+
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.Messages;
 import seedu.address.logic.commands.exceptions.CommandException;
@@ -15,21 +24,14 @@ import seedu.address.testutil.CourseBuilder;
 import seedu.address.testutil.StudentBuilder;
 import seedu.address.testutil.TypicalIndexes;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static seedu.address.logic.commands.RemoveCommand.MESSAGE_EDIT_STUDENT_SUCCESS;
-import static seedu.address.testutil.Assert.assertThrows;
-import static seedu.address.testutil.TypicalCourses.getTypicalCourseList;
-import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_STUDENT;
-
 public class RemoveCommandTest {
     private static final String REMARK_STUB = "";
     private Model model = new ModelManager(getTypicalCourseList(), new UserPrefs());
 
     @Test
     public void constructor_nullIndex_throwsNullPointerException() {
-        assertThrows(NullPointerException.class, () -> new RemoveCommand(null, new RemoveCommand.EditStudentDescriptor()));
+        assertThrows(NullPointerException.class, () -> new RemoveCommand(null,
+                new RemoveCommand.EditStudentDescriptor()));
     }
 
     @Test

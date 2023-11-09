@@ -1,13 +1,15 @@
 package seedu.address.model.course;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_COURSE_NAME_2100;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_COURSE_NAME_2101;
 import static seedu.address.testutil.TypicalCourses.CS2100;
 import static seedu.address.testutil.TypicalCourses.CS2103T;
 
 import org.junit.jupiter.api.Test;
-
 import seedu.address.testutil.CourseBuilder;
 import seedu.address.testutil.TypicalStudents;
 
@@ -40,8 +42,8 @@ public class CourseTest {
     public void invalidCourseName_throwsIllegalArgumentException() {
         // course name has trailing spaces -> returns true
         String courseNameWithTrailingSpaces = VALID_COURSE_NAME_2101 + " ";
-        assertThrows(IllegalArgumentException.class,
-                () -> new CourseBuilder(CS2100).withCourseName(courseNameWithTrailingSpaces).build(),
+        assertThrows(IllegalArgumentException.class, () ->
+                        new CourseBuilder(CS2100).withCourseName(courseNameWithTrailingSpaces).build(),
                 "Course code should contain a two or three letter prefix, a four digit course code,"
                         + "and an optional one letter suffix");
     }
@@ -49,8 +51,8 @@ public class CourseTest {
     @Test
     public void equals() {
         // same values -> returns true
-        Course CS2100Copy = new CourseBuilder(CS2100).build();
-        assertTrue(CS2100.equals(CS2100Copy));
+        Course cs2100copy = new CourseBuilder(CS2100).build();
+        assertTrue(CS2100.equals(cs2100copy));
 
         // same object -> returns true
         assertTrue(CS2100.equals(CS2100));

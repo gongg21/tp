@@ -1,10 +1,10 @@
 package seedu.address.logic.parser;
 
 import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import static seedu.address.logic.commands.CommandTestUtil.COURSE_DESC_CS2101;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_COURSE_NAME_2100;
 import static seedu.address.logic.commands.CommandTestUtil.COURSE_DESC_CS2100;
+import static seedu.address.logic.commands.CommandTestUtil.COURSE_DESC_CS2101;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_COURSE_NAME_DESC;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_COURSE_NAME_2100;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_COURSE_NAME;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSuccess;
@@ -23,10 +23,9 @@ import seedu.address.testutil.EditCourseDescriptorBuilder;
 
 public class EditCourseCommandParserTest {
 
-    private EditCourseCommandParser parser = new EditCourseCommandParser();
-
     private static final String MESSAGE_INVALID_FORMAT =
             String.format(MESSAGE_INVALID_COMMAND_FORMAT, EditCourseCommand.MESSAGE_USAGE);
+    private EditCourseCommandParser parser = new EditCourseCommandParser();
 
     @Test
     public void parse_missingParts_failure() {
@@ -66,7 +65,8 @@ public class EditCourseCommandParserTest {
         Index targetIndex = INDEX_SECOND_COURSE;
         String userInput = targetIndex.getOneBased() + COURSE_DESC_CS2100;
 
-        EditCourseDescriptor descriptor = new EditCourseDescriptorBuilder().withCourseName(VALID_COURSE_NAME_2100).build();
+        EditCourseDescriptor descriptor = new EditCourseDescriptorBuilder()
+                .withCourseName(VALID_COURSE_NAME_2100).build();
         EditCourseCommand expectedCommand = new EditCourseCommand(targetIndex, descriptor);
 
         assertParseSuccess(parser, userInput, expectedCommand);

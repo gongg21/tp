@@ -8,7 +8,6 @@ import java.util.Collections;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
-
 import seedu.address.testutil.CourseBuilder;
 import seedu.address.testutil.TypicalCourses;
 
@@ -19,14 +18,17 @@ public class CourseNameContainsKeywordsPredicateTest {
         List<String> firstPredicateKeywordList = Collections.singletonList("first");
         List<String> secondPredicateKeywordList = Arrays.asList("first", "second");
 
-        CourseNameContainsKeywordsPredicate firstPredicate = new CourseNameContainsKeywordsPredicate(firstPredicateKeywordList);
-        CourseNameContainsKeywordsPredicate secondPredicate = new CourseNameContainsKeywordsPredicate(secondPredicateKeywordList);
+        CourseNameContainsKeywordsPredicate firstPredicate =
+                new CourseNameContainsKeywordsPredicate(firstPredicateKeywordList);
+        CourseNameContainsKeywordsPredicate secondPredicate =
+                new CourseNameContainsKeywordsPredicate(secondPredicateKeywordList);
 
         // same object -> returns true
         assertTrue(firstPredicate.equals(firstPredicate));
 
         // same values -> returns true
-        CourseNameContainsKeywordsPredicate firstPredicateCopy = new CourseNameContainsKeywordsPredicate(firstPredicateKeywordList);
+        CourseNameContainsKeywordsPredicate firstPredicateCopy =
+                new CourseNameContainsKeywordsPredicate(firstPredicateKeywordList);
         assertTrue(firstPredicate.equals(firstPredicateCopy));
 
         // different types -> returns false
@@ -42,7 +44,8 @@ public class CourseNameContainsKeywordsPredicateTest {
     @Test
     public void test_courseNameContainsKeywords_returnsTrue() {
         // One keyword
-        CourseNameContainsKeywordsPredicate predicate = new CourseNameContainsKeywordsPredicate(Collections.singletonList("CS1101S"));
+        CourseNameContainsKeywordsPredicate predicate =
+                new CourseNameContainsKeywordsPredicate(Collections.singletonList("CS1101S"));
         assertTrue(predicate.test(TypicalCourses.CS1101S));
 
         // Multiple keywords

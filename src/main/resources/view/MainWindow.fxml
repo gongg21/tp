@@ -28,9 +28,9 @@
             <MenuItem mnemonicParsing="false" onAction="#handleExit" text="Exit" />
           </Menu>
           <Menu mnemonicParsing="false" text="Help">
-            <MenuItem fx:id="UGMenuItem" mnemonicParsing="false" onAction="#openUG" text="User Guide" />
-            <MenuItem fx:id="DGMenuItem" mnemonicParsing="false" onAction="#openDG" text="Developer Guide" />
-            <MenuItem fx:id="GHMenuItem" mnemonicParsing="false" onAction="#openGH" text="GitHub Repository" />
+            <MenuItem fx:id="ugMenuItem" mnemonicParsing="false" onAction="#openUG" text="User Guide" />
+            <MenuItem fx:id="dgMenuItem" mnemonicParsing="false" onAction="#openDG" text="Developer Guide" />
+            <MenuItem fx:id="ghMenuItem" mnemonicParsing="false" onAction="#openGH" text="GitHub Repository" />
           </Menu>
         </MenuBar>
 

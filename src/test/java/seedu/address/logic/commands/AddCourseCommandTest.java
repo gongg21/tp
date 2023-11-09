@@ -50,22 +50,22 @@ public class AddCourseCommandTest {
         AddCourseCommand addCourseCommand = new AddCourseCommand(validCourse);
         ModelStub modelStub = new ModelStubWithCourse(validCourse);
 
-        assertThrows(CommandException.class, AddCourseCommand.MESSAGE_DUPLICATE_COURSE,
-                () -> addCourseCommand.execute(modelStub));
+        assertThrows(CommandException.class,
+                AddCourseCommand.MESSAGE_DUPLICATE_COURSE, () -> addCourseCommand.execute(modelStub));
     }
 
     @Test
     public void equals() {
-        Course CS1101S = new CourseBuilder().withCourseName("CS1101S").build();
-        Course CS1231S = new CourseBuilder().withCourseName("CS1231S").build();
-        AddCourseCommand addCS1101SCommand = new AddCourseCommand(CS1101S);
-        AddCourseCommand addCS1231SCommand = new AddCourseCommand(CS1231S);
+        Course cs1101s = new CourseBuilder().withCourseName("CS1101S").build();
+        Course cs1231s = new CourseBuilder().withCourseName("CS1231S").build();
+        AddCourseCommand addCS1101SCommand = new AddCourseCommand(cs1101s);
+        AddCourseCommand addCS1231SCommand = new AddCourseCommand(cs1231s);
 
         // same object -> returns true
         assertTrue(addCS1101SCommand.equals(addCS1101SCommand));
 
         // same values -> returns true
-        AddCourseCommand addCS1101SCommandCopy = new AddCourseCommand(CS1101S);
+        AddCourseCommand addCS1101SCommandCopy = new AddCourseCommand(cs1101s);
         assertTrue(addCS1101SCommand.equals(addCS1101SCommandCopy));
 
         // different types -> returns false

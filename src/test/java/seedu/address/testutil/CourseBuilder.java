@@ -1,12 +1,7 @@
 package seedu.address.testutil;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
-import seedu.address.model.CourseList;
 import seedu.address.model.StudentList;
 import seedu.address.model.course.Course;
 import seedu.address.model.course.CourseName;

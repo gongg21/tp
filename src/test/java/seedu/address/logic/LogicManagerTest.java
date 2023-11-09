@@ -24,7 +24,11 @@ import seedu.address.model.ModelManager;
 import seedu.address.model.ReadOnlyCourseList;
 import seedu.address.model.UserPrefs;
 import seedu.address.model.course.Course;
-import seedu.address.storage.*;
+import seedu.address.storage.InputHistory;
+import seedu.address.storage.InputStorage;
+import seedu.address.storage.JsonCourseListStorage;
+import seedu.address.storage.JsonUserPrefsStorage;
+import seedu.address.storage.StorageManager;
 import seedu.address.testutil.CourseBuilder;
 
 public class LogicManagerTest {
