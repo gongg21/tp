@@ -570,6 +570,7 @@ A: Install the app in the other computer and overwrite the empty data file it cr
 | **Clear All Courses** | `clear`                                                    |
 | **Select Course**     | `select INDEX` e.g. `select 1`                             |
 | **Find Course**       | `find KEYWORD` e.g. `find CS`                              |
+| **Reset Courses**     | `reset`                                                    |
 | **Exit**              | `exit`                                                     |
 
 [_Back to Top_](#table-of-contents)
