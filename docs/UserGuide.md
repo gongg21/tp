@@ -24,7 +24,7 @@ It is an app targeted at helping Teaching Assistants (TAs) of the NUS School of 
         * [`delete` Deleting a course](#deleting-a-course--delete)
         * [`clear` Clearing all courses](#clearing-all-courses-clear)
         * [`select` Selecting a course](#selecting-a-course-select)
-        * [`find` Finding a course](#finding-a-student-find)
+        * [`find` Finding a course](#finding-a-course--find)
         * [`reset` Resetting the course list](#resetting-the-course-list--reset)
     * [**Course Page Commands**](#course-page-commands)
         * [`add` Adding a student](#adding-a-student--add)
