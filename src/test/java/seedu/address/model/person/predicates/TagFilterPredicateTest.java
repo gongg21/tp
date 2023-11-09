@@ -55,7 +55,7 @@ public class TagFilterPredicateTest {
 
     @Test
     public void test_tagDoesNotContainKeywords_returnsFalse() {
-        
+
         TagFilterPredicate predicate;
 
         // Only one matching keyword does not find
