@@ -13,7 +13,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 ### Devanshu Bisht
 
-<img src="images/about_us/devanshubisht.png" width="200px">
+<img src="images/devanshubisht.png" width="200px">
 
 [[github](https://github.com/devanshubisht)]
 [[portfolio](team/devanshubisht.md)]
@@ -22,7 +22,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 ### Phinehas Tan
 
-<img src="images/about_us/phiphi-tan.png" width="200px">
+<img src="images/phiphi-tan.png" width="200px">
 
 [[github](http://github.com/phiphi-tan)]
 [[portfolio](team/phiphi-tan.md)]
@@ -33,7 +33,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 ### Sun Zihan
 
-<img src="images/about_us/sunzihan23.png" width="200px">
+<img src="images/sunzihan23.png" width="200px">
 
 [[github](https://github.com/sunzihan23)]
 [[portfolio](team/sunzihan23.md)]
@@ -43,7 +43,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 ### Tiong Jjyi
 
-<img src="images/about_us/tiongjjyi.png" width="200px">
+<img src="images/tiongjjyi.png" width="200px">
 
 [[github](http://github.com/tiongjjyi)]
 [[portfolio](team/tiongjjyi.md)]
@@ -53,7 +53,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 ### Gallen Ong
 
-<img src="images/about_us/gongg21.png" width="200px">
+<img src="images/gongg21.png" width="200px">
 
 [[github](http://github.com/gongg21)]
 [[portfolio](team/gongg21.md)]
