@@ -49,7 +49,7 @@ public class EditCommand extends Command {
 
     public static final String MESSAGE_EDIT_STUDENT_SUCCESS = "Edited student: %1$s";
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided."
-            + "\nExample: edit 1 name/John";
+            + "\nExample: edit 1 n/John";
     public static final String MESSAGE_DUPLICATE_STUDENT = "Possible duplicate student: "
             + "Email already exist in the student list.\n"
             + "Check student details again.";
