@@ -5,6 +5,21 @@ title: User Guide
 
 CodeSphere is a **desktop contact management app, optimised for use via a Command Line Interface [(CLI)](#glossary)** while still having the benefits of a Graphical User Interface [(GUI)](#glossary).
 It is an app targeted at Teaching Assistants (TAs) in the National University of Singapore (NUS) School of Computing (SoC) to help them better manage administration of their students.
+
+Often as a TA, it can be difficult for you to keep track of all your students' progress and administrative matters.
+CodeSphere provides a way to properly manage your students, allowing for customised support to keep tabs on each student.
+
+It doesn't matter if you're a new or experienced TA, with CodeSphere, you can:
+* Add a course/class that you teach.
+* Then, add students in that class.
+
+We provide this all-encompassing user guide for you to find out more about CodeSphere and its features!
+Simply refer to the table of contents below for the full list of sections. 
+
+1. Don't really understand how to use the guide? Simply refer to [User Guide Tips](#user-guide-tips)!
+2. How do you set up CodeSphere? [Quick Start](#quick-start) it!
+3. And to basically begin your student management journey? Check out the [Tutorial for Beginners](#tutorial-for-beginners)!  
+
 --------------------------------------------------------------------------------------------------------------------
 <div style="page-break-after: always"></div>
 
@@ -30,9 +45,9 @@ It is an app targeted at Teaching Assistants (TAs) in the National University of
         * [`edit` Editing the details of a student](#editing-a-student--edit)
         * [`delete` Deleting a student](#deleting-a-student--delete)
         * [`clear` Clearing all students](#clearing-all-students--clear)
-        * [`reset` Resetting student list to its original state](#resetting-student-list--reset)
+        * [`reset` Resetting the student list](#resetting-the-student-list--reset)
         * [`sort` Sorting all students](#sorting-all-students--sort)
-        * [`find` Finding a student and keywords for each student](#finding-a-student--find)
+        * [`find` Finding a student](#finding-a-student--find)
         * [`list` Finding students with pending questions](#list-all-pending-questions--list)
         * [`remark` Adding a remark for a student](#adding-a-remark-for-a-student--remark)
         * [`pq` Adding a pending question for a student](#adding-a-pending-question-for-a-student--pq)
@@ -204,7 +219,7 @@ so have fun and may your administrative work be effortless!
     * e.g. in `add n/NAME`, `NAME` is a parameter which can be used as `add n/John Doe`.
 
 * Items in square brackets are optional.<br>
-    * e.g `n/NAME [r/REMARK]` can be used as `n/John Doe r/Need more help` or as `n/John Doe`.
+    * e.g. `n/NAME [r/REMARK]` can be used as `n/John Doe r/Need more help` or as `n/John Doe`.
 
 * Extraneous parameters for commands that do not take in parameters (such as `help`, `list`, `exit` and `clear`) will be ignored.<br>
     * e.g. if the command specifies `help 123`, it will be interpreted as `help`.
@@ -249,7 +264,7 @@ Exits the program.
 ### **Home Page Commands**
 CodeSphere has a home page that displays the list of courses you are currently overseeing and have stored in the application.
 
-*{screenshot to be added}*
+*![Home Page](images/HomePage.png)*
 
 Commands exclusive to the home page can help you:
 * `add` a new course
@@ -266,7 +281,8 @@ The `select` command brings you to the Course page of the selected course.
 <div style="page-break-after: always"></div>
 
 ### Adding a course : `add`
-Adds a course to the list of courses.
+
+Adds a course you teach to the list of courses.
 
 **Format:** `add c/COURSENAME`
 * `COURSENAME`: A valid course in NUS. Each course name should consist of a two or three letter prefix, four digits, and an optional one letter suffix.
@@ -280,14 +296,17 @@ Adds a course to the list of courses.
 
 **Command failure:** Incorrect format results in an error message shown and the course is not added/stored in the database.
 
+
 ### Editing a course : `edit`
-Edits the details of an existing course from the list of courses.
+
+Edits the details of an existing course you teach from the list of courses.
 
 **Format:** `edit INDEX c/NEW_COURSENAME`
 * Edits the course at the specified `INDEX`. Existing course name will be updated to the input course name.
 * The index refers to the index number shown in the displayed course list.
 * `NEW_COURSENAME`: A valid course in NUS. Each course name should consist of a two or three letter prefix, four digits, and an optional one letter suffix.
-* `INDEX`: Must be a positive integer 1, 2, 3, ...
+* `INDEX`: Must be a positive integer (1, 2, 3, ...), and it should fall within the range of courses currently displayed such that it corresponds to a valid course.
+* Existing `COURSENAME` will be updated to the `NEW_COURSENAME`.
 
 **Examples:** `edit 1 c/CS1101S` Edits the course of the first course in the course list to be `CS1101S`.
 
@@ -295,13 +314,15 @@ Edits the details of an existing course from the list of courses.
 
 **Command failure:** Incorrect format results in an error message shown and the course is not edited in the database.
 
+
 ### Deleting a course : `delete`
+
 Deletes the specified course from the list of courses.
 
 **Format:** `delete INDEX`
 * Deletes the course at the specified `INDEX`.
 * The index refers to the index number shown in the displayed course list.
-* `INDEX`: Must be a positive integer 1, 2, 3, ...
+* `INDEX`: Must be a positive integer (1, 2, 3, ...), and it should fall within the range of courses currently displayed such that it corresponds to a valid course.
 
 **Command succeeds:** Success message shown, course successfully deleted and removed from database, change in GUI.
 
@@ -309,18 +330,22 @@ Deletes the specified course from the list of courses.
 
 **Examples:** `delete 2` Deletes the course at index 2 of the displayed course list.
 
+
 ### Clearing all courses : `clear`
+
 Clears all courses in the displayed list of courses.
 
 Format: `clear`
 
+
 ### Selecting a course : `select`
+
 Selects the specified course from the list of courses.
 
 **Format:** `select INDEX`
 * Selects the course at the specified `INDEX`.
 * The index refers to the index number shown in the displayed course list.
-* `INDEX`: Must be a positive integer 1, 2, 3, ...
+* `INDEX`: Must be a positive integer (1, 2, 3, ...), and it should fall within the range of courses currently displayed such that it corresponds to a valid course.
 
 **Example:** `select 2` Selects the course at index 2 of the displayed course list.
 
@@ -328,19 +353,21 @@ Selects the specified course from the list of courses.
 
 **Command failure:** Incorrect format/index results in an error message shown and the course is not selected.
 
+
 ### Finding a course : `find`
 Finds a course **given a keyword** from the list of courses you are teaching.
 
 **Format:** `find KEYWORD`
-* The search is case-insensitive. e.g `cs` will match any course name with `CS` containted.
-* As long as the keyword is containted the course name, the course will be filtered out and displayed.
+* The search is case-insensitive. e.g. `cs` will match any course name containing `CS`.
+* As long as the keyword is contained in the course name, that course will be displayed.
 * If there are multiple words after find, each word is searched for independently and the result contains courses containing any of the word.
 
-**Example:** `find CS ST` Displays all courses with `CS` or `ST` inside their name.
+**Example:** `find CS ST` Displays all courses with `CS` or `ST` in their course name.
 
 **Command succeeds:** Success message shown, courses successfully filtered, resulting in a change in GUI.
 
 **Command failure:** Incorrect format results in an error message shown and the course is not filtered.
+
 
 ### Resetting the course list : `reset`
 Resets a filtered or sorted course list to its original order, where courses are arranged chronologically based on when they were added, with the first course added at the top of the displayed list.
@@ -357,7 +384,7 @@ Once you have created and selected a course to manage, you can now start adding 
 The course page of a course displays the list of students that you are overseeing in your course (added by you).
 Students are arranged in order of addition, with the first student added at the top of the list.
 
-*{screenshot to be added}*
+**![Course Page](images/course_display.png)**
 
 Commands exclusive to the course page can help you:
 * `add` a new student
@@ -393,16 +420,18 @@ Adds a student to the list of students in the selected course that the user is o
 
 **Command failure:** Incorrect format results in an error message shown and the student is not added/stored in the database.
 
+
 ### Editing a student : `edit`
 
 Edits an existing student that the user is currently overseeing.
 
 **Format:** `edit INDEX [n/NAME] [e/EMAIL] [t/ENUM_TAG] [r/REMARK] [pq/PENDING_QUESTION]`
-* Edits the person at the specified `INDEX`. The index refers to the index number shown in the displayed students list.
-* The index must be a positive integer (1, 2, 3, …​), and it should fall within the range of students currently displayed such that it corresponds to a valid student.
+* Edits the person at the specified `INDEX`.
+* The index refers to the index number shown in the displayed students list.
+* `INDEX`: Must be a **positive integer** (1, 2, 3, ...), and it should fall within the range of students currently displayed such that it corresponds to a valid student.
 * Optional fields are indicated by square brackets [ ], but **at least one** of the optional fields must be provided.
 * Existing values will be updated to the input values.
-* When editing tags/remarks/pending questions, the respective existing fields of the person will be removed i.e adding of tags/remarks/pending questions is not cumulative.
+* When editing tags/remarks/pending questions, the respective existing fields of the person will be removed i.e. adding of tags/remarks/pending questions is not cumulative.
 
 **Examples:**
 * `edit 1 t/good` Edits the tag of the first student in the displayed student list to be GOOD.
@@ -414,6 +443,7 @@ Edits an existing student that the user is currently overseeing.
 
 **Command failure:** Incorrect format results in an error message shown and the student is not updated in the database.
 
+
 ### Deleting a student : `delete`
 
 Deletes the specified student from the list of students you are overseeing in the selected course.
@@ -421,7 +451,7 @@ Deletes the specified student from the list of students you are overseeing in th
 **Format:** `delete INDEX`
 * Deletes the student at the specified `INDEX`.
 * The index refers to the index number shown in the displayed students list.
-* The index must be a positive integer (1, 2, 3, …​), and it should fall within the range of students currently displayed such that it corresponds to a valid student.
+* `INDEX`: Must be a **positive integer** (1, 2, 3, ...), and it should fall within the range of students currently displayed such that it corresponds to a valid student.
 
 **Example:** `delete 2` Deletes the student at index 2 of the displayed students list.
 
@@ -429,17 +459,23 @@ Deletes the specified student from the list of students you are overseeing in th
 
 **Command failure:** Incorrect format results in an error message shown and the student is not removed from the database.
 
+
 ### Clearing all students : `clear`
+
 Clears all students in the displayed list of students in the selected course.
 
 **Format:** `clear`
 
-### Resetting student list : `reset`
+
+### Resetting the student list : `reset`
+
 Shows a list of all students in the original state after filtering or sorting.
 
 **Format:** `reset`
 
+
 ### Sorting all students : `sort`
+
 Sorts the list of students you are overseeing in the selected course **by name or by tag**.
 
 **Format**: `sort s/SORT_CRITERIA`
@@ -451,11 +487,13 @@ Sorts the list of students you are overseeing in the selected course **by name o
 * `sort s/tag` Sorts the student list by tag. Students with the GOOD tag are displayed at the top of the list.
 * `sort s/name` Sorts the student list by name in alphabetical order.
 
-**Command succeeds:** Success message shown, student successfully removed from database, change in GUI.
+**Command succeeds:** Success message shown, sorted student list is updated in the database, change in GUI.
 
 **Command failure:** Incorrect format results in an error message shown and the student list is not sorted.
 
+
 ### Finding a student : `find`
+
 Find a student **by a certain field** from the list of students you are overseeing in the selected course.
 
 **Format:** `find [n/NAME] [e/EMAIL] [t/TAG] [pq/QUESTION] [r/REMARK]`
@@ -469,7 +507,13 @@ Find a student **by a certain field** from the list of students you are overseei
 * `find n/John` returns `john` and `John Doe`.
 * `find t/good` Find the student(s) tagged as `GOOD`, and the details of the student(s) will be displayed.
 
+**Command succeeds:** Success message shown to user, no change in the database, a change in GUI is displayed.
+
+**Command failure:** Users enter the command with incorrect formatting, resulting in an error message shown to the user.
+
+
 ### List all pending questions : `list`
+
 List all the students with non-empty pending question fields.
 
 **Format:** `list pq/`
@@ -479,15 +523,17 @@ List all the students with non-empty pending question fields.
 
 **Command failure:** Users enter the command with incorrect formatting, resulting in an error message shown to the user.
 
+
 ### Adding a remark for a student : `remark`
+
 Adds a remark to the specified student from the list of students.
 
 **Format:** `remark INDEX r/REMARK`
 * Adds a remark for the student at the specified `INDEX`.
 * The index refers to the index number shown in the displayed students list.
-* `INDEX`: Must be a **positive integer** 1, 2, 3, …
-* The pending question must not be empty.
-* Inputting another remark will overwrite the current remark, i.e adding of remark is not cumulative.
+* `INDEX`: Must be a **positive integer** (1, 2, 3, ...), and it should fall within the range of students currently displayed such that it corresponds to a valid student.
+* The input remark must not be empty.
+* Inputting another remark will overwrite the current remark, i.e. adding of remark is not cumulative.
 
 **Example:** `remark 2 r/needs more help` Adds a remark to the student at index 2 of the displayed students list saying needs more help.
 
@@ -495,15 +541,17 @@ Adds a remark to the specified student from the list of students.
 
 **Command failure:** Incorrect format results in an error message shown and the remark is not added to the student.
 
+
 ### Adding a pending question for a student : `pq`
+
 Adds a pending question to a specified student from the list of students of a course.
 
 **Format:** `pq INDEX pq/PENDING_QUESTION`
 * Adds a pending question for the student at the specified `INDEX`.
 * The index refers to the index number shown in the displayed students list.
-* `INDEX` must be a **positive integer** 1, 2, 3, …
-*  The pending question must not be empty.
-* Only one pending question is allowed at a time, i.e adding of pending question is not cumulative.
+* `INDEX`: Must be a **positive integer** (1, 2, 3, ...), and it should fall within the range of students currently displayed such that it corresponds to a valid student.
+* The input pending question must not be empty.
+* Only one pending question is allowed at a time, i.e. adding of pending question is not cumulative.
 
 **Example:** `pq 2 pq/What is a logic gate?` Adds a pending question to the student at index 2 of the displayed student, with the question “What is a logic gate?”. This indicates a need to follow-up with the student.
 
@@ -511,15 +559,17 @@ Adds a pending question to a specified student from the list of students of a co
 
 **Command failure:** Incorrect format results in an error message shown and pending question is not added to the student.
 
+
 ### Removing a remark/pending question of a student : `remove`
+
 Removes a remark or pending question of a specified student from the list of students.
 
 **Format:** `remove INDEX [r/] [pq/]`
 * Removes a pending question of the student at the specified `INDEX`.
-* At least one of the optional fields must be provided.
 * The index refers to the index number shown in the displayed students list.
+* `INDEX`: Must be a **positive integer** (1, 2, 3, ...), and it should fall within the range of students currently displayed such that it corresponds to a valid student.
+* At least one of the optional fields must be provided.
 * Nothing should be specified after `r/` or `pq/`.
-* `INDEX` must be a **positive integer** 1, 2, 3, …
 
 **Examples:**
 * `remove 2 pq/` Removes a pending question of the student at index 2 of the displayed students list.
@@ -528,6 +578,7 @@ Removes a remark or pending question of a specified student from the list of stu
 **Command succeeds:** Success message shown, remark/pending question successfully removed from student, change in GUI.
 
 **Command failure:** Incorrect format results in an error message shown and the remark/pending question is not removed from the student.
+
 
 ### Returning to the home page : `home`
 Returns to the [home page](#home-page-commands) showing the list of courses you are overseeing.
@@ -547,7 +598,13 @@ CodeSphere data is saved in the hard disk automatically after any command that c
 
 ### Editing the data file
 
-CodeSphere data is saved automatically as a JSON file `[JAR file location]/data/codesphere.json`. Advanced users are welcome to update data directly by editing that data file.
+CodeSphere data is saved automatically as a JSON file `[JAR file location]/data/codesphere.json`.
+Advanced users are welcome to update data directly by editing that data file.
+
+<div markdown="span" class="alert alert-warning">:exclamation: <b>Caution:</b>
+If your changes to the data file makes it invalid, CodeSphere will overwrite all data and start with an empty data file. We recommend performing a backup before manually editing data.
+</div>
+
 
 [_Back to Top_](#table-of-contents)
 
@@ -556,8 +613,9 @@ CodeSphere data is saved automatically as a JSON file `[JAR file location]/data/
 
 ## **FAQ**
 
-Q: How do I transfer my data to another Computer?
-A: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous CodeSphere home folder.
+**Q**: How do I transfer my data to another Computer?
+
+**A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous CodeSphere home folder.
 
 --------------------------------------------------------------------------------------------------------------------
 ## **Known Issues**
@@ -583,7 +641,7 @@ A: Install the app in the other computer and overwrite the empty data file it cr
 | **Clear All Courses** | `clear`                                                    |
 | **Select Course**     | `select INDEX` e.g. `select 1`                             |
 | **Find Course**       | `find KEYWORD` e.g. `find CS`                              |
-| **Reset Courses**     | `reset`                                                    |
+| **Reset Course List** | `reset`                                                    |
 | **Exit**              | `exit`                                                     |
 
 [_Back to Top_](#table-of-contents)
@@ -620,6 +678,8 @@ A: Install the app in the other computer and overwrite the empty data file it cr
 |------------------------------------|------------------------------------------------------------------------------------------------------------|
 | **Command Line Interface (CLI)**   | An interface that allows you to interact with our program by inputting lines of text called command-lines. |
 | **Graphical User Interface (GUI)** | An interface that displays information to you and allows you to interact with visual elements.             |
+| **Prefix**                         | Characters preceding details you input on the command line. Eg. n/ for name and e/ for email.              |
+| **Course**                         | A registered course under NUS.                                                                             |
 
 
 [_Back to Top_](#table-of-contents)
