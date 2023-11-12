@@ -1,5 +1,6 @@
 package seedu.codesphere.logic.parser;
 
+//@@author gongg21
 import static seedu.codesphere.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.codesphere.logic.parser.CliSyntax.PREFIX_COURSE_NAME;
 
@@ -43,5 +44,5 @@ public class AddCourseCommandParser implements Parser<AddCourseCommand> {
     private static boolean arePrefixesPresent(ArgumentMultimap argumentMultimap, Prefix... prefixes) {
         return Stream.of(prefixes).allMatch(prefix -> argumentMultimap.getValue(prefix).isPresent());
     }
-
 }
+//@@author gongg21

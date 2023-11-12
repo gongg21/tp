@@ -1,3 +1,4 @@
+//@@author gongg21
 package seedu.codesphere.logic.parser;
 
 import static seedu.codesphere.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
@@ -25,5 +26,5 @@ public class DeleteCourseCommandParser implements Parser<DeleteCourseCommand> {
                     String.format(MESSAGE_INVALID_COMMAND_FORMAT, DeleteCourseCommand.MESSAGE_USAGE), pe);
         }
     }
-
 }
+//@@author gongg21

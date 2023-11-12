@@ -1,3 +1,4 @@
+//@@author gongg21
 package seedu.codesphere.storage;
 
 import java.util.ArrayList;
@@ -24,7 +25,7 @@ class JsonSerializableCourseList {
     private final List<JsonAdaptedCourse> courses = new ArrayList<>();
 
     /**
-     * Constructs a {@code JsonSerializableAddressBook} with the given persons.
+     * Constructs a {@code JsonSerializableCourseList} with the given persons.
      */
     @JsonCreator
     public JsonSerializableCourseList(@JsonProperty("courses") List<JsonAdaptedCourse> courses) {
@@ -56,5 +57,5 @@ class JsonSerializableCourseList {
         }
         return courseList;
     }
-
 }
+//@@author gongg21

@@ -1,3 +1,4 @@
+//@@author gongg21
 package seedu.codesphere.logic.commands;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -53,3 +54,4 @@ public class SelectCommandTest {
         assertFalse(selectFirstCommand.equals(selectSecondCommand));
     }
 }
+//@@author gongg21

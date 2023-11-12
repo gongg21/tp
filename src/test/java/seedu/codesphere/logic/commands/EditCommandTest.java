@@ -1,3 +1,4 @@
+//@@author gongg21
 package seedu.codesphere.logic.commands;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -163,6 +164,7 @@ public class EditCommandTest {
 
         assertCommandFailure(editCommand, model, Messages.MESSAGE_INVALID_STUDENT_DISPLAYED_INDEX);
     }
+    //@@author gongg21
 
     @Test
     public void equals() {

@@ -1,3 +1,4 @@
+//@@author gongg21
 package seedu.codesphere.logic.parser;
 
 import static seedu.codesphere.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
@@ -30,3 +31,4 @@ public class SelectCommandParserTest {
         assertParseFailure(parser, "a", String.format(MESSAGE_INVALID_COMMAND_FORMAT, SelectCommand.MESSAGE_USAGE));
     }
 }
+//@@author gongg21

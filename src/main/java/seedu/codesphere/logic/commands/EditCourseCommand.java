@@ -1,5 +1,6 @@
 package seedu.codesphere.logic.commands;
 
+//@@author gongg21
 import static java.util.Objects.requireNonNull;
 import static seedu.codesphere.logic.parser.CliSyntax.PREFIX_COURSE_NAME;
 import static seedu.codesphere.model.Model.PREDICATE_SHOW_ALL_COURSES;
@@ -18,6 +19,7 @@ import seedu.codesphere.model.course.Course;
 import seedu.codesphere.model.course.CourseName;
 import seedu.codesphere.model.student.Student;
 import seedu.codesphere.model.student.UniqueStudentList;
+//@@author gongg21
 
 /**
  * Edits the details of an existing course in the course list.

@@ -1,3 +1,4 @@
+//@@author gongg21
 package seedu.codesphere.logic.parser;
 
 import static java.util.Objects.requireNonNull;
@@ -48,3 +49,4 @@ public class EditCourseCommandParser implements Parser<EditCourseCommand> {
         return new EditCourseCommand(index, editCourseDescriptor);
     }
 }
+//@@author gongg21

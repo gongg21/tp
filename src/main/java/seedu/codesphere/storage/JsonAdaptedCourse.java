@@ -1,3 +1,4 @@
+//@@author gongg21
 package seedu.codesphere.storage;
 
 import java.util.ArrayList;
@@ -72,5 +73,5 @@ class JsonAdaptedCourse {
 
         return course;
     }
-
 }
+//@@author gongg21

@@ -1,3 +1,4 @@
+//@@author gongg21
 package seedu.codesphere.logic.commands;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -45,3 +46,4 @@ public class EditCourseDescriptorTest {
         assertEquals(expected, editCourseDescriptor.toString());
     }
 }
+//@@author gongg21
